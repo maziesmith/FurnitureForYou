@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FFY.Data.Contracts
 {
-    interface IUnitOfWork
+    public interface IUnitOfWork : IDisposable
     {
+        void Commit();
     }
 }
