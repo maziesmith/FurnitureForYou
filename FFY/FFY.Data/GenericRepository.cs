@@ -14,7 +14,7 @@ namespace FFY.Data
         {
             if (dbContext == null)
             {
-                throw new ArgumentNullException("DbContext cannot be null");
+                throw new ArgumentNullException("Context cannot be null.");
             }
 
             this.Context = dbContext;
