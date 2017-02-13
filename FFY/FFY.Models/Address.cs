@@ -3,11 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FFY.Models
 {
-    public class User
+    public class Adress
     {
         private ICollection<Order> orders;
-
-        public User()
+        public Adress()
         {
             this.Orders = new HashSet<Order>();
         }
@@ -17,23 +16,12 @@ namespace FFY.Models
 
         [Required]
         [MinLength(3)]
-        [MaxLength(30)]
-        public string Username { get; set; }
+        [MaxLength(20)]
+        public string StreetAdress { get; set; }
 
-        [Required]
-        [MinLength(2)]
-        [MaxLength(30)]
-        public string FirstName { get; set; }
+        public int? CityId { get; set; }
 
-        [Required]
-        [MinLength(2)]
-        [MaxLength(30)]
-        public string LastName { get; set; }
-
-        [Required]
-        [MinLength(5)]
-        [MaxLength(50)]
-        public string EmailAdress { get; set; }
+        public virtual City City { get; set; }
 
         public virtual ICollection<Order> Orders
         {
@@ -41,6 +29,7 @@ namespace FFY.Models
             {
                 return this.orders;
             }
+
             set
             {
                 this.orders = value;

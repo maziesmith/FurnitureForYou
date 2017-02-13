@@ -57,7 +57,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Address.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Contact.cs" />
+    <Compile Include="ContactStatusType.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderStatusType.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Room.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
