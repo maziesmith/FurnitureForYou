@@ -4,13 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace FFY.Data
 {
-    public class FFYContext : DbContext
+    public class FFYContext : IdentityDbContext<User>
     {
         public FFYContext() : base("FurnitureForYou")
         {
@@ -32,7 +28,12 @@ namespace FFY.Data
 
         public virtual IDbSet<Room> Rooms { get; set; }
 
-        public virtual IDbSet<User> Users { get; set; }
+        // public virtual IDbSet<User> Users { get; set; }
+
+        public static FFYContext Create()
+        {
+            return new FFYContext();
+        }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

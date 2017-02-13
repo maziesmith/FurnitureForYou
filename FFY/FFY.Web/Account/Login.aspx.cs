@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Web;
 using System.Web.UI;
-using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using Owin;
+using FFY.Web.Identity;
 
 namespace FFY.Web.Account
 {
@@ -32,7 +31,7 @@ namespace FFY.Web.Account
 
                 // This doen't count login failures towards account lockout
                 // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
+                var result = signinManager.PasswordSignIn(this.UserName.Text, this.Password.Text, this.RememberMe.Checked, shouldLockout: false);
 
                 switch (result)
                 {
