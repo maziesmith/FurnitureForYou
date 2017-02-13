@@ -5,8 +5,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using FFY.Data;
 using FFY.Models;
+using FFY.IdentityConfig.Services;
 
-namespace FFY.Web.Identity
+namespace FFY.IdentityConfig
 {
     public class ApplicationUserManager : UserManager<User>
     {

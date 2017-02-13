@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
-using FFY.Web.Identity;
+using FFY.IdentityConfig;
 
 namespace FFY.Web.Account
 {

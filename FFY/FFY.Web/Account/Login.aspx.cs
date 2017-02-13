@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Web;
-using System.Web.UI;
 using Microsoft.AspNet.Identity.Owin;
-using FFY.Web.Identity;
+using FFY.IdentityConfig;
+using WebFormsMvp;
+using FFY.MVP.Account.Login;
+using WebFormsMvp.Web;
 
 namespace FFY.Web.Account
 {
-    public partial class Login : Page
+    [PresenterBinding(typeof(LoginPresenter))]
+    public partial class Login : MvpPage<LoginViewModel>, ILoginView
     {
+        public event EventHandler<LoginEventArgs> Logging;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
@@ -25,15 +30,16 @@ namespace FFY.Web.Account
         {
             if (IsValid)
             {
-                // Validate the user password
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
+                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
 
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(this.UserName.Text, this.Password.Text, this.RememberMe.Checked, shouldLockout: false);
+                this.Logging?.Invoke(this, new LoginEventArgs(
+                    this.Context, 
+                    this.UserName.Text, 
+                    this.Password.Text, 
+                    this.RememberMe.Checked, 
+                    shouldLockOut: false));
 
-                switch (result)
+                switch (this.Model.SignInStatus)
                 {
                     case SignInStatus.Success:
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);

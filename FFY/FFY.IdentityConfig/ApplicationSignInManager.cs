@@ -5,7 +5,7 @@ using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using FFY.Models;
 
-namespace FFY.Web.Identity
+namespace FFY.IdentityConfig
 {
     public class ApplicationSignInManager : SignInManager<User, string>
     {

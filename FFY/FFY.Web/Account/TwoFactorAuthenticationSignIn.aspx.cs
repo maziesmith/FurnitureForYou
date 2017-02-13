@@ -5,7 +5,7 @@ using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using FFY.Models;
-using FFY.Web.Identity;
+using FFY.IdentityConfig;
 
 namespace FFY.Web.Account
 {

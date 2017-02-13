@@ -6,7 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Owin;
 using FFY.Models;
 using FFY.Data;
-using FFY.Web.Identity;
+using FFY.IdentityConfig;
 
 namespace FFY.Web
 {

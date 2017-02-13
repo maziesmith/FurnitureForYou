@@ -407,7 +407,6 @@
     <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\Factories\ICustomPresenterFactory.cs" />
     <Compile Include="App_Start\Factories\WebFormsMvpPresenterFactory.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\NinjectModules\MvpNinjectModule.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
@@ -430,9 +429,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Identity\ApplicationSignInManager.cs" />
-    <Compile Include="Identity\ApplicationUserManager.cs" />
-    <Compile Include="Identity\IdentityHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -465,9 +461,17 @@
       <Project>{f2f1c297-4acf-485f-b0e2-9f08acccab19}</Project>
       <Name>FFY.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FFY.IdentityConfig\FFY.IdentityConfig.csproj">
+      <Project>{e4dda4c1-f068-4b4e-8113-7247d72c5ead}</Project>
+      <Name>FFY.IdentityConfig</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FFY.Models\FFY.Models.csproj">
       <Project>{6d8449f2-8361-456b-a94a-1834e96ed822}</Project>
       <Name>FFY.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY.MVP\FFY.MVP.csproj">
+      <Project>{DB3F7D3A-44CA-46BC-BAE3-C72297DA53E3}</Project>
+      <Name>FFY.MVP</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
