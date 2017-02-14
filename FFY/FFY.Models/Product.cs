@@ -20,9 +20,6 @@ namespace FFY.Models
         [MaxLength(40)]
         public string Name { get; set; }
 
-        [Range(1, 500)]
-        public int Quantity { get; set; }
-
         [Range(0, 100000)]
         public decimal Price { get; set; }
 
