@@ -115,6 +115,10 @@
     <Compile Include="Administration\AddProduct\AddProductPresenter.cs" />
     <Compile Include="Administration\AddProduct\AddProductViewModel.cs" />
     <Compile Include="Administration\AddProduct\IAddProductView.cs" />
+    <Compile Include="Administration\AddRoom\AddRoomEventArgs.cs" />
+    <Compile Include="Administration\AddRoom\AddRoomPresenter.cs" />
+    <Compile Include="Administration\AddRoom\AddRoomViewModel.cs" />
+    <Compile Include="Administration\AddRoom\IAddRoomView.cs" />
     <Compile Include="Assembly\IMvpAssembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

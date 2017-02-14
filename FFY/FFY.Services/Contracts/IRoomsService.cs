@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace FFY.Services.Contracts
 {
-    public interface IProductsService
+    public interface IRoomsService
     {
-        Product GetProductById(int id);
+        IEnumerable<Room> GetRooms();
 
-        void AddProduct(Product product);
-
+        void AddRoom(Room room);
     }
 }

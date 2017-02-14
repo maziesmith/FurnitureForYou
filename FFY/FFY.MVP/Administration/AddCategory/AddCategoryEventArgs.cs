@@ -11,6 +11,11 @@ namespace FFY.MVP.Administration.AddCategory
     {
         public AddCategoryEventArgs(Category category)
         {
+            if(category == null)
+            {
+                throw new ArgumentNullException("Category cannot be null");
+            }
+
             this.Category = category;
         }
 
