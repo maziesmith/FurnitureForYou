@@ -9,14 +9,14 @@ namespace FFY.MVP.Account.Login
     {
         public LoginPresenter(ILoginView view) : base(view)
         {
-            this.View.Logging += this.Logging;
+            this.View.Logging += this.OnLoggingIn;
         }
 
-        public void Logging(object sender, LoginEventArgs e)
+        public void OnLoggingIn(object sender, LoginEventArgs e)
         {
             var signinManager = e.Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
 
-            var result = signinManager.PasswordSignIn(e.UserName, e.Password, e.RememberMe, e.ShouldLockOut);
+            SignInStatus result = signinManager.PasswordSignIn(e.UserName, e.Password, e.RememberMe, e.ShouldLockOut);
 
             this.View.Model.SignInStatus = result;
         }

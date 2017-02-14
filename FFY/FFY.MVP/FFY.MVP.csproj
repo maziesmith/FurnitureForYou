@@ -98,11 +98,14 @@
     <Compile Include="Account\Login\LoginEventArgs.cs" />
     <Compile Include="Account\Login\LoginPresenter.cs" />
     <Compile Include="Account\Login\LoginViewModel.cs" />
+    <Compile Include="Account\Register\IRegisterView.cs" />
+    <Compile Include="Account\Register\RegisterEventArgs.cs" />
+    <Compile Include="Account\Register\RegisterPresenter.cs" />
+    <Compile Include="Account\Register\RegisterViewModel.cs" />
+    <Compile Include="Account\Register\SignInEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Account\Register\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />

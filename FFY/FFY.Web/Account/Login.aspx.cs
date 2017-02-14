@@ -30,8 +30,6 @@ namespace FFY.Web.Account
         {
             if (IsValid)
             {
-                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
                 this.Logging?.Invoke(this, new LoginEventArgs(
                     this.Context, 
                     this.UserName.Text, 
