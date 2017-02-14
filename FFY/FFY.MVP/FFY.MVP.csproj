@@ -107,6 +107,10 @@
     <Compile Include="Account\Register\RegisterPresenter.cs" />
     <Compile Include="Account\Register\RegisterViewModel.cs" />
     <Compile Include="Account\Register\SignInEventArgs.cs" />
+    <Compile Include="Administration\AddProduct\AddProductEventArgs.cs" />
+    <Compile Include="Administration\AddProduct\AddProductPresenter.cs" />
+    <Compile Include="Administration\AddProduct\AddProductViewModel.cs" />
+    <Compile Include="Administration\AddProduct\IAddProductView.cs" />
     <Compile Include="Assembly\IMvpAssembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

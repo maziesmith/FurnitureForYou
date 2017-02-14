@@ -18,9 +18,7 @@ namespace FFY.Web.App_Start.NinjectModules
                 .BindDefaultInterface()
             );
 
-            // this.Bind(typeof(IGenericRepository<>)).To(typeof(GenericRepository<>)).InRequestScope();
-
-            
+            this.Rebind<IFFYContext>().To<FFYContext>().InRequestScope();
         }
     }
 }

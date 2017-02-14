@@ -12,7 +12,7 @@ namespace FFY.Data.Contracts
     {
         T GetById(object id);
 
-        IEnumerable<T> Entities { get; }
+        IEnumerable<T> GetAll();
 
         IEnumerable<T> GetAll(Expression<Func<T, bool>> filterExpression);
 
