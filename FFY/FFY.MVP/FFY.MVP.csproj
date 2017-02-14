@@ -98,14 +98,18 @@
     <Compile Include="Account\Login\LoginEventArgs.cs" />
     <Compile Include="Account\Login\LoginPresenter.cs" />
     <Compile Include="Account\Login\LoginViewModel.cs" />
+    <Compile Include="Account\Profile\IProfileView.cs" />
+    <Compile Include="Account\Profile\ProfileByIdEventArgs.cs" />
+    <Compile Include="Account\Profile\ProfilePresenter.cs" />
+    <Compile Include="Account\Profile\ProfileViewModel.cs" />
     <Compile Include="Account\Register\IRegisterView.cs" />
     <Compile Include="Account\Register\RegisterEventArgs.cs" />
     <Compile Include="Account\Register\RegisterPresenter.cs" />
     <Compile Include="Account\Register\RegisterViewModel.cs" />
     <Compile Include="Account\Register\SignInEventArgs.cs" />
+    <Compile Include="Assembly\IMvpAssembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -118,6 +122,10 @@
     <ProjectReference Include="..\FFY.Models\FFY.Models.csproj">
       <Project>{6d8449f2-8361-456b-a94a-1834e96ed822}</Project>
       <Name>FFY.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY.Services\FFY.Services.csproj">
+      <Project>{0122bd12-180b-4a66-a58e-9344f2de5fa1}</Project>
+      <Name>FFY.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

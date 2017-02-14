@@ -1,4 +1,5 @@
-﻿using FFY.Models;
+﻿using FFY.Data.Contracts;
+using FFY.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 namespace FFY.Data
 {
-    public class FFYContext : IdentityDbContext<User>
+    public class FFYContext : IdentityDbContext<User>, IFFYContext
     {
         public FFYContext() : base("FurnitureForYou")
         {
@@ -41,6 +42,11 @@ namespace FFY.Data
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
             base.OnModelCreating(modelBuilder);
+        }
+
+        IDbSet<T> IFFYContext.Set<T>()
+        {
+            return base.Set<T>();
         }
     }
 }

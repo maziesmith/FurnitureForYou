@@ -40,7 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assembly\IServicesAssembly.cs" />
+    <Compile Include="Contracts\IUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsersService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFY.Data\FFY.Data.csproj">
+      <Project>{f2f1c297-4acf-485f-b0e2-9f08acccab19}</Project>
+      <Name>FFY.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY.Models\FFY.Models.csproj">
+      <Project>{6d8449f2-8361-456b-a94a-1834e96ed822}</Project>
+      <Name>FFY.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

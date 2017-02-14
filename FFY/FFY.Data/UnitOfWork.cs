@@ -10,8 +10,8 @@ namespace FFY.Data
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly DbContext context;
-        public UnitOfWork(DbContext context)
+        private readonly IFFYContext context;
+        public UnitOfWork(IFFYContext context)
         {
             if(context == null)
             {

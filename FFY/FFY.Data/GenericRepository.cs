@@ -10,7 +10,7 @@ namespace FFY.Data
     public class GenericRepository<T> : IGenericRepository<T>
         where T : class
     {
-        public GenericRepository(DbContext dbContext)
+        public GenericRepository(IFFYContext dbContext)
         {
             if (dbContext == null)
             {
@@ -23,7 +23,7 @@ namespace FFY.Data
 
         protected IDbSet<T> Set { get; set; }
 
-        protected DbContext Context { get; set; }
+        protected IFFYContext Context { get; set; }
 
         public T GetById(object id)
         {

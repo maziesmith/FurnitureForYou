@@ -2,12 +2,14 @@
 using System.Linq;
 using Ninject;
 using Ninject.Activation;
+using Ninject.Extensions.Conventions;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
 using Ninject.Parameters;
 using WebFormsMvp;
 using WebFormsMvp.Binder;
 using FFY.Web.App_Start.Factories;
+using FFY.MVP.Assembly;
 
 namespace FFY.Web.App_Start.NinjectModules
 {
@@ -17,6 +19,12 @@ namespace FFY.Web.App_Start.NinjectModules
 
         public override void Load()
         {
+            this.Kernel.Bind(x =>
+                x.FromAssemblyContaining<IMvpAssembly>()
+                .SelectAllClasses()
+                .BindDefaultInterface()
+            );
+
             this.Bind<IPresenterFactory>().To<WebFormsMvpPresenterFactory>().InSingletonScope();
             this.Bind<ICustomPresenterFactory>().ToFactory().InSingletonScope();
             this.Bind<IPresenter>()

@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assembly\IDataAssembly.cs" />
+    <Compile Include="Contracts\IFFYContext.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
     <Compile Include="FFYContext.cs" />

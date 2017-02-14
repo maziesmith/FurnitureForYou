@@ -21,10 +21,10 @@ namespace FFY.Models
         //public int Id { get; set; }
 
         // TODO: Remove possibly
-        //[Required]
-        //[MinLength(3)]
-        //[MaxLength(30)]
-        //public string UserName { get; set; }
+        [Required]
+        [MinLength(3)]
+        [MaxLength(30)]
+        public override string UserName { get; set; }
 
         [Required]
         [MinLength(2)]
