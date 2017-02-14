@@ -22,7 +22,7 @@ namespace FFY.Web.Administration.SubProductManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.Initial?.Invoke(sender, e);
+            this.Initial?.Invoke(this, e);
 
             if (!Page.IsPostBack)
             {
@@ -34,7 +34,7 @@ namespace FFY.Web.Administration.SubProductManagement
             }
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e)
+        protected void AddProductClick(object sender, EventArgs e)
         {
             if (Page.IsValid)
             {
@@ -59,7 +59,7 @@ namespace FFY.Web.Administration.SubProductManagement
                             Directory.CreateDirectory(Server.MapPath(subPath));
                         }
 
-                        imageFileName = (DateTime.Now - new DateTime(1970, 1, 1)).TotalSeconds.ToString() + Path.GetFileName(Image.FileName);
+                        imageFileName = (DateTime.Now - new DateTime(1970, 1, 1)).TotalMinutes.ToString() + Path.GetFileName(Image.FileName);
                         Image.SaveAs(Server.MapPath(subPath + @"\" + imageFileName));
                     }
                     else

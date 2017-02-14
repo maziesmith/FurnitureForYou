@@ -107,6 +107,10 @@
     <Compile Include="Account\Register\RegisterPresenter.cs" />
     <Compile Include="Account\Register\RegisterViewModel.cs" />
     <Compile Include="Account\Register\SignInEventArgs.cs" />
+    <Compile Include="Administration\AddCategory\AddCategoryEventArgs.cs" />
+    <Compile Include="Administration\AddCategory\AddCategoryPresenter.cs" />
+    <Compile Include="Administration\AddCategory\AddCategoryViewModel.cs" />
+    <Compile Include="Administration\AddCategory\IAddCategoryView.cs" />
     <Compile Include="Administration\AddProduct\AddProductEventArgs.cs" />
     <Compile Include="Administration\AddProduct\AddProductPresenter.cs" />
     <Compile Include="Administration\AddProduct\AddProductViewModel.cs" />

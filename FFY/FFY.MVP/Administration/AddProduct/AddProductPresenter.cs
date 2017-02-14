@@ -11,29 +11,38 @@ namespace FFY.MVP.Administration.AddProduct
     public class AddProductPresenter : Presenter<IAddProductView>
     {
 
-        private readonly IProductsService productServices;
+        private readonly IProductsService productsServices;
+        private readonly ICategoriesService categoriesServices;
 
-        public AddProductPresenter(IAddProductView view, IProductsService productServices) : base(view)
+        public AddProductPresenter(IAddProductView view, 
+            IProductsService productsService,
+            ICategoriesService categoriesServices) : base(view)
         {
-            if(productServices == null)
+            if(productsService == null)
             {
                 throw new ArgumentNullException("Products service cannot be null");
             }
 
-            this.productServices = productServices;
+            if (categoriesServices == null)
+            {
+                throw new ArgumentNullException("Categories service cannot be null");
+            }
+
+            this.productsServices = productsService;
+            this.categoriesServices = categoriesServices;
             this.View.Initial += OnInitial;
             this.View.AddingProduct += OnAddingProduct;
         }
 
         private void OnInitial(object sender, EventArgs e)
         {
-            this.View.Model.Rooms = this.productServices.GetRooms();
-            this.View.Model.Categories = this.productServices.GetCategories();
+            this.View.Model.Rooms = this.productsServices.GetRooms();
+            this.View.Model.Categories = this.categoriesServices.GetCategories();
         }
 
         private void OnAddingProduct(object sender, AddProductEventArgs e)
         {
-            this.productServices.AddProduct(e.Product);
+            this.productsServices.AddProduct(e.Product);
         }
     }
 }

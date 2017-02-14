@@ -235,6 +235,7 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Administration\ProductManagement.aspx" />
+    <Content Include="Administration\SubProductManagement\AddCategory.aspx" />
     <Content Include="Administration\SubProductManagement\AddProduct.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
@@ -409,6 +410,13 @@
     </Compile>
     <Compile Include="Administration\ProductManagement.aspx.designer.cs">
       <DependentUpon>ProductManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\SubProductManagement\AddCategory.aspx.cs">
+      <DependentUpon>AddCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\SubProductManagement\AddCategory.aspx.designer.cs">
+      <DependentUpon>AddCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\SubProductManagement\AddProduct.aspx.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>

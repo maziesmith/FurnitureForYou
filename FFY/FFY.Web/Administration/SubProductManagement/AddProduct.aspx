@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddProduct.aspx.cs" Inherits="FFY.Web.Administration.SubProductManagement.AddProduct" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <div class="form-horizontal">
-        <h3>Create your advertisement</h3>
+        <h3>Product Addition</h3>
         <hr />
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
@@ -41,6 +41,7 @@
             <div class="col-md-3">
                 <asp:DropDownList runat="server" ID="Categories" CssClass="form-control" DataTextField="Name" DataValueField="Id"></asp:DropDownList>
             </div>
+            <a runat="server" href="./AddCategory">Add new category</a>
         </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Image" CssClass="col-md-2 control-label">Image</asp:Label>
@@ -50,7 +51,7 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="Unnamed_Click" Text="Create" CssClass="btn btn-default" />
+                <asp:Button runat="server" OnClick="AddProductClick" Text="Create" CssClass="btn btn-default" />
             </div>
         </div>
     </div>

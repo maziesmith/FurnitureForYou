@@ -14,12 +14,10 @@ namespace FFY.Services
         private readonly IUnitOfWork unitOfWork;
         private readonly IGenericRepository<Product> productsRepository;
         private readonly IGenericRepository<Room> roomsRepository;
-        private readonly IGenericRepository<Category> categoriesRepository;
 
         public ProductsService(IUnitOfWork unitOfWork, 
             IGenericRepository<Product> productsRepository,
-            IGenericRepository<Room> roomsRepository,
-            IGenericRepository<Category> categoriesRepository)
+            IGenericRepository<Room> roomsRepository)
         {
             if (unitOfWork == null)
             {
@@ -36,15 +34,9 @@ namespace FFY.Services
                 throw new ArgumentNullException("Rooms repository cannot be null");
             }
 
-            if (categoriesRepository == null)
-            {
-                throw new ArgumentNullException("Categories repository cannot be null");
-            }
-
             this.unitOfWork = unitOfWork;
             this.productsRepository = productsRepository;
             this.roomsRepository = roomsRepository;
-            this.categoriesRepository = categoriesRepository;
         }
 
         public void AddProduct(Product product)
@@ -64,11 +56,6 @@ namespace FFY.Services
         public IEnumerable<Room> GetRooms()
         {
             return this.roomsRepository.GetAll();
-        }
-
-        public IEnumerable<Category> GetCategories()
-        {
-            return this.categoriesRepository.GetAll();
         }
 
         public Product GetProductById(int id)
