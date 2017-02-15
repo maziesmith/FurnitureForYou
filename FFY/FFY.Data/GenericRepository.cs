@@ -11,14 +11,14 @@ namespace FFY.Data
     public class GenericRepository<T> : IGenericRepository<T>
         where T : class
     {
-        public GenericRepository(IFFYContext dbContext)
+        public GenericRepository(IFFYContext context)
         {
-            if (dbContext == null)
+            if (context == null)
             {
                 throw new ArgumentNullException("Context cannot be null.");
             }
 
-            this.Context = dbContext;
+            this.Context = context;
             this.Set = this.Context.Set<T>();
         }
 

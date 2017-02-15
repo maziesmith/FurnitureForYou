@@ -11,6 +11,10 @@ namespace FFY.Services.Contracts
     {
         Product GetProductById(int id);
 
+        IEnumerable<Product> GetProductsByRoom(string roomName);
+
+        IEnumerable<Product> GetProductsByRoomSpecialFiltered(string roomName);
+
         void AddProduct(Product product);
 
     }

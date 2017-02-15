@@ -123,6 +123,10 @@
     <Compile Include="Administration\ListUsers\ListUsersPresenter.cs" />
     <Compile Include="Administration\ListUsers\ListUsersViewModel.cs" />
     <Compile Include="Assembly\IMvpAssembly.cs" />
+    <Compile Include="Products\ListProductsByRoom\IListProductsByRoomView.cs" />
+    <Compile Include="Products\ListProductsByRoom\ListProductsByRoomEventArgs.cs" />
+    <Compile Include="Products\ListProductsByRoom\ListProductsByRoomPresenter.cs" />
+    <Compile Include="Products\ListProductsByRoom\ListProductsByRoomViewModel.cs" />
     <Compile Include="Products\ListProductsRooms\IListProductsRoomsView.cs" />
     <Compile Include="Products\ListProductsRooms\ListProductsRoomsPresenter.cs" />
     <Compile Include="Products\ListProductsRooms\ListProductsRoomsViewModel.cs" />
