@@ -22,9 +22,9 @@ namespace FFY.Data
             this.Set = this.Context.Set<T>();
         }
 
-        protected IDbSet<T> Set { get; set; }
+        public IDbSet<T> Set { get; set; }
 
-        protected IFFYContext Context { get; set; }
+        public IFFYContext Context { get; set; }
 
         public T GetById(object id)
         {
@@ -62,7 +62,8 @@ namespace FFY.Data
 
         public void Add(T entity)
         {
-            var entry = AttachIfDetached(entity);
+            // var entry = AttachIfDetached(entity);
+            var entry = this.Context.Entry(entity);
             entry.State = EntityState.Added;
         }
 

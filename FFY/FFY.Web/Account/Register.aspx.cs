@@ -15,6 +15,7 @@ namespace FFY.Web.Account
     [PresenterBinding(typeof(RegisterPresenter))]
     public partial class Register : MvpPage<RegisterViewModel>, IRegisterView
     {
+        private const string DefaultUserRole = "User";
         public event EventHandler<RegisterEventArgs> Registering;
         public event EventHandler<SignInEventArgs> SigningIn;
 
@@ -26,6 +27,7 @@ namespace FFY.Web.Account
                 FirstName = this.FirstName.Text,
                 LastName = this.LastName.Text,
                 Email = this.Email.Text,
+                UserRole = "User"
             };
 
             this.Registering?.Invoke(this, new RegisterEventArgs(this.Context, user, this.Password.Text));

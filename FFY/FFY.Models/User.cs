@@ -36,6 +36,11 @@ namespace FFY.Models
         [MaxLength(30)]
         public string LastName { get; set; }
 
+        [Required]
+        [MinLength(2)]
+        [MaxLength(30)]
+        public string UserRole { get; set; }
+
         public virtual ICollection<Order> Orders
         {
             get

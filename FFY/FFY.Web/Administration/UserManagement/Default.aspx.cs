@@ -21,9 +21,15 @@ namespace FFY.Web.Administration.UserManagement
 
             if(!Page.IsPostBack)
             {
-                this.GridView1.DataSource = this.Model.Users;
-                this.GridView1.DataBind();
+                this.UserList.DataSource = this.Model.Users;
+                this.UserList.DataBind();
             }
+        }
+
+        protected void UserListPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this.UserList.PageIndex = e.NewPageIndex;
+            this.UserList.DataBind();
         }
     }
 }

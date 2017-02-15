@@ -24,7 +24,7 @@ namespace FFY.MVP.Account.Register
 
             if(result.Succeeded)
             {
-                manager.AddToRole(e.User.Id, "Regular");
+                // manager.AddToRole(e.User.Id, "User");
             }
 
             this.View.Model.IdentityResult = result;
