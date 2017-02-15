@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.Tests.Data.GenericRepository
+namespace FFY.Tests.Data.GenericRepositoryTests
 {
     [TestFixture]
     public class GetById

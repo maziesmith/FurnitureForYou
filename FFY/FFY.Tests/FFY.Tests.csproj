@@ -61,10 +61,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\GenericRepository\Constructor.cs" />
-    <Compile Include="Data\GenericRepository\GetAll.cs" />
-    <Compile Include="Data\GenericRepository\GetById.cs" />
+    <Compile Include="Data\GenericRepositoryTests\AddDeleteUpdate.cs" />
+    <Compile Include="Data\GenericRepositoryTests\Constructor.cs" />
+    <Compile Include="Data\GenericRepositoryTests\GetAll.cs" />
+    <Compile Include="Data\GenericRepositoryTests\GetById.cs" />
     <Compile Include="Data\MockedModel.cs" />
+    <Compile Include="Data\UnitOfWorkTests\Commit.cs" />
+    <Compile Include="Data\UnitOfWorkTests\Constructor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

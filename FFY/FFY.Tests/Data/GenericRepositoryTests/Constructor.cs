@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.Tests.Data.GenericRepository
+namespace FFY.Tests.Data.GenericRepositoryTests
 {
     [TestFixture]
     public class Constructor
@@ -16,8 +16,13 @@ namespace FFY.Tests.Data.GenericRepository
         [Test]
         public void ShouldThrowArgumentNullException_WhenNullContextIsPassed()
         {
-            var expectedExMessage = "Value cannot be null.";
+            Assert.Throws<ArgumentNullException>(() => new GenericRepository<MockedModel>(null));
+        }
 
+        [Test]
+        public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullContextIsPassed()
+        {
+            var expectedExMessage = "Value cannot be null.";
 
             var exception = Assert.Throws<ArgumentNullException>(() =>
             new GenericRepository<MockedModel>(null));
