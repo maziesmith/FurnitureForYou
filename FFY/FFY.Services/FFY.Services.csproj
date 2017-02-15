@@ -42,7 +42,9 @@
   <ItemGroup>
     <Compile Include="Assembly\IServicesAssembly.cs" />
     <Compile Include="CategoriesService.cs" />
+    <Compile Include="ContactsService.cs" />
     <Compile Include="Contracts\ICategoriesService.cs" />
+    <Compile Include="Contracts\IContactsService.cs" />
     <Compile Include="Contracts\IProductsService.cs" />
     <Compile Include="Contracts\IRoomsService.cs" />
     <Compile Include="Contracts\IUsersService.cs" />

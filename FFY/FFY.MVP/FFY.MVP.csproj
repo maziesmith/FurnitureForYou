@@ -121,6 +121,10 @@
     <Compile Include="Administration\AddRoom\IAddRoomView.cs" />
     <Compile Include="Assembly\IMvpAssembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\SendContact\SendContactEventArgs.cs" />
+    <Compile Include="Users\SendContact\SendContactPresenter.cs" />
+    <Compile Include="Users\SendContact\SendContactViewModel.cs" />
+    <Compile Include="Users\SendContact\ISendContactView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
