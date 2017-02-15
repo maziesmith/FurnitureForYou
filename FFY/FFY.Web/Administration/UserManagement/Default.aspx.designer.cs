@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FFY.Web.Administration.SubProductManagement {
+namespace FFY.Web.Administration.UserManagement {
     
     
-    public partial class AddRoom {
+    public partial class _Default {
         
         /// <summary>
-        /// Name control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

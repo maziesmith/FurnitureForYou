@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FFY.Web.Administration.SubProductManagement {
+namespace FFY.Web.Administration.ProductManagement {
     
     
-    public partial class AddCategory {
+    public partial class AddRoom {
         
         /// <summary>
         /// Name control.

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-namespace FFY.Web.Administration.SubProductManagement
+namespace FFY.Web.Administration.ProductManagement
 {
     [PresenterBinding(typeof(AddRoomPresenter))]
     public partial class AddRoom : MvpPage<AddRoomViewModel>, IAddRoomView

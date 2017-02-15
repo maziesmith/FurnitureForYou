@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddProduct.aspx.cs" Inherits="FFY.Web.Administration.SubProductManagement.AddProduct" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AddProduct.aspx.cs" Inherits="FFY.Web.Administration.ProductManagement.AddProduct" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <div class="form-horizontal">
         <h3>Product Addition</h3>

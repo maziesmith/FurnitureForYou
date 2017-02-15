@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FFY.Web.Administration {
+namespace FFY.Web.Administration.ProductManagement {
     
     
-    public partial class UserManagement {
+    public partial class AddCategory {
         
         /// <summary>
-        /// GridView1 control.
+        /// Name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.TextBox Name;
     }
 }

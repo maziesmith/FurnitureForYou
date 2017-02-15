@@ -8,10 +8,10 @@ using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-namespace FFY.Web
+namespace FFY.Web.Furniture
 {
     [PresenterBinding(typeof(ListProductsRoomsPresenter))]
-    public partial class Furniture : MvpPage<ListProductsRoomsViewModel>, IListProductsRoomsView
+    public partial class _Default : MvpPage<ListProductsRoomsViewModel>, IListProductsRoomsView
     {
         public event EventHandler ListingProductsRooms;
 

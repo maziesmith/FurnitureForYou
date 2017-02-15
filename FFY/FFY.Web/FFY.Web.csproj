@@ -218,7 +218,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Furniture.aspx" />
+    <Content Include="Furniture\Default.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
     <Content Include="Account\Forgot.aspx" />
@@ -234,11 +234,11 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Administration\ProductManagement.aspx" />
-    <Content Include="Administration\SubProductManagement\AddCategory.aspx" />
-    <Content Include="Administration\SubProductManagement\AddProduct.aspx" />
-    <Content Include="Administration\SubProductManagement\AddRoom.aspx" />
-    <Content Include="Administration\UserManagement.aspx" />
+    <Content Include="Administration\ProductManagement\Default.aspx" />
+    <Content Include="Administration\ProductManagement\AddCategory.aspx" />
+    <Content Include="Administration\ProductManagement\AddProduct.aspx" />
+    <Content Include="Administration\ProductManagement\AddRoom.aspx" />
+    <Content Include="Administration\UserManagement\Default.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -252,6 +252,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Furniture\FurnitureList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -406,48 +407,48 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administration\ProductManagement.aspx.cs">
-      <DependentUpon>ProductManagement.aspx</DependentUpon>
+    <Compile Include="Administration\ProductManagement\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administration\ProductManagement.aspx.designer.cs">
-      <DependentUpon>ProductManagement.aspx</DependentUpon>
+    <Compile Include="Administration\ProductManagement\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administration\SubProductManagement\AddCategory.aspx.cs">
+    <Compile Include="Administration\ProductManagement\AddCategory.aspx.cs">
       <DependentUpon>AddCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administration\SubProductManagement\AddCategory.aspx.designer.cs">
+    <Compile Include="Administration\ProductManagement\AddCategory.aspx.designer.cs">
       <DependentUpon>AddCategory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administration\SubProductManagement\AddProduct.aspx.cs">
+    <Compile Include="Administration\ProductManagement\AddProduct.aspx.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administration\SubProductManagement\AddProduct.aspx.designer.cs">
+    <Compile Include="Administration\ProductManagement\AddProduct.aspx.designer.cs">
       <DependentUpon>AddProduct.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administration\SubProductManagement\AddRoom.aspx.cs">
+    <Compile Include="Administration\ProductManagement\AddRoom.aspx.cs">
       <DependentUpon>AddRoom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administration\SubProductManagement\AddRoom.aspx.designer.cs">
+    <Compile Include="Administration\ProductManagement\AddRoom.aspx.designer.cs">
       <DependentUpon>AddRoom.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administration\UserManagement.aspx.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="Administration\UserManagement\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administration\UserManagement.aspx.designer.cs">
-      <DependentUpon>UserManagement.aspx</DependentUpon>
+    <Compile Include="Administration\UserManagement\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="Furniture.aspx.cs">
-      <DependentUpon>Furniture.aspx</DependentUpon>
+    <Compile Include="Furniture\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Furniture.aspx.designer.cs">
-      <DependentUpon>Furniture.aspx</DependentUpon>
+    <Compile Include="Furniture\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\DbConfig.cs" />
     <Compile Include="App_Start\Factories\ICustomPresenterFactory.cs" />
@@ -472,6 +473,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Furniture\FurnitureList.aspx.cs">
+      <DependentUpon>FurnitureList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Furniture\FurnitureList.aspx.designer.cs">
+      <DependentUpon>FurnitureList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

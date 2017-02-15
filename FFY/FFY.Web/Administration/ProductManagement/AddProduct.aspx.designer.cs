@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FFY.Web.Administration.SubProductManagement {
+namespace FFY.Web.Administration.ProductManagement {
     
     
     public partial class AddProduct {

@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-namespace FFY.Web.Administration.SubProductManagement
+namespace FFY.Web.Administration.ProductManagement
 {
     [PresenterBinding(typeof(AddProductPresenter))]
     public partial class AddProduct : MvpPage<AddProductViewModel>, IAddProductView

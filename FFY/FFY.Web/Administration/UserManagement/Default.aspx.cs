@@ -8,10 +8,10 @@ using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
-namespace FFY.Web.Administration
+namespace FFY.Web.Administration.UserManagement
 {
     [PresenterBinding(typeof(ListUsersPresenter))]
-    public partial class UserManagement : MvpPage<ListUsersViewModel>, IListUsersView
+    public partial class _Default : MvpPage<ListUsersViewModel>, IListUsersView
     {
         public event EventHandler ListingUsers;
 

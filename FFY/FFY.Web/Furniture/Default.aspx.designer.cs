@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FFY.Web {
+namespace FFY.Web.Furniture {
     
     
-    public partial class Furniture {
+    public partial class _Default {
         
         /// <summary>
         /// FurnitureRooms control.
