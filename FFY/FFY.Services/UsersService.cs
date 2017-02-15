@@ -41,5 +41,10 @@ namespace FFY.Services
         {
             return this.usersRepository.GetAll(u => u.UserName == username).FirstOrDefault();
         }
+
+        public IEnumerable<User> GetUsers()
+        {
+            return this.usersRepository.GetAll();
+        }
     }
 }

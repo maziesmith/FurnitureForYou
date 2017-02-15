@@ -12,5 +12,7 @@ namespace FFY.Services.Contracts
         User GetUserById(string id);
 
         User GetUserByUsername(string username);
+
+        IEnumerable<User> GetUsers();
     }
 }

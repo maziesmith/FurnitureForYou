@@ -238,6 +238,7 @@
     <Content Include="Administration\SubProductManagement\AddCategory.aspx" />
     <Content Include="Administration\SubProductManagement\AddProduct.aspx" />
     <Content Include="Administration\SubProductManagement\AddRoom.aspx" />
+    <Content Include="Administration\UserManagement.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -432,6 +433,13 @@
     </Compile>
     <Compile Include="Administration\SubProductManagement\AddRoom.aspx.designer.cs">
       <DependentUpon>AddRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\UserManagement.aspx.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\UserManagement.aspx.designer.cs">
+      <DependentUpon>UserManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
