@@ -14,7 +14,13 @@ namespace FFY.Web
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
 
-            routes.MapPageRoute("", "Furniture/{roomName}", "~/Furniture/FurnitureList.aspx");
+            routes.MapPageRoute("FurnitureRooms", 
+                "Furniture/{roomName}", 
+                "~/Furniture/FurnitureList.aspx");
+
+            routes.MapPageRoute("FurnitureProducts",
+                "Furniture/{roomName}/{productId}",
+                "~/Furniture/FurnitureDetailed.aspx");
         }
     }
 }

@@ -4,7 +4,7 @@
         ItemType="FFY.Models.Product" >
         <ItemTemplate>
             <div class="col-md-3">
-                <asp:HyperLink ID="RoomHyperLink" NavigateUrl='<%#: "~/furniture/" + Eval("Name").ToString().ToLower().Replace(@"\s+", "") %>' runat="server">
+                <asp:HyperLink ID="RoomHyperLink" NavigateUrl='<%#: "~/furniture/product/" + Eval("Id") %>' runat="server">
                     <%#: Item.Name %>
                 </asp:HyperLink>
             </div>
