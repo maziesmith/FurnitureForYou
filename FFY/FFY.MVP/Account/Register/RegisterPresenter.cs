@@ -22,6 +22,11 @@ namespace FFY.MVP.Account.Register
 
             IdentityResult result = manager.Create(e.User, e.Password);
 
+            if(result.Succeeded)
+            {
+                manager.AddToRole(e.User.Id, "Regular");
+            }
+
             this.View.Model.IdentityResult = result;
         }
 
