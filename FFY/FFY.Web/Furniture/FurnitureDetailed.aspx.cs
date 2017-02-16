@@ -23,16 +23,14 @@ namespace FFY.Web.Furniture
 
             if(!(int.TryParse(productIdParameter, out productId)))
             {
-                //TODO: 404
-                this.Response.Redirect("~/");
+                this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
 
             this.GettingProductById?.Invoke(this, new GetProductByIdEventArgs(productId));
 
             if(this.Model.Product == null)
             {
-                //TODO: 404
-                this.Response.Redirect("~/");
+                this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
         }
     }

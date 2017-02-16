@@ -70,6 +70,8 @@
                                 </li>
                             </ul>
                         </LoggedInTemplate>
+                    </asp:LoginView>
+                    <asp:LoginView  runat="server">
                         <RoleGroups>
                             <asp:RoleGroup Roles="Administrator">
                                 <ContentTemplate>

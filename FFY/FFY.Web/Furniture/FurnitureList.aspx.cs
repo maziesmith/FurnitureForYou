@@ -21,15 +21,14 @@ namespace FFY.Web.Furniture
 
             if(string.IsNullOrEmpty(roomParameter))
             {
-                // TODO: Rewrite/redirect to 404 page
-                this.Response.Redirect("~/");
+                this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
 
             this.ListingProductsByRoom?.Invoke(this, new ListProductsByRoomEventArgs(roomParameter));
 
             if(this.Model.Products.Count() == 0)
             {
-                this.Response.Redirect("~/");
+                this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
 
             if (!Page.IsPostBack)
