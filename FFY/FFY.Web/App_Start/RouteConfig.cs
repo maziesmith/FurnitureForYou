@@ -15,12 +15,16 @@ namespace FFY.Web
             routes.EnableFriendlyUrls(settings);
 
             routes.MapPageRoute("FurnitureRooms", 
-                "Furniture/{roomName}", 
+                "furniture/{roomName}", 
                 "~/Furniture/FurnitureList.aspx");
 
             routes.MapPageRoute("FurnitureProducts",
-                "Furniture/{roomName}/{productId}",
+                "furniture/product/{productId}",
                 "~/Furniture/FurnitureDetailed.aspx");
+
+            routes.MapPageRoute("EditProducts",
+                "administration/edit-product/{productId}",
+                "~/Administration/ProductManagement/EditProduct.aspx");
         }
     }
 }

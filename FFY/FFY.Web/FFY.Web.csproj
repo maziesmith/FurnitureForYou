@@ -218,6 +218,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\ProductManagement\EditProduct.aspx" />
     <Content Include="Errors\Forbidden.aspx" />
     <Content Include="Errors\InternalServerError.aspx" />
     <Content Include="Errors\PageNotFound.aspx" />
@@ -440,6 +441,13 @@
     </Compile>
     <Compile Include="Administration\ProductManagement\AddRoom.aspx.designer.cs">
       <DependentUpon>AddRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\ProductManagement\EditProduct.aspx.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ProductManagement\EditProduct.aspx.designer.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\UserManagement\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

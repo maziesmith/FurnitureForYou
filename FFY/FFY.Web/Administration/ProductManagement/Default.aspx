@@ -9,7 +9,7 @@
             ItemType="FFY.Models.Product" >
             <ItemTemplate>
                 <div class="col-md-12">
-                    <asp:HyperLink ID="RoomHyperLink" NavigateUrl='<%#: "~/furniture/product/" + Eval("Id") %>' runat="server">
+                    <asp:HyperLink ID="RoomHyperLink" NavigateUrl='<%#: "~/administration/edit-product/" + Eval("Id") %>' runat="server">
                         <div class="col-md-4">
                             <%#: Item.Name %>
                         </div>
