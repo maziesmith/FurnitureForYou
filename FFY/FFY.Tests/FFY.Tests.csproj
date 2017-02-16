@@ -81,6 +81,9 @@
     <Compile Include="Services\ProductsServiceTests\GetProductById.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductsByRoom.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductsByRoomSpecialFiltered.cs" />
+    <Compile Include="Services\RoomsServiceTests\AddRoom.cs" />
+    <Compile Include="Services\RoomsServiceTests\Constructor.cs" />
+    <Compile Include="Services\RoomsServiceTests\GetRooms.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
