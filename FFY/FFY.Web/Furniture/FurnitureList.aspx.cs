@@ -1,4 +1,4 @@
-﻿using FFY.MVP.Products.ListProductsByRoom;
+﻿using FFY.MVP.Products.ListAllProducts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +10,10 @@ using WebFormsMvp.Web;
 
 namespace FFY.Web.Furniture
 {
-    [PresenterBinding(typeof(ListProductsByRoomPresenter))]
-    public partial class FurnitureList : MvpPage<ListProductsByRoomViewModel>, IListProductsByRoomView
+    [PresenterBinding(typeof(ListAllProductsPresenter))]
+    public partial class FurnitureList : MvpPage<ListAllProductsViewModel>, IListAllProductsView
     {
-        public event EventHandler<ListProductsByRoomEventArgs> ListingProductsByRoom;
+        public event EventHandler<ListAllProductsEventArgs> ListingAllProducts;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -24,7 +24,7 @@ namespace FFY.Web.Furniture
                 this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
 
-            this.ListingProductsByRoom?.Invoke(this, new ListProductsByRoomEventArgs(roomParameter));
+            this.ListingAllProducts?.Invoke(this, new ListAllProductsEventArgs(roomParameter));
 
             if(this.Model.Products.Count() == 0)
             {
