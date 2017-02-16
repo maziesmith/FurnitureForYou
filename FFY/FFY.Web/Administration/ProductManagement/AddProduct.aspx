@@ -12,7 +12,7 @@
                     CssClass="text-danger" ErrorMessage="Name field is required." />
             </div>
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Price" CssClass="col-md-2 control-label">Price</asp:Label>
             <div class="col-md-10">
                 <asp:TextBox runat="server" ID="Price" CssClass="form-control" />
@@ -30,7 +30,7 @@
                     CssClass="text-danger" ErrorMessage="Description field is required." />
             </div>
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Rooms" CssClass="col-md-2 control-label">Room</asp:Label>
              <div class="col-md-3">
                 <asp:DropDownList runat="server" ID="Rooms" CssClass="form-control" DataTextField="Name" DataValueField="Id"></asp:DropDownList>

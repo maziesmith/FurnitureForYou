@@ -62,25 +62,28 @@ namespace FFY.Web.Administration.ProductManagement
                         imageFileName = (DateTime.Now - new DateTime(1970, 1, 1)).TotalMinutes.ToString() + Path.GetFileName(Image.FileName);
                         Image.SaveAs(Server.MapPath(subPath + @"\" + imageFileName));
                     }
-                    else
-                    {
-
-                    }
                 }
 
-                var product = new Product()
+                try
                 {
-                    Name = Name.Text,
-                    Price = decimal.Parse(Price.Text),
-                    Description = Description.Text,
-                    CategoryId = category.Id,
-                    Category = category,
-                    RoomId = room.Id,
-                    Room = room,
-                    ImagePath = imageFileName
-                };
+                    var product = new Product()
+                    {
+                        Name = Name.Text,
+                        Price = decimal.Parse(Price.Text),
+                        Description = Description.Text,
+                        CategoryId = category.Id,
+                        Category = category,
+                        RoomId = room.Id,
+                        Room = room,
+                        ImagePath = imageFileName
+                    };
 
-                this.AddingProduct?.Invoke(this, new AddProductEventArgs(product));
+                    this.AddingProduct?.Invoke(this, new AddProductEventArgs(product));
+                }
+                catch (Exception)
+                {
+                    this.Server.Transfer("~/Errors/InternalServerError.aspx");
+                }
             }
     }
 }

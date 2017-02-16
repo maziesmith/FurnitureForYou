@@ -119,6 +119,11 @@
     <Compile Include="Administration\AddRoom\AddRoomPresenter.cs" />
     <Compile Include="Administration\AddRoom\AddRoomViewModel.cs" />
     <Compile Include="Administration\AddRoom\IAddRoomView.cs" />
+    <Compile Include="Administration\EditProduct\EditProductEventArgs.cs" />
+    <Compile Include="Administration\EditProduct\EditProductPresenter.cs" />
+    <Compile Include="Administration\EditProduct\EditProductViewModel.cs" />
+    <Compile Include="Administration\EditProduct\GetProductEventArgs.cs" />
+    <Compile Include="Administration\EditProduct\IEditProductView.cs" />
     <Compile Include="Administration\ListUsers\IListUsersView.cs" />
     <Compile Include="Administration\ListUsers\ListUsersPresenter.cs" />
     <Compile Include="Administration\ListUsers\ListUsersViewModel.cs" />

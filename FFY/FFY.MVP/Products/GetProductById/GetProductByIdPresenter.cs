@@ -26,7 +26,7 @@ namespace FFY.MVP.Products.GetProductById
 
         private void OnGettingProductById(object sender, GetProductByIdEventArgs e)
         {
-            this.View.Model.Product = this.productsService.GetProductsById(e.Id);
+            this.View.Model.Product = this.productsService.GetProductById(e.Id);
         }
     }
 }

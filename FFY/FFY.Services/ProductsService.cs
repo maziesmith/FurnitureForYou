@@ -45,7 +45,21 @@ namespace FFY.Services
             }
         }
 
-        public Product GetProductsById(int id)
+        public void EditProduct(Product product)
+        {
+            if (product == null)
+            {
+                throw new ArgumentNullException("Product cannot be null.");
+            }
+
+            using (this.unitOfWork)
+            {
+                this.productsRepository.Update(product);
+                this.unitOfWork.Commit();
+            }
+        }
+
+        public Product GetProductById(int id)
         {
             return this.productsRepository.GetById(id);
         }

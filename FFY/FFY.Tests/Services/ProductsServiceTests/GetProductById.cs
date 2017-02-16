@@ -24,7 +24,7 @@ namespace FFY.Tests.Services.ProductsServiceTests
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-            productsService.GetProductsById(id);
+            productsService.GetProductById(id);
 
             mockedGenericRepository.Verify(gr => gr.GetById(id), Times.Once);
         }
@@ -48,7 +48,7 @@ namespace FFY.Tests.Services.ProductsServiceTests
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-            var result = productsService.GetProductsById(id);
+            var result = productsService.GetProductById(id);
 
             Assert.AreEqual(expectedProductName, result.Name);
         }

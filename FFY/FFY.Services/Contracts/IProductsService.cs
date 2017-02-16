@@ -9,13 +9,16 @@ namespace FFY.Services.Contracts
 {
     public interface IProductsService
     {
-        Product GetProductsById(int id);
+        Product GetProductById(int id);
 
         IEnumerable<Product> GetProductsByRoom(string roomName);
 
         IEnumerable<Product> GetProductsByRoomSpecialFiltered(string roomName);
 
-        void AddProduct(Product product);
         IEnumerable<Product> GetProducts();
+
+        void AddProduct(Product product);
+
+        void EditProduct(Product product);
     }
 }
