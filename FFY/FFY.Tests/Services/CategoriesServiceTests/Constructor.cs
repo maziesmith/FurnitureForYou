@@ -13,7 +13,6 @@ namespace FFY.Tests.Services.CategoriesServiceTests
         [Test]
         public void ShouldThrowArgumentNullException_WhenNullUnitOfWorkIsPassed()
         {
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
 
             Assert.Throws<ArgumentNullException>(() => new CategoriesService(null, mockedGenericRepository.Object));
@@ -23,7 +22,6 @@ namespace FFY.Tests.Services.CategoriesServiceTests
         public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullUnitOfWorkIsPassed()
         {
             var expectedExMessage = "Unit of work cannot be null.";
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
 
             var exception = Assert.Throws<ArgumentNullException>(() => 
@@ -48,6 +46,16 @@ namespace FFY.Tests.Services.CategoriesServiceTests
             var exception = Assert.Throws<ArgumentNullException>(() =>
                 new CategoriesService(mockedUnitOfWork.Object, null));
             StringAssert.Contains(expectedExMessage, exception.Message);
+        }
+
+        [Test]
+        public void ShouldNotThrow_WhenValidUnitOfWorkAndCategoryRepositoryArePassed()
+        {
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
+
+            Assert.DoesNotThrow(() =>
+                new CategoriesService(mockedUnitOfWork.Object, mockedGenericRepository.Object));
         }
     }
 }

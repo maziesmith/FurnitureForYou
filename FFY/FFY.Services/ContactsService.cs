@@ -19,12 +19,12 @@ namespace FFY.Services
         {
             if (unitOfWork == null)
             {
-                throw new ArgumentNullException("Unit of work cannot be null");
+                throw new ArgumentNullException("Unit of work cannot be null.");
             }
 
             if (contactsRepository == null)
             {
-                throw new ArgumentNullException("Contacts repository cannot be null");
+                throw new ArgumentNullException("Contacts repository cannot be null.");
             }
 
             this.unitOfWork = unitOfWork;
@@ -35,7 +35,7 @@ namespace FFY.Services
         {
             if (contact == null)
             {
-                throw new ArgumentNullException("Contact cannot be null");
+                throw new ArgumentNullException("Contact cannot be null.");
             }
 
             using (this.unitOfWork)

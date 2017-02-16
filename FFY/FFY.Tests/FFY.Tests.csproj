@@ -72,6 +72,9 @@
     <Compile Include="Services\CategoriesServiceTests\AddCategory.cs" />
     <Compile Include="Services\CategoriesServiceTests\Constructor.cs" />
     <Compile Include="Services\CategoriesServiceTests\GetCategories.cs" />
+    <Compile Include="Services\ContactsServiceTests\AddContact.cs" />
+    <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
+    <Compile Include="Services\ContactsServiceTests\GetContacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
