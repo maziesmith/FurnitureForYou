@@ -24,9 +24,9 @@ namespace FFY.MVP.Products.ListAllProducts
             this.View.ListingAllProducts += OnListingProductsByRoom;
         }
 
-        private void OnListingProductsByRoom(object sender, ListAllProductsEventArgs e)
+        private void OnListingProductsByRoom(object sender, EventArgs e)
         {
-            this.View.Model.Products = this.productsService.GetProductsByRoomSpecialFiltered(e.RoomName);
+            this.View.Model.Products = this.productsService.GetProducts();
         }
     }
 }

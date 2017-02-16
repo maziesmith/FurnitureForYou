@@ -59,5 +59,10 @@ namespace FFY.Services
         {
             return this.productsRepository.GetAll(r => r.Room.Name.ToLower().Replace(@"\s+", "") == roomNameFiltered);
         }
+
+        public IEnumerable<Product> GetProducts()
+        {
+            return this.productsRepository.GetAll();
+        }
     }
 }

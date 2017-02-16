@@ -9,6 +9,6 @@ namespace FFY.MVP.Products.ListAllProducts
 {
     public interface IListAllProductsView : IView<ListAllProductsViewModel>
     {
-        event EventHandler<ListAllProductsEventArgs> ListingAllProducts;
+        event EventHandler ListingAllProducts;
     }
 }

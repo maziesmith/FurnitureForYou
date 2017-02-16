@@ -16,6 +16,6 @@ namespace FFY.Services.Contracts
         IEnumerable<Product> GetProductsByRoomSpecialFiltered(string roomName);
 
         void AddProduct(Product product);
-
+        IEnumerable<Product> GetProducts();
     }
 }

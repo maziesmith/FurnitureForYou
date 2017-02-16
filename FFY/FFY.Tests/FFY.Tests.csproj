@@ -87,6 +87,7 @@
     <Compile Include="Services\ProductsServiceTests\AddProduct.cs" />
     <Compile Include="Services\ProductsServiceTests\Constructor.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductById.cs" />
+    <Compile Include="Services\ProductsServiceTests\GetProducts.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductsByRoom.cs" />
     <Compile Include="Services\ProductsServiceTests\GetProductsByRoomSpecialFiltered.cs" />
     <Compile Include="Services\RoomsServiceTests\AddRoom.cs" />

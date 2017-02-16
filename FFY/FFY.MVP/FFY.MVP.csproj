@@ -128,7 +128,6 @@
     <Compile Include="Products\GetProductById\GetProductByIdViewModel.cs" />
     <Compile Include="Products\GetProductById\IGetProductByIdView.cs" />
     <Compile Include="Products\ListAllProducts\IListAllProductsView.cs" />
-    <Compile Include="Products\ListAllProducts\ListAllProductsEventArgs.cs" />
     <Compile Include="Products\ListAllProducts\ListAllProductsPresenter.cs" />
     <Compile Include="Products\ListAllProducts\ListAllProductsViewModel.cs" />
     <Compile Include="Products\ListProductsByRoom\IListProductsByRoomView.cs" />
