@@ -22,7 +22,7 @@ namespace FFY.Tests.Data.GenericRepositoryTests
         [Test]
         public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullContextIsPassed()
         {
-            var expectedExMessage = "Value cannot be null.";
+            var expectedExMessage = "Context cannot be null.";
 
             var exception = Assert.Throws<ArgumentNullException>(() =>
             new GenericRepository<MockedModel>(null));

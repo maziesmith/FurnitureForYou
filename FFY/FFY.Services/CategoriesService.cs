@@ -1,9 +1,6 @@
 ﻿using FFY.Services.Contracts;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FFY.Models;
 using FFY.Data.Contracts;
 
@@ -19,12 +16,12 @@ namespace FFY.Services
         {
             if (unitOfWork == null)
             {
-                throw new ArgumentNullException("Unit of work cannot be null");
+                throw new ArgumentNullException("Unit of work cannot be null.");
             }
 
             if (categoriesRepository == null)
             {
-                throw new ArgumentNullException("Categories repository cannot be null");
+                throw new ArgumentNullException("Categories repository cannot be null.");
             }
 
             this.unitOfWork = unitOfWork;
@@ -40,7 +37,7 @@ namespace FFY.Services
         {
             if (category == null)
             {
-                throw new ArgumentNullException("Category cannot be null");
+                throw new ArgumentNullException("Category cannot be null.");
             }
 
             using (this.unitOfWork)
