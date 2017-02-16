@@ -43,15 +43,15 @@ namespace FFY.Tests.Services.CategoriesServiceTests
         {
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
-            // It is not mocked, but it is plain object and not sure whether interface is required for mocking
-            var category = new Category();
-            mockedGenericRepository.Setup(gr => gr.Add(category)).Verifiable();
+            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            var category = new Mock<Category>();
+            mockedGenericRepository.Setup(gr => gr.Add(category.Object)).Verifiable();
 
             var categoriesService = new CategoriesService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-            categoriesService.AddCategory(category);
+            categoriesService.AddCategory(category.Object);
 
-            mockedGenericRepository.Verify(gr => gr.Add(category), Times.Once);
+            mockedGenericRepository.Verify(gr => gr.Add(category.Object), Times.Once);
         }
 
         [Test]
@@ -60,12 +60,12 @@ namespace FFY.Tests.Services.CategoriesServiceTests
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
             mockedUnitOfWork.Setup(uow => uow.Commit()).Verifiable();
-            // It is not mocked, but it is plain object and not sure whether interface is required for mocking
-            var category = new Category();
+            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            var category = new Mock<Category>();
 
             var categoriesService = new CategoriesService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-            categoriesService.AddCategory(category);
+            categoriesService.AddCategory(category.Object);
 
             mockedUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
         }

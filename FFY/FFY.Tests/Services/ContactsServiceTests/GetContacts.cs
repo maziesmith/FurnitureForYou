@@ -33,11 +33,13 @@ namespace FFY.Tests.Services.ContactsServiceTests
         {
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Contact>>();
+            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            var mockedContact = new Mock<Contact>();
 
             var mockedContacts = new List<Contact>
             {
-                new Contact(),
-                new Contact()
+                mockedContact.Object,
+                mockedContact.Object
             };
             mockedGenericRepository.Setup(gr => gr.GetAll()).Returns(mockedContacts);
 

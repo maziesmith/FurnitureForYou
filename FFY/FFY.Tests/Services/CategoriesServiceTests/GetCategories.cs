@@ -33,11 +33,13 @@ namespace FFY.Tests.Services.CategoriesServiceTests
         {
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
+            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            var mockedCategory = new Mock<Category>();
 
             var mockedCategories = new List<Category>
             {
-                new Category(),
-                new Category()
+                mockedCategory.Object,
+                mockedCategory.Object
             };
             mockedGenericRepository.Setup(gr => gr.GetAll()).Returns(mockedCategories);
 

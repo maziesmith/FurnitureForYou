@@ -14,18 +14,16 @@ namespace FFY.Services
         private readonly IUnitOfWork unitOfWork;
         private readonly IGenericRepository<Product> productsRepository;
 
-        public ProductsService(IUnitOfWork unitOfWork, 
-            IGenericRepository<Product> productsRepository,
-            IGenericRepository<Room> roomsRepository)
+        public ProductsService(IUnitOfWork unitOfWork, IGenericRepository<Product> productsRepository)
         {
             if (unitOfWork == null)
             {
-                throw new ArgumentNullException("Unit of work cannot be null");
+                throw new ArgumentNullException("Unit of work cannot be null.");
             }
 
             if (productsRepository == null)
             {
-                throw new ArgumentNullException("Users repository cannot be null");
+                throw new ArgumentNullException("Products repository cannot be null.");
             }
 
 
@@ -37,7 +35,7 @@ namespace FFY.Services
         {
             if(product == null)
             {
-                throw new ArgumentNullException("Product cannot be null");
+                throw new ArgumentNullException("Product cannot be null.");
             }
 
             using (this.unitOfWork)
@@ -47,7 +45,7 @@ namespace FFY.Services
             }
         }
 
-        public Product GetProductById(int id)
+        public Product GetProductsById(int id)
         {
             return this.productsRepository.GetById(id);
         }

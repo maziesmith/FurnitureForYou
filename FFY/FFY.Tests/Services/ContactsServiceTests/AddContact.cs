@@ -43,15 +43,15 @@ namespace FFY.Tests.Services.ContactsServiceTests
         {
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Contact>>();
-            // It is not mocked, but it is plain object and not sure whether interface is required for mocking
-            var contact = new Contact();
-            mockedGenericRepository.Setup(gr => gr.Add(contact)).Verifiable();
+            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            var contact = new Mock<Contact>();
+            mockedGenericRepository.Setup(gr => gr.Add(contact.Object)).Verifiable();
 
             var contactsService = new ContactsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-            contactsService.AddContact(contact);
+            contactsService.AddContact(contact.Object);
 
-            mockedGenericRepository.Verify(gr => gr.Add(contact), Times.Once);
+            mockedGenericRepository.Verify(gr => gr.Add(contact.Object), Times.Once);
         }
 
         [Test]
@@ -60,12 +60,12 @@ namespace FFY.Tests.Services.ContactsServiceTests
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Contact>>();
             mockedUnitOfWork.Setup(uow => uow.Commit()).Verifiable();
-            // It is not mocked, but it is plain object and not sure whether interface is required for mocking
-            var contact = new Contact();
+            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            var contact = new Mock<Contact>();
 
             var contactsService = new ContactsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-            contactsService.AddContact(contact);
+            contactsService.AddContact(contact.Object);
 
             mockedUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
         }

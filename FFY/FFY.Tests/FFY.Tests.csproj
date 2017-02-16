@@ -73,8 +73,14 @@
     <Compile Include="Services\CategoriesServiceTests\Constructor.cs" />
     <Compile Include="Services\CategoriesServiceTests\GetCategories.cs" />
     <Compile Include="Services\ContactsServiceTests\AddContact.cs" />
+    <Compile Include="Services\ContactsServiceTests\ChangeStatus.cs" />
     <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
     <Compile Include="Services\ContactsServiceTests\GetContacts.cs" />
+    <Compile Include="Services\ProductsServiceTests\AddProduct.cs" />
+    <Compile Include="Services\ProductsServiceTests\Constructor.cs" />
+    <Compile Include="Services\ProductsServiceTests\GetProductById.cs" />
+    <Compile Include="Services\ProductsServiceTests\GetProductsByRoom.cs" />
+    <Compile Include="Services\ProductsServiceTests\GetProductsByRoomSpecialFiltered.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
