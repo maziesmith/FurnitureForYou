@@ -15,51 +15,75 @@ namespace FFY.Tests.Services.ProductsServiceTests
     [TestFixture]
     public class GetProductsByRoom
     {
-        public class GetProductById
+        [TestCase("Bedroom")]
+        [TestCase("Kitchen")]
+        public void ShouldCallGetAllMethodOfProductsRepositoryWithExpressionOnce(string value)
         {
-            [TestCase("Bedroom")]
-            [TestCase("Kitchen")]
-            public void ShouldCallGetAllMethodOfProductsRepositoryWithExpressionOnce(string value)
-            {
-                var mockedUnitOfWork = new Mock<IUnitOfWork>();
-                var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-                mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>())).Verifiable();
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
+            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>())).Verifiable();
 
-                var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
+            var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-                productsService.GetProductsByRoom(value);
+            productsService.GetProductsByRoom(value);
 
-                mockedGenericRepository.Verify(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>()), Times.Once);
-            }
+            mockedGenericRepository.Verify(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>()), Times.Once);
+        }
 
-            [TestCase("Bath", 1)]
-            [TestCase("Kitchen", 2)]
-            [TestCase("Bedroom", 0)]
-            public void ShouldReturnCorrectProductFromProductsRepository(string roomName, int expectedCount)
-            {
-                Expression<Func<Product, bool>> expression = r => r.Room.Name == roomName;
+        [TestCase("Bath", 1)]
+        [TestCase("Kitchen", 2)]
+        public void ShouldReturnCorrectAmountOfProductsFromProductsRepository(string roomName, int expectedCount)
+        {
+            Expression<Func<Product, bool>> expression = r => r.Room.Name == roomName;
 
-                var mockedUnitOfWork = new Mock<IUnitOfWork>();
-                var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-                
-                // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
-                var mockedProducts = new List<Product>
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
+
+            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
+            var mockedProducts = new List<Product>
                 {
                     new Product() { Name = "First Product", Room = new Room { Name = "Kitchen"} },
                     new Product() { Name = "Second Product", Room = new Room { Name = "Bath"} },
                     new Product() { Name = "Third Product", Room = new Room { Name = "Kitchen"} },
                 }
-                .AsQueryable();
+            .AsQueryable();
 
-                mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>()))
-                    .Returns(mockedProducts.Where(expression).ToList());
+            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>()))
+                .Returns(mockedProducts.Where(expression).ToList());
 
-                var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
+            var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-                var result = productsService.GetProductsByRoom(roomName).ToList();
+            var result = productsService.GetProductsByRoom(roomName).ToList();
 
-                Assert.AreEqual(expectedCount, result.Count);
-            }
+            Assert.AreEqual(expectedCount, result.Count);
+        }
+
+        [TestCase("Bedroom", 0)]
+        public void ShouldReturnZeroProductsFromProductsRepository_WhenNoProductFromSuchRoomIsFound(string roomName, int expectedCount)
+        {
+            Expression<Func<Product, bool>> expression = r => r.Room.Name == roomName;
+
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
+
+            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
+            var mockedProducts = new List<Product>
+                {
+                    new Product() { Name = "First Product", Room = new Room { Name = "Kitchen"} },
+                    new Product() { Name = "Second Product", Room = new Room { Name = "Bath"} },
+                    new Product() { Name = "Third Product", Room = new Room { Name = "Kitchen"} },
+                }
+            .AsQueryable();
+
+            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>()))
+                .Returns(mockedProducts.Where(expression).ToList());
+
+            var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
+
+            var result = productsService.GetProductsByRoom(roomName).ToList();
+
+            Assert.AreEqual(expectedCount, result.Count);
         }
     }
 }
+

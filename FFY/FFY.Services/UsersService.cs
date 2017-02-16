@@ -19,12 +19,12 @@ namespace FFY.Services
         {
             if(unitOfWork == null)
             {
-                throw new ArgumentNullException("Unit of work cannot be null");
+                throw new ArgumentNullException("Unit of work cannot be null.");
             }
 
             if(usersRepository == null)
             {
-                throw new ArgumentNullException("Users repository cannot be null");
+                throw new ArgumentNullException("Users repository cannot be null.");
             }
 
             this.unitOfWork = unitOfWork;
