@@ -124,6 +124,9 @@
     <Compile Include="Administration\EditProduct\EditProductViewModel.cs" />
     <Compile Include="Administration\EditProduct\GetProductEventArgs.cs" />
     <Compile Include="Administration\EditProduct\IEditProductView.cs" />
+    <Compile Include="Administration\ListContacts\IListContactsView.cs" />
+    <Compile Include="Administration\ListContacts\ListContactsPresenter.cs" />
+    <Compile Include="Administration\ListContacts\ListContactsViewModel.cs" />
     <Compile Include="Administration\ListUsers\IListUsersView.cs" />
     <Compile Include="Administration\ListUsers\ListUsersPresenter.cs" />
     <Compile Include="Administration\ListUsers\ListUsersViewModel.cs" />

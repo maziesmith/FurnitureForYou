@@ -218,6 +218,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\ContactManagement\Default.aspx" />
     <Content Include="Administration\ProductManagement\EditProduct.aspx" />
     <Content Include="Errors\Forbidden.aspx" />
     <Content Include="Errors\InternalServerError.aspx" />
@@ -295,7 +296,9 @@
     <Content Include="Site.Master" />
     <Content Include="Users\Profile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -413,6 +416,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\ContactManagement\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ContactManagement\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\ProductManagement\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

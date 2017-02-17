@@ -53,7 +53,7 @@ namespace FFY.Services
 
         public IEnumerable<Contact> GetContacts()
         {
-            return this.contactsRepository.GetAll();
+            return this.contactsRepository.GetAll(null, c => c.SendOn).Reverse();
         }
     }
 }

@@ -33,31 +33,75 @@ namespace FFY.Data
 
         public IEnumerable<T> GetAll()
         {
-            return this.Set.ToList();
+            return this.GetAll(null);
         }
 
         public IEnumerable<T> GetAll(Expression<Func<T, bool>> filterExpression)
         {
-            return this.Set
-                .Where(filterExpression)
-                .ToList();
+            return this.GetAll<object>(filterExpression, null);
         }
 
         public IEnumerable<T> GetAll<T1>(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T1>> sortExpression)
         {
-            return this.Set
-                .Where(filterExpression)
-                .OrderBy(sortExpression)
-                .ToList();
+            return this.GetAll<T1, T>(filterExpression, sortExpression, null);
         }
 
-        public IEnumerable<T2> GetAll<T1, T2>(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T1>> sortExpression, Expression<Func<T, T2>> selectExpression)
+        public IEnumerable<T2> GetAll<T1, T2>(Expression<Func<T, bool>> filterExpression, 
+            Expression<Func<T, T1>> sortExpression, 
+            Expression<Func<T, T2>> selectExpression, 
+            int? skip = null, 
+            int? take = null)
         {
-            return this.Set
-                 .Where(filterExpression)
-                 .OrderBy(sortExpression)
-                 .Select(selectExpression)
-                 .ToList();
+            IQueryable<T> result = this.Set;
+
+            if (filterExpression != null)
+            {
+                result = result.Where(filterExpression);
+            }
+
+            if(sortExpression != null)
+            {
+                result = result.OrderBy(sortExpression);
+            }
+
+            if(skip != null)
+            {
+                result.Skip(skip.Value);
+            }
+
+            if (take != null)
+            {
+                result.Take(take.Value);
+            }
+
+            if (selectExpression != null)
+            {
+                return result.Select(selectExpression).ToList();
+            }
+
+            return result.OfType<T2>().ToList();
+        }
+
+        public IEnumerable<T> GetAll(Expression<Func<T, bool>> filterExpression, int? skip = null, int? take = null)
+        {
+            IQueryable<T> result = this.Set;
+
+            if (filterExpression != null)
+            {
+                result = result.Where(filterExpression);
+            }
+
+            if (skip != null)
+            {
+                result = result.Skip(skip.Value);
+            }
+
+            if (take != null)
+            {
+                result = result.Take(take.Value);
+            }
+
+            return result.ToList();
         }
 
         public void Add(T entity)

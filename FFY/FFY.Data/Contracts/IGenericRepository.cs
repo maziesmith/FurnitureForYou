@@ -18,7 +18,11 @@ namespace FFY.Data.Contracts
 
         IEnumerable<T> GetAll<T1>(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T1>> sortExpression);
 
-        IEnumerable<T2> GetAll<T1, T2>(Expression<Func<T, bool>> filterExpression, Expression<Func<T, T1>> sortExpression, Expression<Func<T, T2>> selectExpression);
+        IEnumerable<T2> GetAll<T1, T2>(Expression<Func<T, bool>> filterExpression, 
+            Expression<Func<T, T1>> sortExpression, 
+            Expression<Func<T, T2>> selectExpression,
+            int? skip, 
+            int? take);
 
         void Add(T entity);
 

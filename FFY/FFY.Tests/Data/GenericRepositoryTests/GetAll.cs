@@ -111,8 +111,7 @@ namespace FFY.Tests.Data.GenericRepositoryTests
 
             var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
 
-            // possibly better repository implementation
-            var result = genericRepository.GetAll(a => true, s => s.Id).ToList();
+            var result = genericRepository.GetAll(null, s => s.Id).ToList();
 
             Assert.AreEqual(3, result.Count());
             Assert.AreEqual(result[0].Name, "One");
@@ -148,6 +147,34 @@ namespace FFY.Tests.Data.GenericRepositoryTests
         }
 
         [Test]
+        public void ShouldReturnSelectedValues_WhenSelectExpressionIsPassed()
+        {
+            var mockedContext = new Mock<IFFYContext>();
+            var mockedSet = new Mock<IDbSet<MockedModel>>();
+            var data = new List<MockedModel>()
+            {
+                new MockedModel() { Id = 2,  Name = "Two" },
+                new MockedModel() { Id = 4, Name = "Four"},
+                new MockedModel() { Id = 1, Name="One" }
+            }.AsQueryable();
+
+            mockedContext.Setup(x => x.Set<MockedModel>()).Returns(mockedSet.Object);
+
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.ElementType).Returns(data.ElementType);
+
+            var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
+
+            var result = genericRepository.GetAll<int, string>(null, null, m => m.Name).ToList();
+
+            Assert.AreEqual(3, result.Count());
+            Assert.AreEqual(result[0], "Two");
+            Assert.AreEqual(result[1], "Four");
+            Assert.AreEqual(result[2], "One");
+        }
+
+        [Test]
         public void ShouldReturnSelectedAndSortedValues_WhenSelectAndSortExpressionArePassed()
         {
             var mockedContext = new Mock<IFFYContext>();
@@ -167,13 +194,183 @@ namespace FFY.Tests.Data.GenericRepositoryTests
 
             var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
 
-            // possibly better repository implementation
-            var result = genericRepository.GetAll<int, string>(a => true, b => b.Id, m => m.Name).ToList();
+            var result = genericRepository.GetAll<int, string>(null, s => s.Id, m => m.Name).ToList();
 
             Assert.AreEqual(3, result.Count());
             Assert.AreEqual(result[0], "One");
             Assert.AreEqual(result[1], "Two");
             Assert.AreEqual(result[2], "Four");
+        }
+
+        [Test]
+        public void ShouldReturnFilteredSelectedAndSortedValues_WhenFilterSelectAndSortExpressionArePassed()
+        {
+            var mockedContext = new Mock<IFFYContext>();
+            var mockedSet = new Mock<IDbSet<MockedModel>>();
+            var data = new List<MockedModel>()
+            {
+                new MockedModel() { Id = 2,  Name = "Two" },
+                new MockedModel() { Id = 4, Name = "Four"},
+                new MockedModel() { Id = 1, Name="One" },
+                new MockedModel() { Id = 3, Name="Three" }
+            }.AsQueryable();
+
+            mockedContext.Setup(x => x.Set<MockedModel>()).Returns(mockedSet.Object);
+
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.ElementType).Returns(data.ElementType);
+
+            var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
+
+            var result = genericRepository.GetAll<int, string>(f => f.Id < 3, s => s.Id, m => m.Name).ToList();
+
+            Assert.AreEqual(2, result.Count());
+            Assert.AreEqual(result[0], "One");
+            Assert.AreEqual(result[1], "Two");
+        }
+
+        [TestCase(1)]
+        [TestCase(3)]
+        public void ShouldReturnCorrectAmountOfElements_WhenTakeParameterIsPassed(int take)
+        {
+            var mockedContext = new Mock<IFFYContext>();
+            var mockedSet = new Mock<IDbSet<MockedModel>>();
+            var data = new List<MockedModel>()
+            {
+                new MockedModel() { Id = 2,  Name = "Two" },
+                new MockedModel() { Id = 4, Name = "Four"},
+                new MockedModel() { Id = 1, Name="One" },
+                new MockedModel() { Id = 3, Name="Three" }
+            }.AsQueryable();
+
+            mockedContext.Setup(x => x.Set<MockedModel>()).Returns(mockedSet.Object);
+
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.ElementType).Returns(data.ElementType);
+
+            var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
+
+            var result = genericRepository.GetAll(null, null, take).ToList();
+
+            Assert.AreEqual(take, result.Count());
+        }
+
+        [Test]
+        public void ShouldReturnCorrectElements_WhenTakeParameterIsPassed()
+        {
+            int take = 3;
+            var mockedContext = new Mock<IFFYContext>();
+            var mockedSet = new Mock<IDbSet<MockedModel>>();
+            var data = new List<MockedModel>()
+            {
+                new MockedModel() { Id = 2,  Name = "Two" },
+                new MockedModel() { Id = 4, Name = "Four"},
+                new MockedModel() { Id = 1, Name="One" },
+                new MockedModel() { Id = 3, Name="Three" }
+            }.AsQueryable();
+
+            mockedContext.Setup(x => x.Set<MockedModel>()).Returns(mockedSet.Object);
+
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.ElementType).Returns(data.ElementType);
+
+            var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
+
+            var result = genericRepository.GetAll(null, null, take).ToList();
+
+            Assert.AreEqual(take, result.Count());
+            Assert.AreEqual(result[0].Name, "Two");
+            Assert.AreEqual(result[1].Name, "Four");
+            Assert.AreEqual(result[2].Name, "One");
+        }
+
+        [TestCase(1)]
+        [TestCase(3)]
+        public void ShouldSkipCorrectAmountOfElements_WhenSkipParameterIsPassed(int skip)
+        {
+            var mockedContext = new Mock<IFFYContext>();
+            var mockedSet = new Mock<IDbSet<MockedModel>>();
+            var data = new List<MockedModel>()
+            {
+                new MockedModel() { Id = 2,  Name = "Two" },
+                new MockedModel() { Id = 4, Name = "Four"},
+                new MockedModel() { Id = 1, Name="One" },
+                new MockedModel() { Id = 3, Name="Three" }
+            }.AsQueryable();
+
+            mockedContext.Setup(x => x.Set<MockedModel>()).Returns(mockedSet.Object);
+
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.ElementType).Returns(data.ElementType);
+
+            var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
+
+            var result = genericRepository.GetAll(null, skip).ToList();
+
+            Assert.AreEqual(data.Count() - skip, result.Count());
+        }
+
+        [Test]
+        public void ShouldSkipAndReturnCorrectElements_WhenSkipParameterIsPassed()
+        {
+            int skip = 2;
+            var mockedContext = new Mock<IFFYContext>();
+            var mockedSet = new Mock<IDbSet<MockedModel>>();
+            var data = new List<MockedModel>()
+            {
+                new MockedModel() { Id = 2,  Name = "Two" },
+                new MockedModel() { Id = 4, Name = "Four"},
+                new MockedModel() { Id = 1, Name="One" },
+                new MockedModel() { Id = 3, Name="Three" }
+            }.AsQueryable();
+
+            mockedContext.Setup(x => x.Set<MockedModel>()).Returns(mockedSet.Object);
+
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.ElementType).Returns(data.ElementType);
+
+            var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
+
+            var result = genericRepository.GetAll(null, skip).ToList();
+
+            Assert.AreEqual(data.Count() - skip, result.Count());
+            Assert.AreEqual(result[0].Name, "One");
+            Assert.AreEqual(result[1].Name, "Three");
+        }
+
+        [Test]
+        public void ShouldSkipAndReturnCorrectElements_WhenSkipAndTakeParameterIsPassed()
+        {
+            int skip = 1;
+            int take = 2;
+            var mockedContext = new Mock<IFFYContext>();
+            var mockedSet = new Mock<IDbSet<MockedModel>>();
+            var data = new List<MockedModel>()
+            {
+                new MockedModel() { Id = 2,  Name = "Two" },
+                new MockedModel() { Id = 4, Name = "Four"},
+                new MockedModel() { Id = 1, Name="One" },
+                new MockedModel() { Id = 3, Name="Three" }
+            }.AsQueryable();
+
+            mockedContext.Setup(x => x.Set<MockedModel>()).Returns(mockedSet.Object);
+
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Provider).Returns(data.Provider);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.Expression).Returns(data.Expression);
+            mockedSet.As<IQueryable<MockedModel>>().Setup(m => m.ElementType).Returns(data.ElementType);
+
+            var genericRepository = new GenericRepository<MockedModel>(mockedContext.Object);
+
+            var result = genericRepository.GetAll(null, skip, take).ToList();
+
+            Assert.AreEqual(take, result.Count());
+            Assert.AreEqual(result[0].Name, "Four");
+            Assert.AreEqual(result[1].Name, "One");
         }
     }
 }
