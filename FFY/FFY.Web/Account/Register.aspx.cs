@@ -21,25 +21,31 @@ namespace FFY.Web.Account
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var user = new User()
-            {
-                UserName = this.UserName.Text,
-                FirstName = this.FirstName.Text,
-                LastName = this.LastName.Text,
-                Email = this.Email.Text,
-                UserRole = "User"
-            };
+            var username = this.UserName.Text;
+            var firstName = this.FirstName.Text;
+            var lastName = this.LastName.Text;
+            var email = this.Email.Text;
+            var userRole = DefaultUserRole;
+            var password = this.Password.Text;
 
-            this.Registering?.Invoke(this, new RegisterEventArgs(this.Context, user, this.Password.Text));
+            this.Registering?.Invoke(this, new RegisterEventArgs(this.Context, 
+                username, 
+                firstName, 
+                lastName,
+                email,
+                userRole,
+                password));
 
             if (this.Model.IdentityResult.Succeeded)
             {
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                //string code = manager.GenerateEmailConfirmationToken(user.Id);
-                //string callbackUrl = IdentityHelper.GetUserConfirmationRedirectUrl(code, user.Id, Request);
-                //manager.SendEmail(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>.");
 
-                this.SigningIn?.Invoke(this, new SignInEventArgs(this.Context, user));
+                this.SigningIn?.Invoke(this, new SignInEventArgs(this.Context,
+                username,
+                firstName,
+                lastName,
+                email,
+                userRole));
+
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else 

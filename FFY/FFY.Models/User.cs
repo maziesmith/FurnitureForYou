@@ -16,6 +16,19 @@ namespace FFY.Models
             this.Orders = new HashSet<Order>();
         }
 
+        public User(string username, 
+            string firstName, 
+            string lastName, 
+            string email, 
+            string userRole) : this()
+        {
+            this.UserName = username;
+            this.FirstName = firstName;
+            this.LastName = lastName;
+            this.Email = email;
+            this.UserRole = userRole;
+        }
+
         //TODO: Remove possibly
         //[Key]
         //public int Id { get; set; }

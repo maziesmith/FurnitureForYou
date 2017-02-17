@@ -25,8 +25,6 @@ namespace FFY.Data
 
         public virtual IDbSet<Room> Rooms { get; set; }
 
-        // public virtual IDbSet<User> Users { get; set; }
-
         public static FFYContext Create()
         {
             return new FFYContext();

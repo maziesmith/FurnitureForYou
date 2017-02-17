@@ -1,6 +1,9 @@
-﻿using FFY.IdentityConfig;
+﻿using FFY.Data.Factories;
+using FFY.IdentityConfig;
+using FFY.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Web;
 using WebFormsMvp;
 
@@ -8,9 +11,17 @@ namespace FFY.MVP.Account.Register
 {
     public class RegisterPresenter : Presenter<IRegisterView>
     {
+        private readonly IUserFactory userFactory;
+        private User user;
 
-        public RegisterPresenter(IRegisterView view) : base(view)
+        public RegisterPresenter(IRegisterView view,
+            IUserFactory userFactory) : base(view)
         {
+            if(userFactory == null)
+            {
+                throw new ArgumentNullException("User factory cannot be null.");
+            }
+            this.userFactory = userFactory;
             this.View.Registering += OnRegistering;
             this.View.SigningIn += OnSigningIn;
         }
@@ -18,13 +29,16 @@ namespace FFY.MVP.Account.Register
         public void OnRegistering(object sender, RegisterEventArgs e)
         {
             var manager = e.Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            var signInManager = e.Context.GetOwinContext().Get<ApplicationSignInManager>(); 
+            var signInManager = e.Context.GetOwinContext().Get<ApplicationSignInManager>();
 
-            IdentityResult result = manager.Create(e.User, e.Password);
+            this.user = this.userFactory.CreateUser(e.Username, e.FirstName, e.LastName, e.Email, e.UserRole);
+            var pass = e.Password;
+
+            IdentityResult result = manager.Create(user, e.Password);
 
             if(result.Succeeded)
             {
-                manager.AddToRole(e.User.Id, "User");
+                manager.AddToRole(user.Id, "User");
             }
 
             this.View.Model.IdentityResult = result;
@@ -34,7 +48,7 @@ namespace FFY.MVP.Account.Register
         {
             var signInManager = e.Context.GetOwinContext().Get<ApplicationSignInManager>();
 
-            signInManager.SignIn(e.User, isPersistent: false, rememberBrowser: false);
+            signInManager.SignIn(this.user, isPersistent: false, rememberBrowser: false);
 
         }
     }

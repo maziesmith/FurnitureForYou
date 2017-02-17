@@ -22,6 +22,7 @@ namespace FFY.Web.App_Start.NinjectModules
 
             this.Rebind<IFFYContext>().To<FFYContext>().InRequestScope();
             this.Bind<IContactFactory>().ToFactory();
+            this.Bind<IUserFactory>().ToFactory();
 
         }
     }
