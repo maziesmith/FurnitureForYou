@@ -12,5 +12,7 @@ namespace FFY.Order.Contracts
         int Quantity { get; set; }
 
         Product Product { get; set; }
+
+        decimal CartProductTotal();
     }
 }

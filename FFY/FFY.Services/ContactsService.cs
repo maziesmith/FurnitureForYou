@@ -57,6 +57,11 @@ namespace FFY.Services
                 throw new ArgumentNullException("Contact cannot be null.");
             }
 
+            if (!Enum.IsDefined(typeof(ContactStatusType), statusType))
+            {
+                throw new InvalidCastException("Contact status type is out of enumeration range.");
+            }
+
             contact.ContactStatusType = (ContactStatusType)statusType;
 
             if(contact.ContactStatusType == ContactStatusType.NotProcessed)

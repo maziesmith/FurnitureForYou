@@ -20,5 +20,9 @@ namespace FFY.Order
 
         public Product Product { get; set; }
 
+        public decimal CartProductTotal()
+        {
+            return this.Product.Price * (this.Product.Price - (this.Product.DiscountPercentage / 100.0M)) * this.Quantity;
+        }
     }
 }
