@@ -5,8 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace FFY.Web.ShoppingCart
+namespace FFY.Web.Cart
 {
+
     public partial class AddToCart : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

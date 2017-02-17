@@ -1,4 +1,5 @@
 ﻿using FFY.MVP.Products.GetProductById;
+using FFY.Order;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,15 @@ namespace FFY.Web.Furniture
             {
                 this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
+        }
+
+        protected void add_Click(object sender, EventArgs e)
+        {
+            var cart = this.Session["shoppingCart"] as SessionShoppingCart;
+
+            cart.ShoppingCart.Add(2, this.Model.Product.Id);
+
+            this.Session["shoppingCart"] = cart;
         }
     }
 }

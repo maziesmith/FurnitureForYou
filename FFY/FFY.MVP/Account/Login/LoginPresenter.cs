@@ -28,6 +28,8 @@ namespace FFY.MVP.Account.Login
                 throw new ArgumentNullException("Products service cannot be null.");
             }
 
+            this.cartProductFactory = cartProductFactory;
+            this.productsService = productsService;
             this.View.Logging += this.OnLoggingIn;
         }
 
@@ -39,8 +41,14 @@ namespace FFY.MVP.Account.Login
 
             if(result == SignInStatus.Success)
             {
-                //TODO: Factory
-                e.Context.Session["shoping-cart"] = new ShoppingCart(this.cartProductFactory, this.productsService);
+                if(e.Context.Session["shoppingCart"] == null)
+                {
+                    //TODO: Factory
+                    e.Context.Session["shoppingCart"] = new SessionShoppingCart()
+                    {
+                        ShoppingCart = new ShoppingCart(this.cartProductFactory, this.productsService)
+                    };
+                }
             }
 
             this.View.Model.SignInStatus = result;

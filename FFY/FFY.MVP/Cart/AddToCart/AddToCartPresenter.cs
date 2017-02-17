@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.ShoppingCart.AddToCart
+namespace FFY.MVP.Cart.AddToCart
 {
     public class AddToCartPresenter : Presenter<IAddToCartView>
     {

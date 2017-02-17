@@ -4,4 +4,6 @@
     <div>Price: <%#: this.Model.Product.Price %> </div>
     <div>Description: <%#: this.Model.Product.Description %> </div>
 
+    <asp:Button ID="add" Text="add" OnClick="add_Click" runat="server"/>
+
 </asp:Content>

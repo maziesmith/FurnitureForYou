@@ -17,7 +17,7 @@ namespace FFY.Web
         private string _antiXsrfTokenValue;
 
         protected void Page_Init(object sender, EventArgs e)
-        {
+        { 
             // The code below helps to protect against XSRF attacks
             var requestCookie = Request.Cookies[AntiXsrfTokenKey];
             Guid requestCookieGuidValue;

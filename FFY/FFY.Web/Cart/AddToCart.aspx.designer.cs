@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FFY.Web.ShoppingCart {
+namespace FFY.Web.Cart {
     
     
     public partial class AddToCart {

@@ -14,7 +14,7 @@
         <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
         <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
     </address>
-
+    <asp:Label ID="TestLbl" runat="server"></asp:Label>
     <div class="form-horizontal">
         <h3>Contact Us</h3>
         <hr />
