@@ -131,6 +131,11 @@
     <Compile Include="Administration\ListUsers\ListUsersPresenter.cs" />
     <Compile Include="Administration\ListUsers\ListUsersViewModel.cs" />
     <Compile Include="Assembly\IMvpAssembly.cs" />
+    <Compile Include="Contacts\EditContactStatus\EditContactStatusEventArgs.cs" />
+    <Compile Include="Contacts\EditContactStatus\EditContactStatusPresenter.cs" />
+    <Compile Include="Contacts\EditContactStatus\EditContactStatusViewModel.cs" />
+    <Compile Include="Contacts\EditContactStatus\GetContactByIdEventArgs.cs" />
+    <Compile Include="Contacts\EditContactStatus\IEditContactStatusView.cs" />
     <Compile Include="Products\GetProductById\GetProductByIdEventArgs.cs" />
     <Compile Include="Products\GetProductById\GetProductByIdPresenter.cs" />
     <Compile Include="Products\GetProductById\GetProductByIdViewModel.cs" />

@@ -45,15 +45,40 @@ namespace FFY.Services
             }
         }
 
-        public void ChangeStatus(int categoryId)
-        {
-            // TODO
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<Contact> GetContacts()
         {
             return this.contactsRepository.GetAll(null, c => c.SendOn).Reverse();
+        }
+
+        public void ChangeContactStatus(Contact contact, int statusType, string userProccessedById)
+        {
+            if (contact == null)
+            {
+                throw new ArgumentNullException("Contact cannot be null.");
+            }
+
+            contact.ContactStatusType = (ContactStatusType)statusType;
+
+            if(contact.ContactStatusType == ContactStatusType.NotProcessed)
+            {
+                contact.UserProccessedById = null;
+                contact.UserProcessedBy = null;
+            }
+            else
+            {
+                contact.UserProccessedById = userProccessedById;
+            }
+
+            using (this.unitOfWork)
+            {
+                this.contactsRepository.Update(contact);
+                this.unitOfWork.Commit();
+            }
+        }
+
+        public Contact GetContactById(int id)
+        {
+            return this.contactsRepository.GetById(id);
         }
     }
 }

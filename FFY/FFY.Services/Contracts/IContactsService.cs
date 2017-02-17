@@ -13,6 +13,8 @@ namespace FFY.Services.Contracts
 
         void AddContact(Contact contact);
 
-        void ChangeStatus(int categoryId);
+        void ChangeContactStatus(Contact contact, int statusType, string userProccessedById);
+
+        Contact GetContactById(int id);
     }
 }

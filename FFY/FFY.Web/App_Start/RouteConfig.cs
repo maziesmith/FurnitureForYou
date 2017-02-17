@@ -25,6 +25,10 @@ namespace FFY.Web
             routes.MapPageRoute("EditProducts",
                 "administration/edit-product/{productId}",
                 "~/Administration/ProductManagement/EditProduct.aspx");
+
+            routes.MapPageRoute("Contacts",
+                "administration/contacts/{contactId}",
+                "~/Administration/ContactManagement/ContactDetailed.aspx");
         }
     }
 }

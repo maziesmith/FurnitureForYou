@@ -17,7 +17,9 @@
             <asp:BoundField DataField="Email" HeaderText="Email" />
             <asp:BoundField DataField="SendOn" HeaderText="Send on" />
             <asp:BoundField DataField="ContactStatusType" HeaderText="Status" />
-            <asp:ButtonField Text="Change Status" />
+            <asp:HyperLinkField Text="Details" 
+                DataNavigateUrlFields="Id"
+                DataNavigateUrlFormatString="~/administration/contacts/{0}"/>
         </Columns>
     </asp:GridView>
 </asp:Content>
