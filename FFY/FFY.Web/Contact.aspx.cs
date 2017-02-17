@@ -1,5 +1,5 @@
 ﻿using FFY.Models;
-using FFY.MVP.Users.SendContact;
+using FFY.MVP.Contacts.ContactSender;
 using FFY.Order;
 using Microsoft.AspNet.Identity;
 using System;
@@ -13,10 +13,10 @@ using WebFormsMvp.Web;
 
 namespace FFY.Web
 {
-    [PresenterBinding(typeof(SendContactPresenter))]
-    public partial class Contact : MvpPage<SendContactViewModel>, ISendContactView
+    [PresenterBinding(typeof(ContactPresenter))]
+    public partial class Contact : MvpPage<ContactViewModel>, IContactView
     {
-        public event EventHandler<SendContactEventArgs> SendingContact;
+        public event EventHandler<ContactEventArgs> SendingContact;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,16 +28,14 @@ namespace FFY.Web
         {
             if (Page.IsValid)
             {
-                var contact = new Models.Contact
-                {
-                    Email = this.Email.Text,
-                    Title = this.EmailTitle.Text,
-                    EmailContent = this.EmailContent.Text,
-                    SendOn = DateTime.Now,
-                    ContactStatusType = ContactStatusType.NotProcessed
-                };
+                var title = this.EmailTitle.Text;
+                var email = this.Email.Text;
+                var emailContent = this.EmailContent.Text;
+                var sendOn = DateTime.Now;
+                var contactStatusType = ContactStatusType.NotProcessed;
 
-                this.SendingContact?.Invoke(this, new SendContactEventArgs(contact));
+                this.SendingContact?.Invoke(this, 
+                    new ContactEventArgs(title, email, emailContent, sendOn, contactStatusType));
             }
         }
     }

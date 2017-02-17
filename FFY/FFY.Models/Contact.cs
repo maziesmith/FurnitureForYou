@@ -5,6 +5,24 @@ namespace FFY.Models
 {
     public class Contact
     {
+        public Contact()
+        {
+
+        }
+
+        public Contact(string title,
+            string email,
+            string emailContent,
+            DateTime sendOn,
+            ContactStatusType statusType) : this()
+        {
+            this.Title = title;
+            this.Email = email;
+            this.EmailContent = emailContent;
+            this.SendOn = sendOn;
+            this.ContactStatusType = statusType;
+        }
+
         [Key]
         public int Id { get; set; }
 

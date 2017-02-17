@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Users.SendContact
+namespace FFY.MVP.Contacts.ContactSender
 {
-    public class SendContactViewModel
+    public class ContactViewModel
     {
     }
 }

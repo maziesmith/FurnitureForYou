@@ -5,6 +5,8 @@ using FFY.Data.Assembly;
 using FFY.Data.Contracts;
 using FFY.Data;
 using Ninject.Web.Common;
+using FFY.Data.Factories;
+using Ninject.Extensions.Factory;
 
 namespace FFY.Web.App_Start.NinjectModules
 {
@@ -19,6 +21,8 @@ namespace FFY.Web.App_Start.NinjectModules
             );
 
             this.Rebind<IFFYContext>().To<FFYContext>().InRequestScope();
+            this.Bind<IContactFactory>().ToFactory();
+
         }
     }
 }

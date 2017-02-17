@@ -159,16 +159,20 @@
     <Compile Include="Cart\AddToCart\AddToCartPresenter.cs" />
     <Compile Include="Cart\AddToCart\AddToCartViewModel.cs" />
     <Compile Include="Cart\AddToCart\IAddToCartView.cs" />
-    <Compile Include="Users\SendContact\SendContactEventArgs.cs" />
-    <Compile Include="Users\SendContact\SendContactPresenter.cs" />
-    <Compile Include="Users\SendContact\SendContactViewModel.cs" />
-    <Compile Include="Users\SendContact\ISendContactView.cs" />
+    <Compile Include="Contacts\ContactSender\SendContactEventArgs.cs" />
+    <Compile Include="Contacts\ContactSender\SendContactPresenter.cs" />
+    <Compile Include="Contacts\ContactSender\SendContactViewModel.cs" />
+    <Compile Include="Contacts\ContactSender\ISendContactView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FFY.Data\FFY.Data.csproj">
+      <Project>{f2f1c297-4acf-485f-b0e2-9f08acccab19}</Project>
+      <Name>FFY.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FFY.IdentityConfig\FFY.IdentityConfig.csproj">
       <Project>{e4dda4c1-f068-4b4e-8113-7247d72c5ead}</Project>
       <Name>FFY.IdentityConfig</Name>
