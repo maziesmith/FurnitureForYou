@@ -21,7 +21,7 @@ namespace FFY.Web.Administration.ContactManagement
 
             if (!Page.IsPostBack)
             {
-                this.ContactList.DataSource = this.Model.Contacts;
+                this.ContactList.DataSource = this.Model.Contacts.ToList();
                 this.ContactList.DataBind();
             }
         }

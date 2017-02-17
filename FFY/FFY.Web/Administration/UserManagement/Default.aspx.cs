@@ -21,7 +21,7 @@ namespace FFY.Web.Administration.UserManagement
 
             if(!Page.IsPostBack)
             {
-                this.UserList.DataSource = this.Model.Users;
+                this.UserList.DataSource = this.Model.Users.ToList();
                 this.UserList.DataBind();
             }
         }

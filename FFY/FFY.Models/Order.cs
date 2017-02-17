@@ -27,7 +27,7 @@ namespace FFY.Models
 
         public int? AddressId { get; set; }
 
-        public virtual Adress Adress { get; set; }
+        public virtual Address Adress { get; set; }
 
         [Range(1, 3)]
         public virtual OrderStatusType OrderStatusType { get; set; }

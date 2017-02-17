@@ -11,15 +11,11 @@ namespace FFY.Data.Contracts
 {
     public interface IFFYContext
     {
-        IDbSet<Adress> Adresses { get; set; }
+        IDbSet<Address> Adresses { get; set; }
 
         IDbSet<Category> Categories { get; set; }
 
-        IDbSet<City> Cities { get; set; }
-
         IDbSet<Contact> Contacts { get; set; }
-
-        IDbSet<Country> Countries { get; set; }
 
         IDbSet<Order> Orders { get; set; }
 

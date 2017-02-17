@@ -19,7 +19,17 @@
                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Price"
                     CssClass="text-danger" ErrorMessage="Price field is required." />
                  <asp:RangeValidator runat="server" ControlToValidate="Price" Type="Double" MinimumValue="0" MaximumValue="100000" 
-                    CssClass="text-danger" ErrorMessage="Price must be a number between 0 and 100000."></asp:RangeValidator>
+                    CssClass="text-danger" ErrorMessage="Price should be a number between 0 and 100000."></asp:RangeValidator>
+            </div>
+        </div>
+        <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="DiscountPercentage" CssClass="col-md-2 control-label">Discount percentage</asp:Label>
+            <div class="col-md-10">
+                <asp:TextBox runat="server" ID="DiscountPercentage"  Text="<%#: this.Model.Product.DiscountPercentage %>" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="DiscountPercentage"
+                    CssClass="text-danger" ErrorMessage="Discount percentage field is required." />
+                 <asp:RangeValidator runat="server" ControlToValidate="DiscountPercentage" Type="Integer" MinimumValue="0" MaximumValue="100" 
+                    CssClass="text-danger" ErrorMessage="Discount percentage should be a number between 0 and 100."></asp:RangeValidator>
             </div>
         </div>
         <div class="form-group">
@@ -35,6 +45,7 @@
              <div class="col-md-3">
                 <asp:DropDownList runat="server" ID="Rooms" CssClass="form-control" DataTextField="Name" DataValueField="Id"></asp:DropDownList>
              </div>
+            <a runat="server" href="~/administration/productManagement/addRoom">Add new room</a>
         </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Categories" CssClass="col-md-2 control-label">Category</asp:Label>

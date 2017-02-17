@@ -218,6 +218,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administration\ContactManagement\ContactDetailed.aspx" />
     <Content Include="Administration\ContactManagement\Default.aspx" />
     <Content Include="Administration\ProductManagement\EditProduct.aspx" />
     <Content Include="Errors\Forbidden.aspx" />
@@ -416,6 +417,13 @@
     </Compile>
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\ContactManagement\ContactDetailed.aspx.cs">
+      <DependentUpon>ContactDetailed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\ContactManagement\ContactDetailed.aspx.designer.cs">
+      <DependentUpon>ContactDetailed.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\ContactManagement\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

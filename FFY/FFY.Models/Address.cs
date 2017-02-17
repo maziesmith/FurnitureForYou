@@ -3,10 +3,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FFY.Models
 {
-    public class Adress
+    public class Address
     {
         private ICollection<Order> orders;
-        public Adress()
+        public Address()
         {
             this.Orders = new HashSet<Order>();
         }
@@ -19,9 +19,9 @@ namespace FFY.Models
         [MaxLength(20)]
         public string StreetAdress { get; set; }
 
-        public int? CityId { get; set; }
+        public string City { get; set; }
 
-        public virtual City City { get; set; }
+        public string Country { get; set; }
 
         public virtual ICollection<Order> Orders
         {

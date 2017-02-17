@@ -14,6 +14,7 @@ namespace FFY.Web.Administration.ProductManagement
     [PresenterBinding(typeof(AddCategoryPresenter))]
     public partial class AddCategory : MvpPage<AddCategoryViewModel>, IAddCategoryView
     {
+        private const string ExistingCategoryErrorMessage = "Category addition was unsuccessful. The category may already exist";
         public event EventHandler<AddCategoryEventArgs> AddingCategory;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -30,7 +31,14 @@ namespace FFY.Web.Administration.ProductManagement
                     Name = this.Name.Text,
                 };
 
-                this.AddingCategory?.Invoke(this, new AddCategoryEventArgs(category));
+                try
+                {
+                    this.AddingCategory?.Invoke(this, new AddCategoryEventArgs(category));
+                }
+                catch (Exception)
+                {
+                    this.ErrorMessage.Text = ExistingCategoryErrorMessage;
+                }
             }
         }
     }

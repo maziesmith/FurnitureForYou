@@ -14,6 +14,7 @@ namespace FFY.Web.Administration.ProductManagement
     [PresenterBinding(typeof(AddRoomPresenter))]
     public partial class AddRoom : MvpPage<AddRoomViewModel>, IAddRoomView
     {
+        private const string ExistingCategoryErrorMessage = "Room addition was unsuccessful. The room may already exist";
         public event EventHandler<AddRoomEventArgs> AddingRoom;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,8 +30,15 @@ namespace FFY.Web.Administration.ProductManagement
                 {
                     Name = this.Name.Text,
                 };
+                try
+                {
+                    this.AddingRoom?.Invoke(this, new AddRoomEventArgs(room));
 
-                this.AddingRoom?.Invoke(this, new AddRoomEventArgs(room));
+                }
+                catch (Exception)
+                {
+                    this.ErrorMessage.Text = ExistingCategoryErrorMessage;
+                }
             }
         }
     }

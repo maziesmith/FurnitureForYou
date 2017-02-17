@@ -13,15 +13,11 @@ namespace FFY.Data
         {
         }
 
-        public virtual IDbSet<Adress> Adresses { get; set; }
+        public virtual IDbSet<Address> Adresses { get; set; }
 
         public virtual IDbSet<Category> Categories { get; set; }
 
-        public virtual IDbSet<City> Cities { get; set; }
-
         public virtual IDbSet<Contact> Contacts { get; set; }
-
-        public virtual IDbSet<Country> Countries { get; set; }
 
         public virtual IDbSet<Order> Orders { get; set; }
 

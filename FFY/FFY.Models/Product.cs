@@ -23,6 +23,11 @@ namespace FFY.Models
         [Range(0, 100000)]
         public decimal Price { get; set; }
 
+        [Range(0, 100)]
+        public int DiscountPercentage { get; set; }
+
+        public bool HasDiscount { get; set; }
+
         [Required]
         [MinLength(3)]
         [MaxLength(1000)]

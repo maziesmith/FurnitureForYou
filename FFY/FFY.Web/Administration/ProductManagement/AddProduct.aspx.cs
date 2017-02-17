@@ -70,6 +70,8 @@ namespace FFY.Web.Administration.ProductManagement
                     {
                         Name = Name.Text,
                         Price = decimal.Parse(Price.Text),
+                        DiscountPercentage = int.Parse(DiscountPercentage.Text),
+                        HasDiscount = int.Parse(DiscountPercentage.Text) > 0 ? true : false,
                         Description = Description.Text,
                         CategoryId = category.Id,
                         Category = category,

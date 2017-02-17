@@ -25,6 +25,10 @@ namespace FFY.Models
 
         public DateTime SendOn { get; set; }
 
+        public string UserProccessedById { get; set; }
+
+        public virtual User UserProcessedBy { get; set; }
+
         [Range(1, 3)]
         public virtual ContactStatusType ContactStatusType { get; set; }
     }

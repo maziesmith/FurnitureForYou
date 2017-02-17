@@ -74,6 +74,8 @@ namespace FFY.Web.Administration.ProductManagement
                 var product = this.Model.Product;
                 product.Name = this.Name.Text;
                 product.Price = decimal.Parse(this.Price.Text);
+                product.DiscountPercentage = int.Parse(DiscountPercentage.Text);
+                product.HasDiscount = int.Parse(DiscountPercentage.Text) > 0 ? true : false;
                 product.Description = this.Description.Text;
                 product.CategoryId = category.Id;
                 product.Category = category;
