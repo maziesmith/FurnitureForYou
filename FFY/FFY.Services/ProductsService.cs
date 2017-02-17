@@ -78,5 +78,15 @@ namespace FFY.Services
         {
             return this.productsRepository.GetAll();
         }
+
+        public IEnumerable<Product> GetDiscountProducts(int amount)
+        {
+            return this.productsRepository.GetAll(p => p.DiscountPercentage, null, amount);
+        }
+
+        public IEnumerable<Product> GetLatestProducts(int amount)
+        {
+            return this.productsRepository.GetAll().Reverse().Take(amount);
+        }
     }
 }

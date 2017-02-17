@@ -136,6 +136,10 @@
     <Compile Include="Contacts\EditContactStatus\EditContactStatusViewModel.cs" />
     <Compile Include="Contacts\EditContactStatus\GetContactByIdEventArgs.cs" />
     <Compile Include="Contacts\EditContactStatus\IEditContactStatusView.cs" />
+    <Compile Include="Home\HomeEventArgs.cs" />
+    <Compile Include="Home\HomePresenter.cs" />
+    <Compile Include="Home\HomeViewModel.cs" />
+    <Compile Include="Home\IHomeView.cs" />
     <Compile Include="Products\GetProductById\GetProductByIdEventArgs.cs" />
     <Compile Include="Products\GetProductById\GetProductByIdPresenter.cs" />
     <Compile Include="Products\GetProductById\GetProductByIdViewModel.cs" />

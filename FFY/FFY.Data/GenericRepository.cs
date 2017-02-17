@@ -48,9 +48,7 @@ namespace FFY.Data
 
         public IEnumerable<T2> GetAll<T1, T2>(Expression<Func<T, bool>> filterExpression, 
             Expression<Func<T, T1>> sortExpression, 
-            Expression<Func<T, T2>> selectExpression, 
-            int? skip = null, 
-            int? take = null)
+            Expression<Func<T, T2>> selectExpression)
         {
             IQueryable<T> result = this.Set;
 
@@ -62,16 +60,6 @@ namespace FFY.Data
             if(sortExpression != null)
             {
                 result = result.OrderBy(sortExpression);
-            }
-
-            if(skip != null)
-            {
-                result.Skip(skip.Value);
-            }
-
-            if (take != null)
-            {
-                result.Take(take.Value);
             }
 
             if (selectExpression != null)
@@ -89,6 +77,28 @@ namespace FFY.Data
             if (filterExpression != null)
             {
                 result = result.Where(filterExpression);
+            }
+
+            if (skip != null)
+            {
+                result = result.Skip(skip.Value);
+            }
+
+            if (take != null)
+            {
+                result = result.Take(take.Value);
+            }
+
+            return result.ToList();
+        }
+
+        public IEnumerable<T> GetAll<T1>(Expression<Func<T, T1>> sortExpression, int? skip = null, int? take = null)
+        {
+            IQueryable<T> result = this.Set;
+
+            if (sortExpression != null)
+            {
+                result = result.OrderBy(sortExpression);
             }
 
             if (skip != null)

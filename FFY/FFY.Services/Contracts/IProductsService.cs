@@ -17,6 +17,11 @@ namespace FFY.Services.Contracts
 
         IEnumerable<Product> GetProducts();
 
+        IEnumerable<Product> GetDiscountProducts(int amount);
+
+        IEnumerable<Product> GetLatestProducts(int amount);
+
+
         void AddProduct(Product product);
 
         void EditProduct(Product product);
