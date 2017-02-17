@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Account.Profile
+namespace FFY.MVP.Users.Profile
 {
     public interface IProfileView : IView<ProfileViewModel>
     {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Products.GetProductById
+namespace FFY.MVP.Furniture.FurnitureDetailed
 {
-    public class GetProductByIdEventArgs : EventArgs
+    public class FurnitureDetailedEventArgs : EventArgs
     {
-        public GetProductByIdEventArgs(int id)
+        public FurnitureDetailedEventArgs(int id)
         {
             this.Id = id;
         }

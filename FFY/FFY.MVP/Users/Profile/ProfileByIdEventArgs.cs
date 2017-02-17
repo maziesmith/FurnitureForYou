@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Account.Profile
+namespace FFY.MVP.Users.Profile
 {
     public class ProfileByIdEventArgs : EventArgs
     {

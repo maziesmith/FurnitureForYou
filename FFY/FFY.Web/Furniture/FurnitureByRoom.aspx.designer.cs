@@ -10,7 +10,7 @@
 namespace FFY.Web.Furniture {
     
     
-    public partial class FurnitureList {
+    public partial class FurnitureByRoom {
         
         /// <summary>
         /// FurnitureProducts control.

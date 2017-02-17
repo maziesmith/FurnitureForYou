@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Account.Profile
+namespace FFY.MVP.Users.Profile
 {
     public class ProfilePresenter : Presenter<IProfileView>
     {
@@ -17,7 +17,7 @@ namespace FFY.MVP.Account.Profile
         {
             if(usersService == null)
             {
-                throw new ArgumentNullException("Users service cannot be null");
+                throw new ArgumentNullException("Users service cannot be null.");
             }
 
             this.usersService = usersService;
@@ -26,8 +26,7 @@ namespace FFY.MVP.Account.Profile
 
         private void OnGettingUserById(object sender, ProfileByIdEventArgs e)
         {
-            var user = this.usersService.GetUserById(e.Id);
-            this.View.Model.User = user;
+            this.View.Model.User = this.usersService.GetUserById(e.Id);
         }
     }
 }

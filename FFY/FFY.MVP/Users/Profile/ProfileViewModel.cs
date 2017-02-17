@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Products.GetProductById
+namespace FFY.MVP.Users.Profile
 {
-    public class GetProductByIdViewModel
+    public class ProfileViewModel
     {
-        public Product Product { get; set; }
+        public User User { get; set; }
     }
 }

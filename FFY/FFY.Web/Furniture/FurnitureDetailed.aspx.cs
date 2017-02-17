@@ -1,4 +1,4 @@
-﻿using FFY.MVP.Products.GetProductById;
+﻿using FFY.MVP.Furniture.FurnitureDetailed;
 using FFY.Order;
 using Microsoft.AspNet.Identity;
 using System;
@@ -12,11 +12,11 @@ using WebFormsMvp.Web;
 
 namespace FFY.Web.Furniture
 {
-    [PresenterBinding(typeof(GetProductByIdPresenter))]
-    public partial class FurnitureDetailed : MvpPage<GetProductByIdViewModel>, IGetProductByIdView
+    [PresenterBinding(typeof(FurnitureDetailedPresenter))]
+    public partial class FurnitureDetailed : MvpPage<FurnitureDetailedViewModel>, IFurnitureDetailedView
     {
         private string username;
-        public event EventHandler<GetProductByIdEventArgs> GettingProductById;
+        public event EventHandler<FurnitureDetailedEventArgs> GettingProductById;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,7 +29,7 @@ namespace FFY.Web.Furniture
                 this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
 
-            this.GettingProductById?.Invoke(this, new GetProductByIdEventArgs(productId));
+            this.GettingProductById?.Invoke(this, new FurnitureDetailedEventArgs(productId));
 
             if(this.Model.Product == null)
             {
@@ -41,6 +41,7 @@ namespace FFY.Web.Furniture
 
         protected void add_Click(object sender, EventArgs e)
         {
+            //TODO: Refactor
             var cart = this.Session[string.Format("cart-{0}", username)] as SessionShoppingCart;
 
             cart.ShoppingCart.Add(2, this.Model.Product.Id);

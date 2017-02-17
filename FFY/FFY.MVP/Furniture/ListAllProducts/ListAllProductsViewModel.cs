@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Products.ListProductsRooms
+namespace FFY.MVP.Furniture.ListAllProducts
 {
-    public class ListProductsRoomsViewModel
+    public class ListAllProductsViewModel
     {
-        public IEnumerable<Room> Rooms { get; set; }
+        public IEnumerable<Product> Products { get; set; }
     }
 }

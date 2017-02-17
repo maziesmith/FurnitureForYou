@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Products.ListProductsRooms
+namespace FFY.MVP.Furniture.ListProductsRooms
 {
-    public class ListProductsRoomsPresenter : Presenter<IListProductsRoomsView>
+    public class FurnitureRoomsPresenter : Presenter<IFurnitureRoomsView>
     {
         private readonly IRoomsService roomsService;
 
-        public ListProductsRoomsPresenter(IListProductsRoomsView view,
+        public FurnitureRoomsPresenter(IFurnitureRoomsView view,
             IRoomsService roomsService) : base(view)
         {
             if(roomsService == null)
@@ -21,7 +21,7 @@ namespace FFY.MVP.Products.ListProductsRooms
             }
 
             this.roomsService = roomsService;
-            this.View.ListingProductsRooms += OnListingProductsRooms;
+            this.View.ListingFurnitureRooms += OnListingProductsRooms;
         }
 
         private void OnListingProductsRooms(object sender, EventArgs e)

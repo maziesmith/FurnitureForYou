@@ -1,4 +1,4 @@
-﻿using FFY.MVP.Account.Profile;
+﻿using FFY.MVP.Users.Profile;
 using Microsoft.AspNet.Identity;
 using System;
 using WebFormsMvp;

@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Products.ListProductsByRoom
+namespace FFY.MVP.Furniture.FurnitureDetailed
 {
-    public class ListProductsByRoomPresenter : Presenter<IListProductsByRoomView>
+    public class FurnitureDetailedPresenter : Presenter<IFurnitureDetailedView>
     {
         private readonly IProductsService productsService;
 
-        public ListProductsByRoomPresenter(IListProductsByRoomView view,
+        public FurnitureDetailedPresenter(IFurnitureDetailedView view,
             IProductsService productsService) : base(view)
         {
             if(productsService == null)
@@ -21,12 +21,12 @@ namespace FFY.MVP.Products.ListProductsByRoom
             }
 
             this.productsService = productsService;
-            this.View.ListingProductsByRoom += OnListingProductsByRoom;
+            this.View.GettingProductById += OnGettingProductById;
         }
 
-        private void OnListingProductsByRoom(object sender, ListProductsByRoomEventArgs e)
+        private void OnGettingProductById(object sender, FurnitureDetailedEventArgs e)
         {
-            this.View.Model.Products = this.productsService.GetProductsByRoomSpecialFiltered(e.RoomName);
+            this.View.Model.Product = this.productsService.GetProductById(e.Id);
         }
     }
 }

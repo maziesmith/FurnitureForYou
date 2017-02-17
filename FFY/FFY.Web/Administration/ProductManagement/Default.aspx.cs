@@ -1,4 +1,4 @@
-﻿using FFY.MVP.Products.ListAllProducts;
+﻿using FFY.MVP.Furniture.ListAllProducts;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Products.ListAllProducts
+namespace FFY.MVP.Furniture.ListAllProducts
 {
     public interface IListAllProductsView : IView<ListAllProductsViewModel>
     {

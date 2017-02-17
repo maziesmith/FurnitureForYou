@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Account.Profile
+namespace FFY.MVP.Furniture.FurnitureByRoom
 {
-    public class ProfileViewModel
+    public class FurnitureByRoomViewModel
     {
-        public User User { get; set; }
+        public IEnumerable<Product> Products { get; set; }
     }
 }
