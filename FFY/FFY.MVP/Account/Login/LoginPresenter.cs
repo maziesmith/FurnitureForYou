@@ -6,6 +6,7 @@ using FFY.Order;
 using FFY.Order.Factories;
 using System;
 using FFY.Services.Contracts;
+using Microsoft.AspNet.Identity;
 
 namespace FFY.MVP.Account.Login
 {
@@ -41,10 +42,11 @@ namespace FFY.MVP.Account.Login
 
             if(result == SignInStatus.Success)
             {
-                if(e.Context.Session["shoppingCart"] == null)
+                if(e.Context.Session[string.Format("cart-{0}", e.UserName)] == null)
                 {
                     //TODO: Factory
-                    e.Context.Session["shoppingCart"] = new SessionShoppingCart()
+                    
+                    e.Context.Session[string.Format("cart-{0}", e.UserName)] = new SessionShoppingCart()
                     {
                         ShoppingCart = new ShoppingCart(this.cartProductFactory, this.productsService)
                     };

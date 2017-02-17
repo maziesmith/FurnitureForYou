@@ -1,6 +1,7 @@
 ﻿using FFY.Models;
 using FFY.MVP.Users.SendContact;
 using FFY.Order;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace FFY.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var cart = this.Session["shoppingCart"] as SessionShoppingCart;
+            var cart = this.Session[string.Format("cart-{0}", this.User.Identity.GetUserName())] as SessionShoppingCart;
             this.TestLbl.Text = cart.ShoppingCart.Total().ToString();
         }
 
