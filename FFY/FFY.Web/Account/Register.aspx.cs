@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using FFY.Models;
 using FFY.IdentityConfig;
 using WebFormsMvp;
 using FFY.MVP.Account.Register;

@@ -103,6 +103,10 @@
     <Compile Include="Administration\ProductManagement\Utilities\IImageUploader.cs" />
     <Compile Include="Administration\ProductManagement\Utilities\ImageUploader.cs" />
     <Compile Include="Furniture\FurnitureDetailed\AddToShoppingCartEventArgs.cs" />
+    <Compile Include="Users\Cart\CartEventArgs.cs" />
+    <Compile Include="Users\Cart\CartPresenter.cs" />
+    <Compile Include="Users\Cart\CartViewModel.cs" />
+    <Compile Include="Users\Cart\ICartView.cs" />
     <Compile Include="Users\Profile\IProfileView.cs" />
     <Compile Include="Users\Profile\ProfileByIdEventArgs.cs" />
     <Compile Include="Users\Profile\ProfilePresenter.cs" />

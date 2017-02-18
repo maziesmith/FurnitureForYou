@@ -3,4 +3,5 @@
 <asp:Content ID="ProfileContent" ContentPlaceHolderID="MainContent" runat="server">
     <h3><%# this.Model.User.FirstName %> <%# this.Model.User.LastName %></h3>
     <asp:Label ID="TestLbl" runat="server"></asp:Label>
+    <asp:HyperLink NavigateUrl="~/Account/ManagePassword" Text="Change Password" Visible="false" ID="ChangePassword" runat="server" />
 </asp:Content>

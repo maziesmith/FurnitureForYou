@@ -86,5 +86,10 @@ namespace FFY.Services
             return this.shoppingCartRepository.GetById(cartId)
                 .CartProducts.Count();
         }
+
+        public ShoppingCart GetCart(string cartId)
+        {
+            return this.shoppingCartRepository.GetById(cartId);
+        }
     }
 }
