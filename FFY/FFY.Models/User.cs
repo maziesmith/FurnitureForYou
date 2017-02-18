@@ -66,6 +66,8 @@ namespace FFY.Models
             }
         }
 
+        public virtual ShoppingCart ShoppingCart { get; set; }
+
         public ClaimsIdentity GenerateUserIdentity(UserManager<User> manager)
         {
             // note the authenticationtype must match the one defined in cookieauthenticationoptions.authenticationtype

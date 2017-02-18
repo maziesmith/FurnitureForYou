@@ -20,8 +20,6 @@ namespace FFY.Web.App_Start.NinjectModules
                 .SelectAllClasses()
                 .BindDefaultInterface()
             );
-
-            this.Bind<ICartProductFactory>().ToFactory();
         }
     }
 }

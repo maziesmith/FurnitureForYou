@@ -15,6 +15,8 @@ namespace FFY.Web.Users
         {
             var id = this.Page.User.Identity.GetUserId();
             this.GettingUserById?.Invoke(this, new ProfileByIdEventArgs(id));
+
+            this.TestLbl.Text = this.Model.User.ShoppingCart.Total.ToString();
         }
     }
 }

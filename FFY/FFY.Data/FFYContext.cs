@@ -39,6 +39,10 @@ namespace FFY.Data
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
+            modelBuilder.Entity<ShoppingCart>()
+                .HasRequired(s => s.User)
+                .WithOptional(s => s.ShoppingCart);
+
             base.OnModelCreating(modelBuilder);
         }
 

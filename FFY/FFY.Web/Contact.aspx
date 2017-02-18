@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="Contact" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.cs" Inherits="FFY.Web.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="TestLbl" runat="server"></asp:Label>
     <div class="form-horizontal">
         <h3>Contact Us</h3>
         <hr />

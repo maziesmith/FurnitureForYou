@@ -31,7 +31,6 @@ namespace FFY.Services
             this.usersRepository = usersRepository;
         }
 
-
         public User GetUserById(string id)
         {
             return this.usersRepository.GetById(id);

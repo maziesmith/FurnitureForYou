@@ -19,7 +19,6 @@ namespace FFY.Web
             this.LatestProducts.DataSource = this.Model.LatestProducts;
             this.LatestProducts.DataBind();
 
-
             this.ListingDiscountProducts?.Invoke(this, new HomeEventArgs(Amount));
             this.DiscountProducts.DataSource = this.Model.DiscountProducts;
             this.DiscountProducts.DataBind();

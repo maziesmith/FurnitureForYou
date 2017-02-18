@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,16 +17,22 @@ namespace FFY.Models
             this.CartProducts = new HashSet<CartProduct>();
         }
 
-        [Key]
-        public int Id { get; set; }
+        public ShoppingCart(string userId, User user, decimal total = 0) : this()
+        {
+            this.UserId = userId;
+            this.User = user;
+            this.Total = total;
+        }
 
+        [Key]
+        [ForeignKey("User")]
         public string UserId { get; set; }
 
         public virtual User User { get; set; }
 
         public decimal Total { get; set; }
 
-        public ICollection<CartProduct> CartProducts
+        public virtual ICollection<CartProduct> CartProducts
         {
             get
             {

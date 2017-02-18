@@ -116,8 +116,7 @@ namespace FFY.Data
 
         public void Add(T entity)
         {
-            // var entry = AttachIfDetached(entity);
-            var entry = this.Context.Entry(entity);
+            var entry = AttachIfDetached(entity);
             entry.State = EntityState.Added;
         }
 

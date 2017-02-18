@@ -20,8 +20,6 @@ namespace FFY.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var cart = this.Session[string.Format("cart-{0}", this.User.Identity.GetUserName())] as SessionShoppingCart;
-            this.TestLbl.Text = cart.ShoppingCart.Total().ToString();
         }
 
         protected void SendContactClick(object sender, EventArgs e)
