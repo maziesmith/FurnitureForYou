@@ -10,5 +10,7 @@ namespace FFY.MVP.Furniture.FurnitureDetailed
     public class FurnitureDetailedViewModel
     {
         public Product Product { get; set; }
+
+        public int CartCount { get; set; }
     }
 }

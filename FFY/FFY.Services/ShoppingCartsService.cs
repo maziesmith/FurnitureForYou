@@ -80,5 +80,11 @@ namespace FFY.Services
                 this.unitOfWork.Commit();
             }
         }
+
+        public int CartProductsCount(string cartId)
+        {
+            return this.shoppingCartRepository.GetById(cartId)
+                .CartProducts.Count();
+        }
     }
 }

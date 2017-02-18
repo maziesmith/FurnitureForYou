@@ -46,6 +46,8 @@ namespace FFY.Web.Account
                 email,
                 userRole));
 
+                this.Cache.Insert($"cart-count-{this.Model.UserId}", 0);
+
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
             }
             else 

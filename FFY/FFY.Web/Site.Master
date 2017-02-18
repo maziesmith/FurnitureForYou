@@ -63,6 +63,7 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/users/cart"><%: this.Cache[$"cart-count-{Context.User.Identity.GetUserId()}"] %></a></li>
                                 <li><a runat="server" href="~/users/profile"><%: Context.User.Identity.GetUserName() %></a></li>
                                 <li><a runat="server" href="~/acount/manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
                                 <li>

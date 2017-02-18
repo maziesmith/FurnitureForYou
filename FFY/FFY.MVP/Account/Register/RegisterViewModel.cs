@@ -10,5 +10,7 @@ namespace FFY.MVP.Account.Register
     public class RegisterViewModel
     {
         public IdentityResult IdentityResult { get; set; }
+
+        public string UserId { get; set; }
     }
 }

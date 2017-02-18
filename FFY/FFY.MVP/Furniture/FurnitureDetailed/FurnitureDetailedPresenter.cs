@@ -41,6 +41,7 @@ namespace FFY.MVP.Furniture.FurnitureDetailed
         private void OnAddingToShoppingCart(object sender, AddToShoppingCartEventArgs e)
         {
             this.shoppingCartsService.Add(e.Quantity, this.View.Model.Product, e.CartId);
+            this.View.Model.CartCount = this.shoppingCartsService.CartProductsCount(e.CartId);
         }
     }
 }

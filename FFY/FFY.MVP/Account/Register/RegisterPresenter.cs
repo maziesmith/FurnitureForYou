@@ -62,6 +62,7 @@ namespace FFY.MVP.Account.Register
                 this.shoppingCartsService.AssignShoppingCart(shoppingCart);
             }
 
+            this.View.Model.UserId = user.Id;
             this.View.Model.IdentityResult = result;
         }
 
