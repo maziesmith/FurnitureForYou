@@ -13,6 +13,11 @@ namespace FFY.Models
             this.Products = new HashSet<Product>();
         }
 
+        public Room(string name) : this()
+        {
+            this.Name = name;
+        }
+
         [Key]
         public int Id { get; set; }
 

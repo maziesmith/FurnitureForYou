@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Administration.ListContacts
+namespace FFY.MVP.Administration.ContactManagement.Contacts
 {
-    public class ListContactsViewModel
+    public class ContactsViewModel
     {
         public IEnumerable<Contact> Contacts { get; set; }
     }

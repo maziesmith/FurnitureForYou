@@ -12,6 +12,29 @@ namespace FFY.Models
             this.Orders = new HashSet<Order>();
         }
 
+        public Product(string name,
+            decimal price,
+            int discountPercentage,
+            bool hasDiscount,
+            string description,
+            int categoryId,
+            Category category,
+            int roomId,
+            Room room,
+            string imagePath) : this()
+        {
+            this.Name = name;
+            this.Price = price;
+            this.DiscountPercentage = discountPercentage;
+            this.HasDiscount = hasDiscount;
+            this.Description = description;
+            this.CategoryId = categoryId;
+            this.Category = category;
+            this.RoomId = roomId;
+            this.Room = room;
+            this.ImagePath = imagePath;
+        }
+
         [Key]
         public int Id { get; set; }
 

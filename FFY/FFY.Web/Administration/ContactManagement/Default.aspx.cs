@@ -1,4 +1,4 @@
-﻿using FFY.MVP.Administration.ListContacts;
+﻿using FFY.MVP.Administration.ContactManagement.Contacts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +10,8 @@ using WebFormsMvp.Web;
 
 namespace FFY.Web.Administration.ContactManagement
 {
-    [PresenterBinding(typeof(ListContactsPresenter))]
-    public partial class _Default : MvpPage<ListContactsViewModel>, IListContactsView
+    [PresenterBinding(typeof(ContactsPresenter))]
+    public partial class _Default : MvpPage<ContactsViewModel>, IContactsView
     {
         public event EventHandler ListingContacts;
 

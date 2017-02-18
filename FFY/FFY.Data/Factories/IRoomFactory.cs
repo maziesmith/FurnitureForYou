@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Contacts.EditContactStatus
+namespace FFY.Data.Factories
 {
-    public class EditContactStatusViewModel
+    public interface IRoomFactory
     {
-        public Contact Contact { get; set; }
+        Room CreateRoom(string name);
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Administration.AddProduct
+namespace FFY.MVP.Administration.ProductManagement.AddProduct
 {
     public class AddProductViewModel
     {

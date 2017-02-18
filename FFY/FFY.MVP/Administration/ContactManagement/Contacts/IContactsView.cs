@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Administration.ListContacts
+namespace FFY.MVP.Administration.ContactManagement.Contacts
 {
-    public interface IListContactsView : IView<ListContactsViewModel>
+    public interface IContactsView : IView<ContactsViewModel>
     {
         event EventHandler ListingContacts;
     }

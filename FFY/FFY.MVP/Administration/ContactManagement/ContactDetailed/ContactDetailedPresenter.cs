@@ -6,13 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Contacts.EditContactStatus
+namespace FFY.MVP.ContactManagement.ContactDetailed
 {
-    public class EditContactStatusPresenter : Presenter<IEditContactStatusView>
+    public class ContactDetailedPresenter : Presenter<IContactDetailedView>
     {
         private IContactsService contactsService;
 
-        public EditContactStatusPresenter(IEditContactStatusView view,
+        public ContactDetailedPresenter(IContactDetailedView view,
             IContactsService contactsService) : base(view)
         {
             if(contactsService == null)

@@ -1,4 +1,4 @@
-﻿using FFY.MVP.Contacts.EditContactStatus;
+﻿using FFY.MVP.ContactManagement.ContactDetailed;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
@@ -11,17 +11,20 @@ using WebFormsMvp.Web;
 
 namespace FFY.Web.Administration.ContactManagement
 {
-    [PresenterBinding(typeof(EditContactStatusPresenter))]
-    public partial class ContactDetailed : MvpPage<EditContactStatusViewModel>, IEditContactStatusView
+    [PresenterBinding(typeof(ContactDetailedPresenter))]
+    public partial class ContactDetailed : MvpPage<ContactDetailedViewModel>, IContactDetailedView
     {
         public event EventHandler<EditContactStatusEventArgs> EdittingContact;
         public event EventHandler<GetContactByIdEventArgs> Initial;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            // this.Model this.Page.User.Identity.GetUserId();
+            string contactIdParameter = null;
 
-            var contactIdParameter = this.Page.RouteData.Values["contactId"].ToString();
+            if (this.Page.RouteData.Values["contactId"] != null)
+            {
+                contactIdParameter = this.Page.RouteData.Values["contactId"].ToString();
+            }
 
             int contactId;
 

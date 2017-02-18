@@ -1,5 +1,5 @@
 ﻿using FFY.Models;
-using FFY.MVP.Administration.AddProduct;
+using FFY.MVP.Administration.ProductManagement.AddProduct;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,8 +17,9 @@ namespace FFY.Web.Administration.ProductManagement
     {
         private const string DefaultProductImageFileName = "default-product-image";
 
-        public event EventHandler<AddProductEventArgs> AddingProduct;
         public event EventHandler Initial;
+        public event EventHandler<AddProductEventArgs> AddingProduct;
+        public event EventHandler<UploadImageEventArgs> UploadingImage;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,41 +47,31 @@ namespace FFY.Web.Administration.ProductManagement
 
                 string imageFileName = DefaultProductImageFileName;
 
-                if (this.Image.HasFile)
-                {
-                    if (this.Image.PostedFile.ContentType == "image/png" || this.Image.PostedFile.ContentType == "image/jpeg")
-                    {
-                        string subPath = @"~\Images\" + category.Name.ToLower().Replace(@"\s+", "");
-
-                        bool exists = Directory.Exists(Server.MapPath(subPath));
-
-                        if (!exists)
-                        {
-                            Directory.CreateDirectory(Server.MapPath(subPath));
-                        }
-
-                        imageFileName = (DateTime.Now - new DateTime(1970, 1, 1)).TotalMinutes.ToString() + Path.GetFileName(Image.FileName);
-                        Image.SaveAs(Server.MapPath(subPath + @"\" + imageFileName));
-                    }
-                }
+                this.UploadingImage?.Invoke(this, new UploadImageEventArgs(this.Image,
+                    imageFileName,
+                    Server));
 
                 try
                 {
-                    var product = new Product()
-                    {
-                        Name = Name.Text,
-                        Price = decimal.Parse(Price.Text),
-                        DiscountPercentage = int.Parse(DiscountPercentage.Text),
-                        HasDiscount = int.Parse(DiscountPercentage.Text) > 0 ? true : false,
-                        Description = Description.Text,
-                        CategoryId = category.Id,
-                        Category = category,
-                        RoomId = room.Id,
-                        Room = room,
-                        ImagePath = imageFileName
-                    };
+                    var name = Name.Text;
+                    var price = decimal.Parse(Price.Text);
+                    var discountPercentage = int.Parse(DiscountPercentage.Text);
+                    var hasDiscount = discountPercentage > 0 ? true : false;
+                    var description = Description.Text;
+                    var categoryId = category.Id;
+                    var roomId = room.Id;
+                    var imagePath = imageFileName;
 
-                    this.AddingProduct?.Invoke(this, new AddProductEventArgs(product));
+                    this.AddingProduct?.Invoke(this, new AddProductEventArgs(name, 
+                        price, 
+                        discountPercentage, 
+                        hasDiscount,
+                        description,
+                        categoryId,
+                        category,
+                        roomId,
+                        room,
+                        imagePath));
                 }
                 catch (Exception)
                 {

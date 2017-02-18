@@ -61,7 +61,10 @@
     <Compile Include="Contracts\IFFYContext.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
     <Compile Include="Contracts\IUnitOfWork.cs" />
+    <Compile Include="Factories\ICategoryFactory.cs" />
     <Compile Include="Factories\IContactFactory.cs" />
+    <Compile Include="Factories\IProductFactory.cs" />
+    <Compile Include="Factories\IRoomFactory.cs" />
     <Compile Include="Factories\IUserFactory.cs" />
     <Compile Include="FFYContext.cs" />
     <Compile Include="GenericRepository.cs" />

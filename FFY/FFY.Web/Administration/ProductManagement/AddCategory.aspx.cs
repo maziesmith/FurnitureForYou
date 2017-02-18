@@ -1,5 +1,5 @@
 ﻿using FFY.Models;
-using FFY.MVP.Administration.AddCategory;
+using FFY.MVP.Administration.ProductManagement.AddCategory;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,14 +26,11 @@ namespace FFY.Web.Administration.ProductManagement
         {
             if(Page.IsValid)
             {
-                var category = new Category
-                {
-                    Name = this.Name.Text,
-                };
+                var name = this.Name.Text;
 
                 try
                 {
-                    this.AddingCategory?.Invoke(this, new AddCategoryEventArgs(category));
+                    this.AddingCategory?.Invoke(this, new AddCategoryEventArgs(name));
                 }
                 catch (Exception)
                 {

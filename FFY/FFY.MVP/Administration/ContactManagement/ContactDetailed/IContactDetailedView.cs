@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Contacts.EditContactStatus
+namespace FFY.MVP.ContactManagement.ContactDetailed
 {
-    public interface IEditContactStatusView : IView<EditContactStatusViewModel>
+    public interface IContactDetailedView : IView<ContactDetailedViewModel>
     {
         event EventHandler<GetContactByIdEventArgs> Initial;
 

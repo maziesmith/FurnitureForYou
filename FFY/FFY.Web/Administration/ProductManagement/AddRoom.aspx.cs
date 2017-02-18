@@ -1,5 +1,5 @@
 ﻿using FFY.Models;
-using FFY.MVP.Administration.AddRoom;
+using FFY.MVP.Administration.ProductManagement.AddRoom;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,13 +26,11 @@ namespace FFY.Web.Administration.ProductManagement
         {
             if (Page.IsValid)
             {
-                var room = new Room
-                {
-                    Name = this.Name.Text,
-                };
+                var name = this.Name.Text;
+
                 try
                 {
-                    this.AddingRoom?.Invoke(this, new AddRoomEventArgs(room));
+                    this.AddingRoom?.Invoke(this, new AddRoomEventArgs(name));
 
                 }
                 catch (Exception)

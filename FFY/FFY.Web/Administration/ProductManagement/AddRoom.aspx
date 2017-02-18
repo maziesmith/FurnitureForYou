@@ -3,7 +3,7 @@
     <div class="form-horizontal">
         <h3>Room Addition</h3>
         <hr />
-        <asp:Label ID="ErrorMessage" AssociatedControlID="ErrorMessage" runat="server"></asp:Label
+        <asp:Label ID="ErrorMessage" AssociatedControlID="ErrorMessage" runat="server"></asp:Label>
         <asp:ValidationSummary runat="server" CssClass="text-danger" />
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="Name" CssClass="col-md-2 control-label">Name</asp:Label>

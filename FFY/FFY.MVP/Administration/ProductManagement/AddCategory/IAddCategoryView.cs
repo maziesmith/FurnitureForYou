@@ -1,7 +1,7 @@
 ﻿using System;
 using WebFormsMvp;
 
-namespace FFY.MVP.Administration.AddCategory
+namespace FFY.MVP.Administration.ProductManagement.AddCategory
 {
     public interface IAddCategoryView : IView<AddCategoryViewModel>
     {
