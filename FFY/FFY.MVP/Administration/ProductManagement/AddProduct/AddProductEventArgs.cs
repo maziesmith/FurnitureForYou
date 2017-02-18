@@ -17,8 +17,7 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
             int categoryId,
             Category category,
             int roomId,
-            Room room,
-            string imagePath)
+            Room room)
         {
             if (string.IsNullOrEmpty(name))
             {
@@ -60,11 +59,6 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
                 throw new ArgumentNullException("Product room cannot be null.");
             }
 
-            if (string.IsNullOrEmpty(imagePath))
-            {
-                throw new ArgumentNullException("Product image path cannot be null or empty.");
-            }
-
             this.Name = name;
             this.Price = price;
             this.DiscountPercentage = discountPercentage;
@@ -74,7 +68,6 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
             this.Category = category;
             this.RoomId = roomId;
             this.Room = room;
-            this.ImagePath = imagePath;
         }
 
         public Category Category { get; set; }
@@ -86,8 +79,6 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
         public int DiscountPercentage { get; set; }
 
         public bool HasDiscount { get; set; }
-
-        public string ImagePath { get; set; }
 
         public string Name { get; set; }
 

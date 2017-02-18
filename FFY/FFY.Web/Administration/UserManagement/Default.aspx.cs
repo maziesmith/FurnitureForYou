@@ -1,4 +1,4 @@
-﻿using FFY.MVP.Administration.ListUsers;
+﻿using FFY.MVP.Administration.UserManagement.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +10,8 @@ using WebFormsMvp.Web;
 
 namespace FFY.Web.Administration.UserManagement
 {
-    [PresenterBinding(typeof(ListUsersPresenter))]
-    public partial class _Default : MvpPage<ListUsersViewModel>, IListUsersView
+    [PresenterBinding(typeof(UsersPresenter))]
+    public partial class _Default : MvpPage<UsersViewModel>, IUsersView
     {
         public event EventHandler ListingUsers;
 

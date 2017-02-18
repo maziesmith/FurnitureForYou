@@ -1,18 +1,22 @@
 ﻿using FFY.Models;
-using FFY.MVP.Administration.EditProduct;
+using FFY.MVP.Administration.ProductManagement.EditProduct;
 using System;
 using System.IO;
 using System.Linq;
 using WebFormsMvp;
 using WebFormsMvp.Web;
+using FFY.MVP.Administration.ProductManagement.Utilities;
 
 namespace FFY.Web.Administration.ProductManagement
 {
     [PresenterBinding(typeof(EditProductPresenter))]
     public partial class EditProduct : MvpPage<EditProductViewModel>, IEditProductView
     {
+        private const string DefaultProductFolderName = "products";
+
         public event EventHandler<GetProductEventArgs> Initial;
         public event EventHandler<EditProductEventArgs> EdittingProduct;
+        public event EventHandler<UploadImageEventArgs> UploadingImage;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,45 +54,25 @@ namespace FFY.Web.Administration.ProductManagement
             var category = this.Model.Categories.FirstOrDefault(c => c.Id == selectedCategoryId);
 
             string imageFileName = this.Model.Product.ImagePath;
+            string folderName = DefaultProductFolderName;
 
-            if (this.Image.HasFile)
-            {
-                if (this.Image.PostedFile.ContentType == "image/png" || this.Image.PostedFile.ContentType == "image/jpeg")
-                {
-                    string subPath = @"~\Images\" + category.Name.ToLower().Replace(@"\s+", "");
+            this.UploadingImage?.Invoke(this, new UploadImageEventArgs(this.Image,
+                Server,
+                imageFileName,
+                folderName));
 
-                    bool exists = Directory.Exists(Server.MapPath(subPath));
+            var product = this.Model.Product;
+            product.Name = this.Name.Text;
+            product.Price = decimal.Parse(this.Price.Text);
+            product.DiscountPercentage = int.Parse(DiscountPercentage.Text);
+            product.HasDiscount = int.Parse(DiscountPercentage.Text) > 0 ? true : false;
+            product.Description = this.Description.Text;
+            product.CategoryId = category.Id;
+            product.Category = category;
+            product.RoomId = room.Id;
+            product.Room = room;
 
-                    if (!exists)
-                    {
-                        Directory.CreateDirectory(Server.MapPath(subPath));
-                    }
-
-                    imageFileName = (DateTime.Now - new DateTime(1970, 1, 1)).TotalMinutes.ToString() + Path.GetFileName(Image.FileName);
-                    Image.SaveAs(Server.MapPath(subPath + @"\" + imageFileName));
-                }
-            }
-
-            try
-            {
-                var product = this.Model.Product;
-                product.Name = this.Name.Text;
-                product.Price = decimal.Parse(this.Price.Text);
-                product.DiscountPercentage = int.Parse(DiscountPercentage.Text);
-                product.HasDiscount = int.Parse(DiscountPercentage.Text) > 0 ? true : false;
-                product.Description = this.Description.Text;
-                product.CategoryId = category.Id;
-                product.Category = category;
-                product.RoomId = room.Id;
-                product.Room = room;
-                product.ImagePath = imageFileName;
-
-                this.EdittingProduct?.Invoke(this, new EditProductEventArgs(product));
-            }
-            catch (Exception)
-            {
-                this.Server.Transfer("~/Errors/InternalServerError.aspx");
-            }
+            this.EdittingProduct?.Invoke(this, new EditProductEventArgs(product));
         }
     }
 }

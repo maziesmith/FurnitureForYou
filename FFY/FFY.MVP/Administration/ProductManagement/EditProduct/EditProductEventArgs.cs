@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Administration.EditProduct
+namespace FFY.MVP.Administration.ProductManagement.EditProduct
 {
     public class EditProductEventArgs : EventArgs
     {

@@ -1,11 +1,7 @@
 ﻿using FFY.Data.Factories;
+using FFY.MVP.Administration.ProductManagement.Utilities;
 using FFY.Services.Contracts;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WebFormsMvp;
 
 namespace FFY.MVP.Administration.ProductManagement.AddProduct
@@ -17,12 +13,16 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
         private readonly ICategoriesService categoriesServices;
         private readonly IRoomsService roomsServices;
         private readonly IProductFactory productFactory;
+        private readonly IImageUploader imageUploader;
+
+        private string imageFileName;
 
         public AddProductPresenter(IAddProductView view,
             IProductFactory productFactory, 
             IProductsService productsService,
             ICategoriesService categoriesServices,
-            IRoomsService roomsServices) : base(view)
+            IRoomsService roomsServices,
+            IImageUploader imageUploader) : base(view)
         {
             if(productsService == null)
             {
@@ -44,10 +44,16 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
                 throw new ArgumentNullException("Product factory cannot be null.");
             }
 
+            if (imageUploader == null)
+            {
+                throw new ArgumentNullException("Image uploader cannot be null.");
+            }
+
             this.productsServices = productsService;
             this.categoriesServices = categoriesServices;
             this.roomsServices = roomsServices;
             this.productFactory = productFactory;
+            this.imageUploader = imageUploader;
             this.View.Initial += OnInitial;
             this.View.AddingProduct += OnAddingProduct;
             this.View.UploadingImage += OnUploadingImage;
@@ -70,32 +76,14 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
                 e.Category,
                 e.RoomId,
                 e.Room,
-                e.ImagePath);
+                this.imageFileName);
 
             this.productsServices.AddProduct(product);
         }
 
         private void OnUploadingImage(object sender, UploadImageEventArgs e)
         {
-            if (e.Image.HasFile)
-            {
-                if (e.Image.PostedFile.ContentType == "image/png" || e.Image.PostedFile.ContentType == "image/jpeg")
-                {
-                    string subPath = @"~\Images\products";
-
-                    bool exists = Directory.Exists(e.Server.MapPath(subPath));
-
-                    if (!exists)
-                    {
-                        Directory.CreateDirectory(e.Server.MapPath(subPath));
-                    }
-
-                    // Not testable, but if we want to assure uniqueness of a file name we have to use some random factor
-                    e.ImageFileName = (DateTime.Now - new DateTime(1970, 1, 1)).TotalMinutes.ToString() + Path.GetFileName(e.Image.FileName);
-
-                    e.Image.SaveAs(Server.MapPath(subPath + @"\" + e.ImageFileName));
-                }
-            }
+            this.imageFileName = this.imageUploader.Upload(e.Image, e.Server, e.ImageFileName, e.FolderName);
         }
     }
 }

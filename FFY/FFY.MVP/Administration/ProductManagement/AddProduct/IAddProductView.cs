@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFY.MVP.Administration.ProductManagement.Utilities;
+using System;
 using WebFormsMvp;
 
 namespace FFY.MVP.Administration.ProductManagement.AddProduct

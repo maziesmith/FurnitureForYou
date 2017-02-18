@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Administration.ListUsers
+namespace FFY.MVP.Administration.UserManagement.Users
 {
-    public interface IListUsersView : IView<ListUsersViewModel>
+    public interface IUsersView : IView<UsersViewModel>
     {
         event EventHandler ListingUsers;
     }

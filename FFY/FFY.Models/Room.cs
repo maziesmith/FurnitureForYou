@@ -13,9 +13,10 @@ namespace FFY.Models
             this.Products = new HashSet<Product>();
         }
 
-        public Room(string name) : this()
+        public Room(string name, string imagePath) : this()
         {
             this.Name = name;
+            this.ImagePath = imagePath;
         }
 
         [Key]
@@ -26,6 +27,8 @@ namespace FFY.Models
         [MaxLength(30)]
         [Index(IsUnique = true)]
         public string Name { get; set; }
+
+        public string ImagePath { get; set; }
 
         public virtual ICollection<Product> Products
         {

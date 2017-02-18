@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using WebFormsMvp;
 
-namespace FFY.MVP.Administration.ListUsers
+namespace FFY.MVP.Administration.UserManagement.Users
 {
-    public class ListUsersPresenter : Presenter<IListUsersView>
+    public class UsersPresenter : Presenter<IUsersView>
     {
         private readonly IUsersService usersService;
-        public ListUsersPresenter(IListUsersView view,
+        public UsersPresenter(IUsersView view,
             IUsersService usersService) : base(view)
         {
             if(usersService == null)

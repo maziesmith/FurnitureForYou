@@ -9,6 +9,6 @@ namespace FFY.Data.Factories
 {
     public interface ICategoryFactory
     {
-        Category CreateCategory(string name);
+        Category CreateCategory(string name, string imagePath);
     }
 }

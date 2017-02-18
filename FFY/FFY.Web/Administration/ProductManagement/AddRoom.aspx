@@ -14,6 +14,12 @@
             </div>
         </div>
         <div class="form-group">
+            <asp:Label runat="server" AssociatedControlID="Image" CssClass="col-md-2 control-label">Image</asp:Label>
+            <div class="col-md-3">
+                <asp:FileUpload runat="server" ID="Image" CssClass="form-control"></asp:FileUpload>
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="AddRoomClick" Text="Create" CssClass="btn btn-default" />
             </div>

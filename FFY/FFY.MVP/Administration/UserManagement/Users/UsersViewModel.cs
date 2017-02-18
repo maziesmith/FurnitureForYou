@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Administration.ListUsers
+namespace FFY.MVP.Administration.UserManagement.Users
 {
-    public class ListUsersViewModel
+    public class UsersViewModel
     {
         public IEnumerable<User> Users { get; set; }
     }

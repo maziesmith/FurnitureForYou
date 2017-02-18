@@ -21,7 +21,8 @@ namespace FFY.Models
             Category category,
             int roomId,
             Room room,
-            string imagePath) : this()
+            string imagePath,
+            bool isDeleted = false) : this()
         {
             this.Name = name;
             this.Price = price;
@@ -33,6 +34,7 @@ namespace FFY.Models
             this.RoomId = roomId;
             this.Room = room;
             this.ImagePath = imagePath;
+            this.IsDeleted = isDeleted;
         }
 
         [Key]
@@ -66,6 +68,7 @@ namespace FFY.Models
 
         public string ImagePath { get; set; }
 
+        public bool IsDeleted { get; set; }
 
         public virtual ICollection<Order> Orders
         {

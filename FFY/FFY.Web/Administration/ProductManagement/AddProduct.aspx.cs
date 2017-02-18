@@ -1,5 +1,6 @@
 ﻿using FFY.Models;
 using FFY.MVP.Administration.ProductManagement.AddProduct;
+using FFY.MVP.Administration.ProductManagement.Utilities;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,7 @@ namespace FFY.Web.Administration.ProductManagement
     public partial class AddProduct : MvpPage<AddProductViewModel>, IAddProductView
     {
         private const string DefaultProductImageFileName = "default-product-image";
+        private const string DefaultProductFolderName = "products";
 
         public event EventHandler Initial;
         public event EventHandler<AddProductEventArgs> AddingProduct;
@@ -46,10 +48,12 @@ namespace FFY.Web.Administration.ProductManagement
                 var category = this.Model.Categories.FirstOrDefault(c => c.Id == selectedCategoryId);
 
                 string imageFileName = DefaultProductImageFileName;
+                string folderName = DefaultProductFolderName;
 
                 this.UploadingImage?.Invoke(this, new UploadImageEventArgs(this.Image,
+                    Server,
                     imageFileName,
-                    Server));
+                    folderName));
 
                 try
                 {
@@ -60,7 +64,6 @@ namespace FFY.Web.Administration.ProductManagement
                     var description = Description.Text;
                     var categoryId = category.Id;
                     var roomId = room.Id;
-                    var imagePath = imageFileName;
 
                     this.AddingProduct?.Invoke(this, new AddProductEventArgs(name, 
                         price, 
@@ -70,8 +73,7 @@ namespace FFY.Web.Administration.ProductManagement
                         categoryId,
                         category,
                         roomId,
-                        room,
-                        imagePath));
+                        room));
                 }
                 catch (Exception)
                 {

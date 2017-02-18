@@ -18,6 +18,7 @@ namespace FFY.Data.Factories
             Category category,
             int roomId,
             Room room,
-            string imagePath);
+            string imagePath,
+            bool isDeleted = false);
     }
 }

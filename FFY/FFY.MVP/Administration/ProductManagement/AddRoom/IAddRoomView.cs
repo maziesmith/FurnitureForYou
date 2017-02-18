@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFY.MVP.Administration.ProductManagement.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,7 @@ namespace FFY.MVP.Administration.ProductManagement.AddRoom
     public interface IAddRoomView : IView<AddRoomViewModel>
     {
         event EventHandler<AddRoomEventArgs> AddingRoom;
+
+        event EventHandler<UploadImageEventArgs> UploadingImage;
     }
 }
