@@ -6,11 +6,11 @@ namespace FFY.Models
 {
     public class Order
     {
-        private ICollection<Product> products;
+        private ICollection<CartProduct> products;
 
         public Order()
         {
-            this.Products = new HashSet<Product>();
+            this.Products = new HashSet<CartProduct>();
         }
 
         [Key]
@@ -23,7 +23,7 @@ namespace FFY.Models
         public DateTime SendOn { get; set; }
 
         [Range(0, 1000000)]
-        public decimal TotalCost { get; set; }
+        public decimal Total { get; set; }
 
         public int? AddressId { get; set; }
 
@@ -32,7 +32,10 @@ namespace FFY.Models
         [Range(1, 3)]
         public virtual OrderStatusType OrderStatusType { get; set; }
 
-        public virtual ICollection<Product> Products
+        [Range(1, 2)]
+        public virtual OrderPaymentStatusType OrderPaymentStatusType { get; set; }
+
+        public virtual ICollection<CartProduct> Products
         {
             get
             {

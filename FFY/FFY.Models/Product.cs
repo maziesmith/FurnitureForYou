@@ -5,11 +5,8 @@ namespace FFY.Models
 {
     public class Product
     {
-        private ICollection<Order> orders;
-
         public Product()
         {
-            this.Orders = new HashSet<Order>();
         }
 
         public Product(string name,
@@ -69,17 +66,5 @@ namespace FFY.Models
         public string ImagePath { get; set; }
 
         public bool IsDeleted { get; set; }
-
-        public virtual ICollection<Order> Orders
-        {
-            get
-            {
-                return this.orders;
-            }
-            set
-            {
-                this.orders = value;
-            }
-        }
     }
 }

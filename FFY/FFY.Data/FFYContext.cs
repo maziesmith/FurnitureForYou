@@ -19,6 +19,10 @@ namespace FFY.Data
 
         public virtual IDbSet<Contact> Contacts { get; set; }
 
+        public virtual IDbSet<CartProduct> CartProducts { get; set; }
+
+        public virtual IDbSet<ShoppingCart> ShoppingCarts { get; set; }
+
         public virtual IDbSet<Order> Orders { get; set; }
 
         public virtual IDbSet<Product> Products { get; set; }
