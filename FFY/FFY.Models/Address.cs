@@ -11,13 +11,20 @@ namespace FFY.Models
             this.Orders = new HashSet<Order>();
         }
 
+        public Address(string street, string city, string country) : this()
+        {
+            this.Street = street;
+            this.City = city;
+            this.Country = country;
+        }
+
         [Key]
         public int Id { get; set; }
 
         [Required]
         [MinLength(3)]
         [MaxLength(20)]
-        public string StreetAdress { get; set; }
+        public string Street { get; set; }
 
         public string City { get; set; }
 

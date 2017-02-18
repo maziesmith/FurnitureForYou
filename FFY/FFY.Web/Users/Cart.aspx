@@ -5,7 +5,7 @@
         ItemType="FFY.Models.CartProduct"
         CssClass="table table-striped table-condensed table-bordered"
         DataKeyNames="ProductId"
-        OnRowDeleting="Products_RowDeleting">
+        OnRowDeleting="RemoveProduct">
         <Columns>
             <asp:BoundField DataField="Product.Name" HeaderText="Product" />
             <asp:BoundField DataField="Quantity" HeaderText="Category" />
@@ -14,7 +14,6 @@
            <asp:CommandField ShowDeleteButton="true"/>
         </Columns>
     </asp:GridView>
-
-
     <asp:Label runat="server" ID="Total"></asp:Label>
+    <asp:HyperLink runat="server" Text="Check out" NavigateUrl="~/users/checkout"></asp:HyperLink>
 </asp:Content>

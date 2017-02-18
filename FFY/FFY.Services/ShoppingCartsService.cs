@@ -103,6 +103,18 @@ namespace FFY.Services
             }
         }
 
+        public void Clear(ShoppingCart shoppingCart)
+        {
+            shoppingCart.CartProducts.Clear();
+            shoppingCart.Total = 0;
+
+            using (this.unitOfWork)
+            {
+                this.shoppingCartRepository.Update(shoppingCart);
+                this.unitOfWork.Commit();
+            }
+        }
+
         public int CartProductsCount(string cartId)
         {
             return this.shoppingCartRepository.GetById(cartId)

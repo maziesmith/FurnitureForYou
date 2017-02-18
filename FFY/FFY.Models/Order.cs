@@ -13,6 +13,27 @@ namespace FFY.Models
             this.Products = new HashSet<CartProduct>();
         }
 
+        public Order(string userId,
+            User user, 
+            DateTime sendOn, 
+            decimal total,
+            int addressId, 
+            Address address, 
+            string phoneNumber,
+            OrderPaymentStatusType orderPaymentStatusType,
+            OrderStatusType orderStatusType) : this()
+        {
+            this.UserId = userId;
+            this.User = user;
+            this.SendOn = sendOn;
+            this.Total = total;
+            this.AddressId = addressId;
+            this.Adress = address;
+            this.PhoneNumber = phoneNumber;
+            this.OrderPaymentStatusType = orderPaymentStatusType;
+            this.OrderStatusType = orderStatusType;
+        }
+
         [Key]
         public int Id { get; set; }
 
@@ -28,6 +49,8 @@ namespace FFY.Models
         public int? AddressId { get; set; }
 
         public virtual Address Adress { get; set; }
+
+        public string PhoneNumber { get; set; }
 
         [Range(1, 3)]
         public virtual OrderStatusType OrderStatusType { get; set; }

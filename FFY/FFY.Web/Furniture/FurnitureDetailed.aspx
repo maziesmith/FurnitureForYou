@@ -4,6 +4,16 @@
     <div>Price: <%#: this.Model.Product.Price %> </div>
     <div>Description: <%#: this.Model.Product.Description %> </div>
 
-    <asp:Button ID="add" Text="add" OnClick="add_Click" runat="server"/>
+    <div>
+        <asp:RangeValidator runat="server"
+            Type="Integer"
+            ControlToValidate="AddToCartQuantity"
+            MinimumValue="1"
+            MaximumValue="100"
+            ErrorMessage="Please provide positive quantity" />
+        <asp:TextBox runat="server" ID="AddToCartQuantity" Text="1" TextMode="Number"></asp:TextBox>
+    </div>
+
+    <asp:Button ID="add" Text="add" OnClick="AddToCart" runat="server"/>
 
 </asp:Content>

@@ -296,6 +296,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Users\Cart.aspx" />
+    <Content Include="Users\CheckOut.aspx" />
     <Content Include="Users\Profile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -577,6 +578,13 @@
     </Compile>
     <Compile Include="Users\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\CheckOut.aspx.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\CheckOut.aspx.designer.cs">
+      <DependentUpon>CheckOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

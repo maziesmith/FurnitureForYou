@@ -29,7 +29,7 @@ namespace FFY.Web.Users
             this.Total.Text = this.Model.ShoppingCart.Total.ToString();
         }
 
-        protected void Products_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void RemoveProduct(object sender, GridViewDeleteEventArgs e)
         {
             var productId = int.Parse(e.Keys[0].ToString());
             var cartId = this.User.Identity.GetUserId();

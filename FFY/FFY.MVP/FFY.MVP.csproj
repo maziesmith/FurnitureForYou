@@ -109,6 +109,11 @@
     <Compile Include="Users\Cart\CartViewModel.cs" />
     <Compile Include="Users\Cart\ICartView.cs" />
     <Compile Include="Users\Cart\RemoveFromCartArgs.cs" />
+    <Compile Include="Users\CheckOut\CartClearEventArgs.cs" />
+    <Compile Include="Users\CheckOut\CheckOutEventArgs.cs" />
+    <Compile Include="Users\CheckOut\CheckOutPresenter.cs" />
+    <Compile Include="Users\CheckOut\CheckOutViewModel.cs" />
+    <Compile Include="Users\CheckOut\ICheckOutView.cs" />
     <Compile Include="Users\Profile\IProfileView.cs" />
     <Compile Include="Users\Profile\ProfileByIdEventArgs.cs" />
     <Compile Include="Users\Profile\ProfilePresenter.cs" />

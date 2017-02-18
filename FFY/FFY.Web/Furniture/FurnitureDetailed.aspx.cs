@@ -40,9 +40,12 @@ namespace FFY.Web.Furniture
             this.userId = this.User.Identity.GetUserId();
         }
 
-        protected void add_Click(object sender, EventArgs e)
+        protected void AddToCart(object sender, EventArgs e)
         {
-            this.AddingToShoppingCart?.Invoke(this, new AddToShoppingCartEventArgs(1, this.userId));
+            var quantity = int.Parse(this.AddToCartQuantity.Text);
+
+            this.AddingToShoppingCart?.Invoke(this, 
+                new AddToShoppingCartEventArgs(quantity, this.userId));
 
             this.Cache.Insert($"cart-count-{userId}", this.Model.CartCount);
         }
