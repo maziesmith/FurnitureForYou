@@ -10,5 +10,7 @@ namespace FFY.Services.Contracts
     public interface IShoppingCartsService
     {
         void AssignShoppingCart(ShoppingCart shoppingCart);
+
+        void Add(int quantity, Product product, string cartId);
     }
 }

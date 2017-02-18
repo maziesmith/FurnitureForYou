@@ -10,5 +10,7 @@ namespace FFY.MVP.Furniture.FurnitureDetailed
     public interface IFurnitureDetailedView : IView<FurnitureDetailedViewModel>
     {
         event EventHandler<FurnitureDetailedEventArgs> GettingProductById;
+
+        event EventHandler<AddToShoppingCartEventArgs> AddingToShoppingCart;
     }
 }

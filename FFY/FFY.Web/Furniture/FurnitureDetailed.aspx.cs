@@ -15,8 +15,9 @@ namespace FFY.Web.Furniture
     [PresenterBinding(typeof(FurnitureDetailedPresenter))]
     public partial class FurnitureDetailed : MvpPage<FurnitureDetailedViewModel>, IFurnitureDetailedView
     {
-        private string username;
+        private string userId;
         public event EventHandler<FurnitureDetailedEventArgs> GettingProductById;
+        public event EventHandler<AddToShoppingCartEventArgs> AddingToShoppingCart;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,17 +37,12 @@ namespace FFY.Web.Furniture
                 this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
 
-            this.username = this.User.Identity.GetUserName();
+            this.userId = this.User.Identity.GetUserId();
         }
 
         protected void add_Click(object sender, EventArgs e)
         {
-            //TODO: Refactor
-            var cart = this.Session[string.Format("cart-{0}", username)] as SessionShoppingCart;
-
-            cart.ShoppingCart.Add(2, this.Model.Product.Id);
-
-            // this.Session[string.Format("cart-{0}", username)] = cart;
+            this.AddingToShoppingCart?.Invoke(this, new AddToShoppingCartEventArgs(1, this.userId));
         }
     }
 }

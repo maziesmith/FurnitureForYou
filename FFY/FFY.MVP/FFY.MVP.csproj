@@ -102,6 +102,7 @@
     <Compile Include="Administration\ProductManagement\Utilities\UploadImageEventArgs.cs" />
     <Compile Include="Administration\ProductManagement\Utilities\IImageUploader.cs" />
     <Compile Include="Administration\ProductManagement\Utilities\ImageUploader.cs" />
+    <Compile Include="Furniture\FurnitureDetailed\AddToShoppingCartEventArgs.cs" />
     <Compile Include="Users\Profile\IProfileView.cs" />
     <Compile Include="Users\Profile\ProfileByIdEventArgs.cs" />
     <Compile Include="Users\Profile\ProfilePresenter.cs" />

@@ -294,7 +294,6 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Cart\AddToCart.aspx" />
     <Content Include="Site.Master" />
     <Content Include="Users\Profile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -555,13 +554,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Cart\AddToCart.aspx.cs">
-      <DependentUpon>AddToCart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cart\AddToCart.aspx.designer.cs">
-      <DependentUpon>AddToCart.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
