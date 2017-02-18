@@ -4,13 +4,17 @@
         AutoGenerateColumns="False"
         ItemType="FFY.Models.CartProduct"
         CssClass="table table-striped table-condensed table-bordered"
-        DataKeyNames="ProductId">
+        DataKeyNames="ProductId"
+        OnRowDeleting="Products_RowDeleting">
         <Columns>
             <asp:BoundField DataField="Product.Name" HeaderText="Product" />
-            <asp:BoundField DataField="Product.Price" HeaderText="Price" />
-            <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
-            <asp:CommandField ShowDeleteButton="true" />
+            <asp:BoundField DataField="Quantity" HeaderText="Category" />
+            <asp:BoundField DataField="Product.DiscountedPrice" HeaderText="Category"/>
+            <asp:BoundField DataField="Total" HeaderText="Category"/>
+           <asp:CommandField ShowDeleteButton="true"/>
         </Columns>
     </asp:GridView>
+
+
     <asp:Label runat="server" ID="Total"></asp:Label>
 </asp:Content>

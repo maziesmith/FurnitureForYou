@@ -67,8 +67,11 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
 
         private void OnAddingProduct(object sender, AddProductEventArgs e)
         {
+            var discountedPrice = e.Price - (e.Price * (e.DiscountPercentage / 100.0M));
+
             var product = this.productFactory.CreateProduct(e.Name,
                 e.Price,
+                discountedPrice,
                 e.DiscountPercentage,
                 e.HasDiscount,
                 e.Description,

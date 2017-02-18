@@ -7,6 +7,7 @@ using FFY.MVP.Account.Login;
 using WebFormsMvp.Web;
 using FFY.Order;
 using FFY.Models;
+using Microsoft.AspNet.Identity;
 
 namespace FFY.Web.Account
 {
@@ -14,6 +15,8 @@ namespace FFY.Web.Account
     public partial class Login : MvpPage<LoginViewModel>, ILoginView
     {
         public event EventHandler<LoginEventArgs> Logging;
+        public event EventHandler<CartCountEventArgs> LoggingCartCount;
+        private string userId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -47,6 +50,8 @@ namespace FFY.Web.Account
                 switch (this.Model.SignInStatus)
                 {
                     case SignInStatus.Success:
+                        this.userId = this.User.Identity.GetUserId();
+                        this.Cache.Insert($"cart-count-{userId}", this.Model.CartCount);
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:

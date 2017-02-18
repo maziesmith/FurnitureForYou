@@ -10,5 +10,7 @@ namespace FFY.MVP.Users.Cart
     public interface ICartView : IView<CartViewModel>
     {
         event EventHandler<CartEventArgs> Initial;
+
+        event EventHandler<RemoveFromCartArgs> RemovingFromCart;
     }
 }

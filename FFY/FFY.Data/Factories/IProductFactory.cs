@@ -11,6 +11,7 @@ namespace FFY.Data.Factories
     {
         Product CreateProduct(string name,
             decimal price,
+            decimal discountedPrice,
             int discountPercentage,
             bool hasDiscount,
             string description,

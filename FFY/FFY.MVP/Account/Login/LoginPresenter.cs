@@ -12,10 +12,24 @@ namespace FFY.MVP.Account.Login
 {
     public class LoginPresenter : Presenter<ILoginView>
     {
+        private readonly IShoppingCartsService shoppingCartsService;
 
-        public LoginPresenter(ILoginView view) : base(view)
+        public LoginPresenter(ILoginView view,
+            IShoppingCartsService shoppingCartsService) : base(view)
         {
+            if(shoppingCartsService == null)
+            {
+                throw new ArgumentNullException("Shopping carts service cannot be null.");
+            }
+
+            this.shoppingCartsService = shoppingCartsService;
             this.View.Logging += this.OnLoggingIn;
+            this.View.LoggingCartCount += this.OnLoggingCartCount;
+        }
+
+        private void OnLoggingCartCount(object sender, CartCountEventArgs e)
+        {
+            this.View.Model.CartCount = this.shoppingCartsService.CartProductsCount(e.CartId);
         }
 
         public void OnLoggingIn(object sender, LoginEventArgs e)

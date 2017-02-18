@@ -63,6 +63,8 @@ namespace FFY.MVP.Administration.ProductManagement.EditProduct
         private void OnEdittingProduct(object sender, EditProductEventArgs e)
         {
             e.Product.ImagePath = this.imageFileName;
+            e.Product.DiscountedPrice = e.Product.Price - (e.Product.Price * (e.Product.DiscountPercentage / 100.0M));
+
             this.productsServices.EditProduct(e.Product);
         }
 

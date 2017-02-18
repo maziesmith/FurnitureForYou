@@ -15,6 +15,8 @@ namespace FFY.Services.Contracts
 
         void Add(int quantity, Product product, string cartId);
 
+        void Remove(int productId, string cartId);
+
         int CartProductsCount(string cartId);
     }
 }

@@ -10,5 +10,7 @@ namespace FFY.MVP.Users.Cart
     public class CartViewModel
     {
         public ShoppingCart ShoppingCart { get; set; }
+
+        public int CartCount { get; set; }
     }
 }

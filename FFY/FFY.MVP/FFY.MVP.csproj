@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Login\CartCountEventArgs.cs" />
     <Compile Include="Account\Login\ILoginView.cs" />
     <Compile Include="Account\Login\LoginEventArgs.cs" />
     <Compile Include="Account\Login\LoginPresenter.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Users\Cart\CartPresenter.cs" />
     <Compile Include="Users\Cart\CartViewModel.cs" />
     <Compile Include="Users\Cart\ICartView.cs" />
+    <Compile Include="Users\Cart\RemoveFromCartArgs.cs" />
     <Compile Include="Users\Profile\IProfileView.cs" />
     <Compile Include="Users\Profile\ProfileByIdEventArgs.cs" />
     <Compile Include="Users\Profile\ProfilePresenter.cs" />

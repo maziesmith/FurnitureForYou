@@ -22,6 +22,13 @@ namespace FFY.MVP.Users.Cart
 
             this.shoppingCartsService = shoppingCartsService;
             this.View.Initial += OnInitial;
+            this.View.RemovingFromCart += OnRemovingFromCart;
+        }
+
+        private void OnRemovingFromCart(object sender, RemoveFromCartArgs e)
+        {
+            this.shoppingCartsService.Remove(e.ProductId, e.CartId);
+            this.View.Model.CartCount = this.shoppingCartsService.CartProductsCount(e.CartId);
         }
 
         private void OnInitial(object sender, CartEventArgs e)

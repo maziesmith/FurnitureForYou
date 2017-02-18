@@ -70,9 +70,31 @@ namespace FFY.Services
                 currentCartProduct.Quantity += quantity;
             }
 
-            shoppingCart.Total = shoppingCart.CartProducts.Sum(p =>
-            (p.Product.Price - (p.Product.Price * p.Product.DiscountPercentage / 100.0M)) * p.Quantity);
+            currentCartProduct.Total = currentCartProduct.Quantity * currentCartProduct.Product.DiscountedPrice;
 
+            shoppingCart.Total = shoppingCart.CartProducts.Sum(p =>
+            (p.Product.DiscountedPrice * p.Quantity));
+
+            using (this.unitOfWork)
+            {
+                this.shoppingCartRepository.Update(shoppingCart);
+                this.unitOfWork.Commit();
+            }
+        }
+
+        public void Remove(int productId, string cartId)
+        {
+            var shoppingCart = this.shoppingCartRepository.GetById(cartId);
+
+            var currentCartProduct = shoppingCart.CartProducts.FirstOrDefault(p => p.ProductId == productId);
+
+            if (currentCartProduct != null)
+            {
+                shoppingCart.CartProducts.Remove(currentCartProduct);
+            }
+
+            shoppingCart.Total = shoppingCart.CartProducts.Sum(p =>
+            (p.Product.DiscountedPrice * p.Quantity));
 
             using (this.unitOfWork)
             {

@@ -11,6 +11,7 @@ namespace FFY.Models
 
         public Product(string name,
             decimal price,
+            decimal discountedPrice,
             int discountPercentage,
             bool hasDiscount,
             string description,
@@ -23,6 +24,7 @@ namespace FFY.Models
         {
             this.Name = name;
             this.Price = price;
+            this.DiscountedPrice = discountedPrice;
             this.DiscountPercentage = discountPercentage;
             this.HasDiscount = hasDiscount;
             this.Description = description;
@@ -44,6 +46,9 @@ namespace FFY.Models
 
         [Range(0, 100000)]
         public decimal Price { get; set; }
+
+        [Range(0, 100000)]
+        public decimal DiscountedPrice { get; set; }
 
         [Range(0, 100)]
         public int DiscountPercentage { get; set; }
