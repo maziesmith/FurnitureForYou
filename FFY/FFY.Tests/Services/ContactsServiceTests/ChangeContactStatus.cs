@@ -206,7 +206,7 @@ namespace FFY.Tests.Services.ContactsServiceTests
         }
 
         [Test]
-        public void ShouldCallUpdateMethodOfCategoryRepositoryOnce_WhenAContactIsPassed()
+        public void ShouldCallUpdateMethodOfContactRepositoryOnce_WhenAContactIsPassed()
         {
             // Arrange
             var contact = new Mock<Contact>();

@@ -87,6 +87,11 @@
     <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
     <Compile Include="Services\ContactsServiceTests\GetContactById.cs" />
     <Compile Include="Services\ContactsServiceTests\GetContacts.cs" />
+    <Compile Include="Services\OrdersServiceTests\AddOrder.cs" />
+    <Compile Include="Services\OrdersServiceTests\ChangeOrderStatus.cs" />
+    <Compile Include="Services\OrdersServiceTests\Constructor.cs" />
+    <Compile Include="Services\OrdersServiceTests\GetOrders.cs" />
+    <Compile Include="Services\OrdersServiceTests\GetOrderById.cs" />
     <Compile Include="Services\ProductsServiceTests\AddProduct.cs" />
     <Compile Include="Services\ProductsServiceTests\Constructor.cs" />
     <Compile Include="Services\ProductsServiceTests\EditProduct.cs" />

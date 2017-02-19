@@ -49,6 +49,7 @@ namespace FFY.Web.Account
                 {
                     case SignInStatus.Success:
                         this.userId = this.User.Identity.GetUserId();
+                        this.LoggingCartCount?.Invoke(this, new CartCountEventArgs(userId));
                         this.Cache.Insert($"cart-count-{userId}", this.Model.CartCount);
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;

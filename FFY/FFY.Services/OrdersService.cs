@@ -31,11 +31,16 @@ namespace FFY.Services
             this.ordersRepository = ordersRepository;
         }
 
-        public void AddOrder(Order product)
+        public void AddOrder(Order order)
         {
+            if(order == null)
+            {
+                throw new ArgumentNullException("Order cannot be null.");
+            }
+
             using (this.unitOfWork)
             {
-                this.ordersRepository.Add(product);
+                this.ordersRepository.Add(order);
                 this.unitOfWork.Commit();
             }
         }

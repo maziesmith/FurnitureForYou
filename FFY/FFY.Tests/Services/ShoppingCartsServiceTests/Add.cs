@@ -105,7 +105,6 @@ namespace FFY.Tests.Services.ShoppingCartsServiceTests
         {
             // Arrange
             var cartId = "42-123";
-            var quantity = 2;
 
             var product = new Product();
             // Temporary and Permanent products are empty and it shouldn't find product
