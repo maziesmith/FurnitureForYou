@@ -45,7 +45,7 @@ namespace FFY.Services
             return this.ordersRepository.GetAll(null, o => o.SendOn).Reverse();
         }
 
-        public void ChangeOrderStatus(Order order, int statusType)
+        public void ChangeOrderStatus(Order order, int statusType, int paymentStatusType)
         {
             if (order == null)
             {
@@ -57,7 +57,13 @@ namespace FFY.Services
                 throw new InvalidCastException("Order status type is out of enumeration range.");
             }
 
+            if (!Enum.IsDefined(typeof(OrderPaymentStatusType), paymentStatusType))
+            {
+                throw new InvalidCastException("Order payment status type is out of enumeration range.");
+            }
+
             order.OrderStatusType = (OrderStatusType)statusType;
+            order.OrderPaymentStatusType = (OrderPaymentStatusType)paymentStatusType;
 
             using (this.unitOfWork)
             {

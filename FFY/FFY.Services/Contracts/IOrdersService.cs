@@ -13,7 +13,7 @@ namespace FFY.Services.Contracts
 
         IEnumerable<Order> GetOrders();
 
-        void ChangeOrderStatus(Order order, int statusType);
+        void ChangeOrderStatus(Order order, int statusType, int paymentStatusType);
 
         Order GetOrderById(int id);
     }

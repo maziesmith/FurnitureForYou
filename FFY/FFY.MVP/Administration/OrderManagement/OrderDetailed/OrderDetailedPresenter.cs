@@ -32,7 +32,7 @@ namespace FFY.MVP.OrderManagement.OrderDetailed
 
         private void OnEdittingOrderStatus(object sender, EditOrderStatusEventArgs e)
         {
-            this.ordersService.ChangeOrderStatus(e.Order, e.StatusType);
+            this.ordersService.ChangeOrderStatus(e.Order, e.StatusType, e.PaymentStatusType);
         }
 
 

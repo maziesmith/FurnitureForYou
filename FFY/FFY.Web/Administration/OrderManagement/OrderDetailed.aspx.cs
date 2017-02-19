@@ -1,4 +1,5 @@
-﻿using FFY.MVP.OrderManagement.OrderDetailed;
+﻿using FFY.Models;
+using FFY.MVP.OrderManagement.OrderDetailed;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +39,28 @@ namespace FFY.Web.Administration.OrderManagement
             {
                 this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
+
+            if (!Page.IsPostBack)
+            {
+                this.Products.DataSource = this.Model.Order.Products.ToList();
+                this.Products.DataBind();
+
+                this.StatusType.SelectedValue = ((int)this.Model.Order.OrderStatusType).ToString();
+                this.StatusType.DataBind();
+
+                this.PaymentStatusType.SelectedValue = ((int)this.Model.Order.OrderPaymentStatusType).ToString();
+                this.PaymentStatusType.DataBind();
+
+                this.Total.Text = this.Model.Order.Total.ToString();
+            }   
+        }
+
+        protected void EditOrderStatus(object sender, EventArgs e)
+        {
+            var statusType = int.Parse(this.StatusType.SelectedValue);
+            var paymentStatusType = int.Parse(this.PaymentStatusType.SelectedValue);
+
+            this.EdittingOrderStatus?.Invoke(this, new EditOrderStatusEventArgs(this.Model.Order, statusType, paymentStatusType));
         }
     }
 }
