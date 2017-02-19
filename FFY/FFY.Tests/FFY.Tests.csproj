@@ -81,7 +81,7 @@
     <Compile Include="Services\CategoriesServiceTests\Constructor.cs" />
     <Compile Include="Services\CategoriesServiceTests\GetCategories.cs" />
     <Compile Include="Services\ContactsServiceTests\AddContact.cs" />
-    <Compile Include="Services\ContactsServiceTests\ChangeStatus.cs" />
+    <Compile Include="Services\ContactsServiceTests\ChangeContactStatus.cs" />
     <Compile Include="Services\ContactsServiceTests\Constructor.cs" />
     <Compile Include="Services\ContactsServiceTests\GetContactById.cs" />
     <Compile Include="Services\ContactsServiceTests\GetContacts.cs" />
