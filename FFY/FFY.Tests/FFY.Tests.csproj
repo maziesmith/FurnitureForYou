@@ -101,7 +101,11 @@
     <Compile Include="Services\RoomsServiceTests\GetRooms.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\Add.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\AssignShoppingCart.cs" />
+    <Compile Include="Services\ShoppingCartsServiceTests\CartProductsCount.cs" />
+    <Compile Include="Services\ShoppingCartsServiceTests\Clear.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\Constructor.cs" />
+    <Compile Include="Services\ShoppingCartsServiceTests\Delete.cs" />
+    <Compile Include="Services\ShoppingCartsServiceTests\GetCart.cs" />
     <Compile Include="Services\UsersServiceTests\Constructor.cs" />
     <Compile Include="Services\UsersServiceTests\GetUserById.cs" />
     <Compile Include="Services\UsersServiceTests\GetUserByUsername.cs" />

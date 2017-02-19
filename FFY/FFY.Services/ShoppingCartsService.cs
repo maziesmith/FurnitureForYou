@@ -114,6 +114,11 @@ namespace FFY.Services
 
         public void Remove(int productId, string cartId)
         {
+            if(string.IsNullOrEmpty(cartId))
+            {
+                throw new ArgumentNullException("Cart id cannot be null or empty.");
+            }
+
             var shoppingCart = this.shoppingCartRepository.GetById(cartId);
 
             var temporaryCartProduct = shoppingCart.TemporaryProducts.FirstOrDefault(p => p.ProductId == productId);
@@ -123,11 +128,6 @@ namespace FFY.Services
             {
                 this.cartProductRepository.Delete(temporaryCartProduct);
                 this.cartProductRepository.Delete(permanentCartProduct);
-            }
-
-            if (permanentCartProduct != null)
-            {
-                shoppingCart.PermamentProducts.Remove(permanentCartProduct);
             }
 
             shoppingCart.Total = shoppingCart.TemporaryProducts.Sum(p =>
@@ -142,6 +142,11 @@ namespace FFY.Services
 
         public void Clear(ShoppingCart shoppingCart)
         {
+            if(shoppingCart == null)
+            {
+                throw new ArgumentNullException("Shopping cart cannot be null.");
+            }
+
             // Possibly better way to delete products and not clear reference only
             shoppingCart.TemporaryProducts.Clear();
 
@@ -156,12 +161,22 @@ namespace FFY.Services
 
         public int CartProductsCount(string cartId)
         {
+            if (string.IsNullOrEmpty(cartId))
+            {
+                throw new ArgumentNullException("Cart id cannot be null.");
+            }
+
             return this.shoppingCartRepository.GetById(cartId)
                 .TemporaryProducts.Count();
         }
 
         public ShoppingCart GetCart(string cartId)
         {
+            if (string.IsNullOrEmpty(cartId))
+            {
+                throw new ArgumentNullException("Cart id cannot be null.");
+            }
+
             return this.shoppingCartRepository.GetById(cartId);
         }
     }
