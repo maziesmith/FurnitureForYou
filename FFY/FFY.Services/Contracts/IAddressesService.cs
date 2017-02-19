@@ -9,6 +9,6 @@ namespace FFY.Services.Contracts
 {
     public interface IAddressesService
     {
-        void Add(Address address);
+        void AddAddress(Address address);
     }
 }

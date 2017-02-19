@@ -73,7 +73,7 @@ namespace FFY.MVP.Users.CheckOut
             var address = this.addressesFactory.CreateAddress(e.Street, e.City, e.Country);
             var user = this.usersService.GetUserById(e.UserId);
 
-            this.addressesService.Add(address);
+            this.addressesService.AddAddress(address);
 
             var order = this.ordersFactory.CreateOrder(e.UserId,
                 user,

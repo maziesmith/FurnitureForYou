@@ -77,6 +77,8 @@
     <Compile Include="Data\UnitOfWorkTests\Commit.cs" />
     <Compile Include="Data\UnitOfWorkTests\Constructor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AddressesServiceTests\AddAddress.cs" />
+    <Compile Include="Services\AddressesServiceTests\Constructor.cs" />
     <Compile Include="Services\CategoriesServiceTests\AddCategory.cs" />
     <Compile Include="Services\CategoriesServiceTests\Constructor.cs" />
     <Compile Include="Services\CategoriesServiceTests\GetCategories.cs" />

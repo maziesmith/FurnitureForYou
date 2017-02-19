@@ -31,7 +31,7 @@ namespace FFY.Services
             this.addressesRepository = addressesRepository;
         }
 
-        public void Add(Address address)
+        public void AddAddress(Address address)
         {
             if (address == null)
             {
