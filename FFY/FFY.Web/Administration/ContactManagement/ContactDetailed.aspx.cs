@@ -39,6 +39,36 @@ namespace FFY.Web.Administration.ContactManagement
             {
                 this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
+
+            if (!Page.IsPostBack)
+            {
+                this.BindData();
+            }
+        }
+
+        protected void EditContactStatus(object sender, EventArgs e)
+        {
+            var userId = this.User.Identity.GetUserId();
+            var statusType = int.Parse(this.StatusType.SelectedValue);
+
+            this.EdittingContactStatus?.Invoke(this, new EditContactStatusEventArgs(this.Model.Contact, statusType, userId));
+            this.BindData();
+        }
+
+        private void BindData()
+        {
+            if (this.Model.Contact.UserProcessedBy != null)
+            {
+                this.ProccessedBy.Text =
+                    $"{this.Model.Contact.UserProcessedBy.FirstName} {this.Model.Contact.UserProcessedBy.LastName}";
+            }
+            else
+            {
+                this.ProccessedBy.Text = "Not proccessed";
+            }
+
+            this.StatusType.SelectedValue = ((int)this.Model.Contact.ContactStatusType).ToString();
+            this.StatusType.DataBind();
         }
     }
 }

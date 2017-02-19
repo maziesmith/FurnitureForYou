@@ -7,4 +7,18 @@
     <%#: this.Model.Contact.SendOn %>
     <hr />
     <%#: this.Model.Contact.EmailContent %>
+    <hr />
+    <asp:Literal ID="ProccessedBy" runat="server"></asp:Literal>
+        <div class="form-group">
+        <div class="col-md-3">
+            <asp:DropDownList runat="server" ID="StatusType" CssClass="form-control">
+                <asp:ListItem Value="1" Text="Not Processed"></asp:ListItem>
+                <asp:ListItem Value="2" Text="Processing"></asp:ListItem>
+                <asp:ListItem Value="3" Text="Processed"></asp:ListItem>
+            </asp:DropDownList>
+        </div>
+        <div class="col-md-6">
+            <asp:Button runat="server" Text="Update" OnClick="EditContactStatus"/>
+        </div>
+    </div>
 </asp:Content>

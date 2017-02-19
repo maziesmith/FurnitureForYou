@@ -17,6 +17,7 @@
         OnPageIndexChanging="OrderListPageIndexChanging" 
         PageSize="2"
         CssClass="table table-striped table-condensed table-bordered"
+        DataKeyName="Id"
         runat="server">
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id"/>

@@ -10,17 +10,25 @@ namespace FFY.MVP.ContactManagement.ContactDetailed
 {
     public class ContactDetailedPresenter : Presenter<IContactDetailedView>
     {
-        private IContactsService contactsService;
+        private readonly IContactsService contactsService;
+        private readonly IUsersService usersService;
 
         public ContactDetailedPresenter(IContactDetailedView view,
-            IContactsService contactsService) : base(view)
+            IContactsService contactsService,
+            IUsersService usersService) : base(view)
         {
             if(contactsService == null)
             {
                 throw new ArgumentNullException("Contacts service cannot be null.");
             }
 
+            if (usersService == null)
+            {
+                throw new ArgumentNullException("Users service cannot be null.");
+            }
+
             this.contactsService = contactsService;
+            this.usersService = usersService;
             this.View.Initial += OnInitial;
             this.View.EdittingContactStatus += OnEdittingContactStatus;
         }
@@ -32,7 +40,8 @@ namespace FFY.MVP.ContactManagement.ContactDetailed
 
         private void OnEdittingContactStatus(object sender, EditContactStatusEventArgs e)
         {
-            this.contactsService.ChangeContactStatus(e.Contact, e.StatusType, e.UserId);
+            var user = this.usersService.GetUserById(e.UserId);
+            this.contactsService.ChangeContactStatus(e.Contact, e.StatusType, e.UserId, user);
         }
 
 

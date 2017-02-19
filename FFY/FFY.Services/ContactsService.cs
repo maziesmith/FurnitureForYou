@@ -50,7 +50,7 @@ namespace FFY.Services
             return this.contactsRepository.GetAll(null, c => c.SendOn).Reverse();
         }
 
-        public void ChangeContactStatus(Contact contact, int statusType, string userProccessedById)
+        public void ChangeContactStatus(Contact contact, int statusType, string userProccessedById, User user)
         {
             if (contact == null)
             {
@@ -71,6 +71,7 @@ namespace FFY.Services
             }
             else
             {
+                contact.UserProcessedBy = user;
                 contact.UserProccessedById = userProccessedById;
             }
 

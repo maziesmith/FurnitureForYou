@@ -19,11 +19,8 @@ namespace FFY.Web.Administration.OrderManagement
         {
             this.ListingOrders?.Invoke(this, e);
 
-            if (!Page.IsPostBack)
-            {
-                this.OrderList.DataSource = this.Model.Orders.ToList();
-                this.OrderList.DataBind();
-            }
+            this.OrderList.DataSource = this.Model.Orders.ToList();
+            this.OrderList.DataBind();
         }
 
         protected void OrderListPageIndexChanging(object sender, GridViewPageEventArgs e)
