@@ -221,6 +221,7 @@
     <Content Include="Administration\ContactManagement\ContactDetailed.aspx" />
     <Content Include="Administration\ContactManagement\Default.aspx" />
     <Content Include="Administration\OrderManagement\Default.aspx" />
+    <Content Include="Administration\OrderManagement\OrderDetailed.aspx" />
     <Content Include="Administration\ProductManagement\EditProduct.aspx" />
     <Content Include="Errors\Forbidden.aspx" />
     <Content Include="Errors\InternalServerError.aspx" />
@@ -442,6 +443,13 @@
     </Compile>
     <Compile Include="Administration\OrderManagement\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\OrderManagement\OrderDetailed.aspx.cs">
+      <DependentUpon>OrderDetailed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\OrderManagement\OrderDetailed.aspx.designer.cs">
+      <DependentUpon>OrderDetailed.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administration\ProductManagement\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

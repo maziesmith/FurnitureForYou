@@ -12,5 +12,9 @@ namespace FFY.Services.Contracts
         void AddOrder(Order product);
 
         IEnumerable<Order> GetOrders();
+
+        void ChangeOrderStatus(Order order, int statusType);
+
+        Order GetOrderById(int id);
     }
 }

@@ -1,14 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FFY.Web.Administration.UserManagement._Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:GridView ID="UserList" AutoGenerateColumns="false" ItemType="FFY.Models.User" 
-        DataKeyNames="Id"  AllowPaging="true" OnPageIndexChanging="UserListPageIndexChanging" PageSize="2" BorderColor="White" BorderStyle="None" runat="server">
+        <asp:GridView ID="UserList" AutoGenerateColumns="false" 
+        ItemType="FFY.Models.User" 
+        DataKeyNames="Id"  
+        AllowPaging="true" 
+        OnPageIndexChanging="UserListPageIndexChanging" 
+        PageSize="2"
+        CssClass="table table-striped table-condensed table-bordered"
+        runat="server">
         <Columns>
             <asp:BoundField DataField="UserName" HeaderText="Username"/>
-            <asp:BoundField DataField="FirstName" HeaderText="First Name" />
-            <asp:BoundField DataField="LastName" HeaderText="Last Name" />
-            <asp:BoundField DataField="Email" HeaderText="Email Address" />
-            <asp:BoundField DataField="UserRole" HeaderText="Email Address" />
-            <asp:ButtonField Text="Change Role" />
+            <asp:TemplateField HeaderText="Client">
+                <ItemTemplate>
+                    <asp:Literal ID="FullName" runat="server" Text='<%#Eval("FirstName")+ " " + Eval("LastName")%>' ></asp:Literal>
+                </ItemTemplate>
+            </asp:TemplateField>
+            <asp:BoundField DataField="Email" HeaderText="Email" />
+            <asp:BoundField DataField="UserRole" HeaderText="Role" />
+            <asp:HyperLinkField Text="Details" 
+                DataNavigateUrlFields="Id"
+                DataNavigateUrlFormatString="~/administration/users/{0}"/>
         </Columns>
     </asp:GridView>
 </asp:Content>

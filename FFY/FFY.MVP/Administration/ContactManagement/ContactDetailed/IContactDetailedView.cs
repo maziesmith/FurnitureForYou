@@ -11,6 +11,6 @@ namespace FFY.MVP.ContactManagement.ContactDetailed
     {
         event EventHandler<GetContactByIdEventArgs> Initial;
 
-        event EventHandler<EditContactStatusEventArgs> EdittingContact;
+        event EventHandler<EditContactStatusEventArgs> EdittingContactStatus;
     }
 }

@@ -29,6 +29,10 @@ namespace FFY.Web
             routes.MapPageRoute("Contacts",
                 "administration/contacts/{contactId}",
                 "~/Administration/ContactManagement/ContactDetailed.aspx");
+
+            routes.MapPageRoute("Orders",
+                "administration/orders/{orderId}",
+                "~/Administration/OrderManagement/OrderDetailed.aspx");
         }
     }
 }

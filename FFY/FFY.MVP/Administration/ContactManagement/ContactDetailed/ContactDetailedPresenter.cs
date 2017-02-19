@@ -22,7 +22,7 @@ namespace FFY.MVP.ContactManagement.ContactDetailed
 
             this.contactsService = contactsService;
             this.View.Initial += OnInitial;
-            this.View.EdittingContact += OnEdittingContact;
+            this.View.EdittingContactStatus += OnEdittingContactStatus;
         }
 
         private void OnInitial(object sender, GetContactByIdEventArgs e)
@@ -30,7 +30,7 @@ namespace FFY.MVP.ContactManagement.ContactDetailed
             this.View.Model.Contact = this.contactsService.GetContactById(e.Id);
         }
 
-        private void OnEdittingContact(object sender, EditContactStatusEventArgs e)
+        private void OnEdittingContactStatus(object sender, EditContactStatusEventArgs e)
         {
             this.contactsService.ChangeContactStatus(e.Contact, e.StatusType, e.UserId);
         }

@@ -44,5 +44,31 @@ namespace FFY.Services
         {
             return this.ordersRepository.GetAll(null, o => o.SendOn).Reverse();
         }
+
+        public void ChangeOrderStatus(Order order, int statusType)
+        {
+            if (order == null)
+            {
+                throw new ArgumentNullException("Order cannot be null.");
+            }
+
+            if (!Enum.IsDefined(typeof(OrderStatusType), statusType))
+            {
+                throw new InvalidCastException("Order status type is out of enumeration range.");
+            }
+
+            order.OrderStatusType = (OrderStatusType)statusType;
+
+            using (this.unitOfWork)
+            {
+                this.ordersRepository.Update(order);
+                this.unitOfWork.Commit();
+            }
+        }
+
+        public Order GetOrderById(int id)
+        {
+            return this.ordersRepository.GetById(id);
+        }
     }
 }

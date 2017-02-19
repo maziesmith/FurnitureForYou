@@ -14,7 +14,7 @@ namespace FFY.Web.Administration.ContactManagement
     [PresenterBinding(typeof(ContactDetailedPresenter))]
     public partial class ContactDetailed : MvpPage<ContactDetailedViewModel>, IContactDetailedView
     {
-        public event EventHandler<EditContactStatusEventArgs> EdittingContact;
+        public event EventHandler<EditContactStatusEventArgs> EdittingContactStatus;
         public event EventHandler<GetContactByIdEventArgs> Initial;
 
         protected void Page_Load(object sender, EventArgs e)
