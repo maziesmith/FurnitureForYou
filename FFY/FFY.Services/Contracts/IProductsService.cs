@@ -21,7 +21,6 @@ namespace FFY.Services.Contracts
 
         IEnumerable<Product> GetLatestProducts(int amount);
 
-
         void AddProduct(Product product);
 
         void EditProduct(Product product);

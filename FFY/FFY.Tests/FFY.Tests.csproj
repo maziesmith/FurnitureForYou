@@ -99,6 +99,9 @@
     <Compile Include="Services\RoomsServiceTests\AddRoom.cs" />
     <Compile Include="Services\RoomsServiceTests\Constructor.cs" />
     <Compile Include="Services\RoomsServiceTests\GetRooms.cs" />
+    <Compile Include="Services\ShoppingCartsServiceTests\Add.cs" />
+    <Compile Include="Services\ShoppingCartsServiceTests\AssignShoppingCart.cs" />
+    <Compile Include="Services\ShoppingCartsServiceTests\Constructor.cs" />
     <Compile Include="Services\UsersServiceTests\Constructor.cs" />
     <Compile Include="Services\UsersServiceTests\GetUserById.cs" />
     <Compile Include="Services\UsersServiceTests\GetUserByUsername.cs" />

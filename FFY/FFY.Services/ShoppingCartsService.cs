@@ -29,7 +29,7 @@ namespace FFY.Services
 
             if(shoppingCartRepository == null)
             {
-                throw new ArgumentNullException("Users repository cannot be null.");
+                throw new ArgumentNullException("Shopping cart repository cannot be null.");
             }
 
             if (cartProductRepository == null)
@@ -64,6 +64,16 @@ namespace FFY.Services
 
         public void Add(int quantity, Product product, string cartId)
         {
+            if(product == null)
+            {
+                throw new ArgumentNullException("Product cannot be null.");
+            }
+
+            if(string.IsNullOrEmpty(cartId))
+            {
+                throw new ArgumentNullException("Cart id cannot be null or empty.");
+            }
+
             var shoppingCart = this.shoppingCartRepository.GetById(cartId);
 
             var temporaryCartProduct = shoppingCart.TemporaryProducts.FirstOrDefault(p => p.ProductId == product.Id);
@@ -86,7 +96,7 @@ namespace FFY.Services
             }
             else
             {
-                temporaryCartProduct.Quantity += quantity;
+                permanentCartProduct.Quantity += quantity;
             }
 
             temporaryCartProduct.Total = temporaryCartProduct.Quantity * temporaryCartProduct.Product.DiscountedPrice;

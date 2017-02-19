@@ -19,14 +19,17 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase("Kitchen")]
         public void ShouldCallGetAllMethodOfProductsRepositoryWithSpecialExpressionOnce(string value)
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>())).Verifiable();
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             productsService.GetProductsByRoom(value);
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>()), Times.Once);
         }
 
@@ -34,12 +37,9 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase("kitchen", 2)]
         public void ShouldReturnCorrectAmountOfProductsFromProductsRepository(string roomName, int expectedCount)
         {
+            // Arrange
             Expression<Func<Product, bool>> expression = r => r.Room.Name.ToLower().Replace(@"\s+", "") == roomName;
 
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
             var mockedProducts = new List<Product>
                 {
                     new Product() { Name = "First Product", Room = new Room { Name = "Kitchen"} },
@@ -47,26 +47,26 @@ namespace FFY.Tests.Services.ProductsServiceTests
                     new Product() { Name = "Third Product", Room = new Room { Name = "Kitchen"} },
                 }
             .AsQueryable();
-
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>()))
                 .Returns(mockedProducts.Where(expression).ToList());
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = productsService.GetProductsByRoom(roomName).ToList();
 
+            // Assert
             Assert.AreEqual(expectedCount, result.Count);
         }
 
         [TestCase("bedroom", 0)]
         public void ShouldReturnZeroProductsFromProductsRepository_WhenNoProductFromSuchRoomIsFound(string roomName, int expectedCount)
         {
+            // Arrange
             Expression<Func<Product, bool>> expression = r => r.Room.Name.ToLower().Replace(@"\s+", "") == roomName;
 
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
             var mockedProducts = new List<Product>
                 {
                     new Product() { Name = "First Product", Room = new Room { Name = "Kitchen"} },
@@ -74,14 +74,17 @@ namespace FFY.Tests.Services.ProductsServiceTests
                     new Product() { Name = "Third Product", Room = new Room { Name = "Kitchen"} },
                 }
             .AsQueryable();
-
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>()))
                 .Returns(mockedProducts.Where(expression).ToList());
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = productsService.GetProductsByRoom(roomName).ToList();
 
+            // Assert
             Assert.AreEqual(expectedCount, result.Count);
         }
     }
