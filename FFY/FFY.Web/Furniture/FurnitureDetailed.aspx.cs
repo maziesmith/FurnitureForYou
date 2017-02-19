@@ -1,5 +1,4 @@
 ﻿using FFY.MVP.Furniture.FurnitureDetailed;
-using FFY.Order;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;

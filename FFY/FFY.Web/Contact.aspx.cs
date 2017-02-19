@@ -1,6 +1,5 @@
 ﻿using FFY.Models;
 using FFY.MVP.Contacts.ContactSender;
-using FFY.Order;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;

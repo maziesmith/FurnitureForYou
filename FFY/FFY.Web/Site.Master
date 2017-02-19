@@ -83,7 +83,9 @@
                                             <ul class="dropdown-menu">
                                                 <li><a runat="server" href="~/administration/userManagement">User Management</a></li>
                                                 <li><a runat="server" href="~/administration/productManagement">Product Management</a></li>
+                                                <li><a runat="server" href="~/administration/orderManagement">Order Management</a></li>
                                                 <li><a runat="server" href="~/administration/contactManagement">Contact Management</a></li>
+
                                             </ul>
                                         </li>
                                     </ul>
@@ -99,6 +101,7 @@
                                             </a>
                                             <ul class="dropdown-menu">
                                                 <li><a runat="server" href="~/administration/productManagement">Product Management</a></li>
+                                                <li><a runat="server" href="~/administration/orderManagement">Order Management</a></li>
                                                 <li><a runat="server" href="~/administration/contactManagement">Contact Management</a></li>
                                             </ul>
                                         </li>

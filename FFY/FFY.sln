@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.MVP", "FFY.MVP\FFY.MVP.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.IdentityConfig", "FFY.IdentityConfig\FFY.IdentityConfig.csproj", "{E4DDA4C1-F068-4B4E-8113-7247D72C5EAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FFY.Order", "FFY.Order\FFY.Order.csproj", "{3E569AFD-9728-43B9-BC7D-91906EA62423}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,10 +51,6 @@ Global
 		{E4DDA4C1-F068-4B4E-8113-7247D72C5EAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E4DDA4C1-F068-4B4E-8113-7247D72C5EAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E4DDA4C1-F068-4B4E-8113-7247D72C5EAD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E569AFD-9728-43B9-BC7D-91906EA62423}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E569AFD-9728-43B9-BC7D-91906EA62423}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E569AFD-9728-43B9-BC7D-91906EA62423}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E569AFD-9728-43B9-BC7D-91906EA62423}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

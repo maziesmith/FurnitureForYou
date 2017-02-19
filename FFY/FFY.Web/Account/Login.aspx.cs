@@ -5,8 +5,6 @@ using FFY.IdentityConfig;
 using WebFormsMvp;
 using FFY.MVP.Account.Login;
 using WebFormsMvp.Web;
-using FFY.Order;
-using FFY.Models;
 using Microsoft.AspNet.Identity;
 
 namespace FFY.Web.Account

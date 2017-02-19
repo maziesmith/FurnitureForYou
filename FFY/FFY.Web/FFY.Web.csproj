@@ -220,6 +220,7 @@
   <ItemGroup>
     <Content Include="Administration\ContactManagement\ContactDetailed.aspx" />
     <Content Include="Administration\ContactManagement\Default.aspx" />
+    <Content Include="Administration\OrderManagement\Default.aspx" />
     <Content Include="Administration\ProductManagement\EditProduct.aspx" />
     <Content Include="Errors\Forbidden.aspx" />
     <Content Include="Errors\InternalServerError.aspx" />
@@ -435,6 +436,13 @@
     <Compile Include="Administration\ContactManagement\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Administration\OrderManagement\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\OrderManagement\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Administration\ProductManagement\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -478,7 +486,6 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\NinjectModules\OrderNinjectModule.cs" />
     <Compile Include="App_Start\RolesConfig.cs" />
     <Compile Include="Errors\Forbidden.aspx.cs">
       <DependentUpon>Forbidden.aspx</DependentUpon>
@@ -620,10 +627,6 @@
     <ProjectReference Include="..\FFY.MVP\FFY.MVP.csproj">
       <Project>{DB3F7D3A-44CA-46BC-BAE3-C72297DA53E3}</Project>
       <Name>FFY.MVP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\FFY.Order\FFY.Order.csproj">
-      <Project>{3e569afd-9728-43b9-bc7d-91906ea62423}</Project>
-      <Name>FFY.Order</Name>
     </ProjectReference>
     <ProjectReference Include="..\FFY.Services\FFY.Services.csproj">
       <Project>{0122bd12-180b-4a66-a58e-9344f2de5fa1}</Project>

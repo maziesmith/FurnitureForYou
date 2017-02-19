@@ -2,8 +2,6 @@
 using Microsoft.AspNet.Identity.Owin;
 using WebFormsMvp;
 using FFY.IdentityConfig;
-using FFY.Order;
-using FFY.Order.Factories;
 using System;
 using FFY.Services.Contracts;
 using Microsoft.AspNet.Identity;

@@ -5,12 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.Services.Contracts
+namespace FFY.MVP.Administration.OrderManagement.Orders
 {
-    public interface IOrdersService
+    public class OrdersViewModel
     {
-        void AddOrder(Order product);
+        public IEnumerable<Order> Orders { get; set; }
 
-        IEnumerable<Order> GetOrders();
     }
 }

@@ -39,5 +39,10 @@ namespace FFY.Services
                 this.unitOfWork.Commit();
             }
         }
+
+        public IEnumerable<Order> GetOrders()
+        {
+            return this.ordersRepository.GetAll(null, o => o.SendOn).Reverse();
+        }
     }
 }

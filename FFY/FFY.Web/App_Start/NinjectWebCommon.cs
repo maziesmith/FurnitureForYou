@@ -66,7 +66,6 @@ namespace FFY.Web.App_Start
             kernel.Load(new MvpNinjectModule());
             kernel.Load(new DataNinjectModule());
             kernel.Load(new ServicesNinjectModule());
-            kernel.Load(new OrderNinjectModule());
 
             PresenterBinder.Factory = kernel.Get<IPresenterFactory>();
         }        
