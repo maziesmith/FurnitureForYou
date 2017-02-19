@@ -1,4 +1,5 @@
 ﻿using FFY.Data.Factories;
+using FFY.Models;
 using FFY.Services.Contracts;
 using System;
 using System.Collections.Generic;
@@ -84,7 +85,7 @@ namespace FFY.MVP.Users.CheckOut
                 e.OrderPaymentStatusType,
                 e.OrderStatusType);
 
-            order.Products = shoppingCart.CartProducts;
+            order.Products = shoppingCart.PermamentProducts;
 
             this.ordersService.AddOrder(order);
         }

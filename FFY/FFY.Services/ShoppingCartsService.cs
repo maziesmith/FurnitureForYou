@@ -14,11 +14,13 @@ namespace FFY.Services
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IGenericRepository<ShoppingCart> shoppingCartRepository;
+        private readonly IGenericRepository<CartProduct> cartProductRepository;
         private readonly ICartProductFactory cartProductFactory;
 
         public ShoppingCartsService(IUnitOfWork unitOfWork,
             ICartProductFactory cartProductFactory,
-            IGenericRepository<ShoppingCart> shoppingCartRepository)
+            IGenericRepository<ShoppingCart> shoppingCartRepository,
+            IGenericRepository<CartProduct> cartProductRepository)
         {
             if(unitOfWork == null)
             {
@@ -30,6 +32,11 @@ namespace FFY.Services
                 throw new ArgumentNullException("Users repository cannot be null.");
             }
 
+            if (cartProductRepository == null)
+            {
+                throw new ArgumentNullException("Cart product repository cannot be null.");
+            }
+
             if (cartProductFactory == null)
             {
                 throw new ArgumentNullException("Cart product factory cannot be null.");
@@ -37,6 +44,7 @@ namespace FFY.Services
 
             this.unitOfWork = unitOfWork;
             this.shoppingCartRepository = shoppingCartRepository;
+            this.cartProductRepository = cartProductRepository;
             this.cartProductFactory = cartProductFactory;
         }
 
@@ -58,21 +66,33 @@ namespace FFY.Services
         {
             var shoppingCart = this.shoppingCartRepository.GetById(cartId);
 
-            var currentCartProduct = shoppingCart.CartProducts.FirstOrDefault(p => p.ProductId == product.Id);
+            var temporaryCartProduct = shoppingCart.TemporaryProducts.FirstOrDefault(p => p.ProductId == product.Id);
+            var permanentCartProduct = shoppingCart.PermamentProducts.FirstOrDefault(p => p.ProductId == product.Id);
 
-            if (currentCartProduct == null)
+            if (temporaryCartProduct == null)
             {
-                currentCartProduct = this.cartProductFactory.CreateCartProduct(quantity, product);
-                shoppingCart.CartProducts.Add(currentCartProduct);
+                temporaryCartProduct = this.cartProductFactory.CreateCartProduct(quantity, product);
+                shoppingCart.TemporaryProducts.Add(temporaryCartProduct);
             }
             else
             {
-                currentCartProduct.Quantity += quantity;
+                temporaryCartProduct.Quantity += quantity;
             }
 
-            currentCartProduct.Total = currentCartProduct.Quantity * currentCartProduct.Product.DiscountedPrice;
+            if (permanentCartProduct == null)
+            {
+                permanentCartProduct = this.cartProductFactory.CreateCartProduct(quantity, product);
+                shoppingCart.PermamentProducts.Add(permanentCartProduct);
+            }
+            else
+            {
+                temporaryCartProduct.Quantity += quantity;
+            }
 
-            shoppingCart.Total = shoppingCart.CartProducts.Sum(p =>
+            temporaryCartProduct.Total = temporaryCartProduct.Quantity * temporaryCartProduct.Product.DiscountedPrice;
+            permanentCartProduct.Total = permanentCartProduct.Quantity * permanentCartProduct.Product.DiscountedPrice;
+
+            shoppingCart.Total = shoppingCart.TemporaryProducts.Sum(p =>
             (p.Product.DiscountedPrice * p.Quantity));
 
             using (this.unitOfWork)
@@ -86,14 +106,21 @@ namespace FFY.Services
         {
             var shoppingCart = this.shoppingCartRepository.GetById(cartId);
 
-            var currentCartProduct = shoppingCart.CartProducts.FirstOrDefault(p => p.ProductId == productId);
+            var temporaryCartProduct = shoppingCart.TemporaryProducts.FirstOrDefault(p => p.ProductId == productId);
+            var permanentCartProduct = shoppingCart.PermamentProducts.FirstOrDefault(p => p.ProductId == productId);
 
-            if (currentCartProduct != null)
+            if (temporaryCartProduct != null)
             {
-                shoppingCart.CartProducts.Remove(currentCartProduct);
+                this.cartProductRepository.Delete(temporaryCartProduct);
+                this.cartProductRepository.Delete(permanentCartProduct);
             }
 
-            shoppingCart.Total = shoppingCart.CartProducts.Sum(p =>
+            if (permanentCartProduct != null)
+            {
+                shoppingCart.PermamentProducts.Remove(permanentCartProduct);
+            }
+
+            shoppingCart.Total = shoppingCart.TemporaryProducts.Sum(p =>
             (p.Product.DiscountedPrice * p.Quantity));
 
             using (this.unitOfWork)
@@ -105,7 +132,9 @@ namespace FFY.Services
 
         public void Clear(ShoppingCart shoppingCart)
         {
-            shoppingCart.CartProducts.Clear();
+            // Possibly better way to delete products and not clear reference only
+            shoppingCart.TemporaryProducts.Clear();
+
             shoppingCart.Total = 0;
 
             using (this.unitOfWork)
@@ -118,7 +147,7 @@ namespace FFY.Services
         public int CartProductsCount(string cartId)
         {
             return this.shoppingCartRepository.GetById(cartId)
-                .CartProducts.Count();
+                .TemporaryProducts.Count();
         }
 
         public ShoppingCart GetCart(string cartId)

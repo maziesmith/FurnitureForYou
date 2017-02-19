@@ -23,7 +23,7 @@ namespace FFY.Web.Users
             var id = this.Page.User.Identity.GetUserId();
             this.Initial?.Invoke(this, new CartEventArgs(id));
 
-            this.Products.DataSource = this.Model.ShoppingCart.CartProducts.ToList();
+            this.Products.DataSource = this.Model.ShoppingCart.TemporaryProducts.ToList();
             this.Products.DataBind();
 
             this.Total.Text = this.Model.ShoppingCart.Total.ToString();
@@ -37,7 +37,7 @@ namespace FFY.Web.Users
 
             this.Cache.Insert($"cart-count-{cartId}", this.Model.CartCount);
 
-            this.Products.DataSource = this.Model.ShoppingCart.CartProducts.ToList();
+            this.Products.DataSource = this.Model.ShoppingCart.TemporaryProducts.ToList();
             this.Products.DataBind();
 
             this.Total.Text = this.Model.ShoppingCart.Total.ToString();

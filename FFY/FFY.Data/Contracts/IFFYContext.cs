@@ -19,6 +19,10 @@ namespace FFY.Data.Contracts
 
         IDbSet<Order> Orders { get; set; }
 
+        IDbSet<CartProduct> CartProducts { get; set; }
+
+        IDbSet<ShoppingCart> ShoppingCarts { get; set; }
+
         IDbSet<Product> Products { get; set; }
 
         IDbSet<Room> Rooms { get; set; }

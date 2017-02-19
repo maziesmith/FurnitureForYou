@@ -20,6 +20,17 @@ namespace FFY.Models
             this.Product = product;
         }
 
+        public CartProduct(int quantity, 
+            int? productId, 
+            Product product,
+            decimal total) : this()
+        {
+            this.Quantity = quantity;
+            this.ProductId = productId;
+            this.Product = product;
+            this.Total = total;
+        }
+
         [Key]
         public int Id { get; set; }
 
