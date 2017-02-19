@@ -17,36 +17,40 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [Test]
         public void ShouldCallGetAllMethodOfProductsRepositoryOnce()
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Verifiable();
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             productsService.GetProducts();
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetAll(), Times.Once);
         }
 
         [Test]
         public void ShouldReturnAllProductsFromProductsRepository()
         {
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            // Arrange
             var mockedProduct = new Mock<Product>();
-
             var mockedProducts = new List<Product>
             {
                 mockedProduct.Object,
                 mockedProduct.Object
             };
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Returns(mockedProducts);
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = productsService.GetProducts();
 
+            // Assert
             Assert.AreSame(mockedProducts, result);
         }
     }

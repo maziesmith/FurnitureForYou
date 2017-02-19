@@ -17,36 +17,40 @@ namespace FFY.Tests.Services.UsersServiceTests
         [Test]
         public void ShouldCallGetAllMethodOfUsersRepositoryOnce()
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<User>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Verifiable();
 
             var usersService = new UsersService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             usersService.GetUsers();
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetAll(), Times.Once);
         }
 
         [Test]
         public void ShouldReturnAllUsersFromUsersRepository()
         {
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<User>>();
-            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            // Arrange
             var mockedUser = new Mock<User>();
-
             var mockedUsers = new List<User>
             {
                 mockedUser.Object,
                 mockedUser.Object
             };
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<User>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Returns(mockedUsers);
 
             var usersService = new UsersService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = usersService.GetUsers();
 
+            // Assert
             Assert.AreSame(mockedUsers, result);
         }
     }

@@ -17,23 +17,28 @@ namespace FFY.Tests.Services.RoomsServiceTests
         [Test]
         public void ShouldThrowArgumentNullException_WhenNullRoomIsPassed()
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Room>>();
 
             var roomsService = new RoomsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act and Assert
             Assert.Throws<ArgumentNullException>(() => roomsService.AddRoom(null));
         }
 
         [Test]
         public void ShouldThrowArgumentNullExceptionWithCorrectMessage_WhenNullRoomIsPassed()
         {
+            // Arrange
             var expectedExMessage = "Room cannot be null.";
+
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Room>>();
 
             var roomsService = new RoomsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act and Assert
             var exception = Assert.Throws<ArgumentNullException>(() => roomsService.AddRoom(null));
             StringAssert.Contains(expectedExMessage, exception.Message);
         }
@@ -41,32 +46,36 @@ namespace FFY.Tests.Services.RoomsServiceTests
         [Test]
         public void ShouldCallAddMethodOfCategoryRepositoryOnce_WhenARoomIsPassed()
         {
+            // Arrange
+            var room = new Mock<Room>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Room>>();
-            // It is mocked, but it is plain object and not sure whether interface is required for mocking
-            var room = new Mock<Room>();
             mockedGenericRepository.Setup(gr => gr.Add(room.Object)).Verifiable();
 
             var roomsService = new RoomsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             roomsService.AddRoom(room.Object);
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.Add(room.Object), Times.Once);
         }
 
         [Test]
         public void ShouldCallCommitMethodOfUnitOfWorkOnce_WhenARoomIsPassed()
         {
+            // Arrange
+            var room = new Mock<Room>();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Room>>();
             mockedUnitOfWork.Setup(uow => uow.Commit()).Verifiable();
-            // It is mocked, but it is plain object and not sure whether interface is required for mocking
-            var room = new Mock<Room>();
 
             var roomsService = new RoomsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             roomsService.AddRoom(room.Object);
 
+            // Assert
             mockedUnitOfWork.Verify(uow => uow.Commit(), Times.Once);
         }
     }

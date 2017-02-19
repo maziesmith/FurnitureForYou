@@ -19,14 +19,17 @@ namespace FFY.Tests.Services.UsersServiceTests
         [TestCase("nobbs")]
         public void ShouldCallGetAllMethodOfUsersRepositoryWithExpressionOnce(string value)
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<User>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<User, bool>>>())).Returns(new List<User>()).Verifiable();
 
             var usersService = new UsersService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             usersService.GetUserByUsername(value);
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetAll(It.IsAny<Expression<Func<User, bool>>>()), Times.Once);
         }
 
@@ -35,12 +38,9 @@ namespace FFY.Tests.Services.UsersServiceTests
         [TestCase("sam", "2")]
         public void ShouldReturnCorrectUserFromUsersRepository(string username, string expectedId)
         {
+            // Arrange
             Expression<Func<User, bool>> expression = r => r.UserName == username;
 
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<User>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
             var mockedUsers = new List<User>
                 {
                     new User() { UserName = "nobby", Id="1" },
@@ -48,14 +48,17 @@ namespace FFY.Tests.Services.UsersServiceTests
                     new User() { UserName = "havlock", Id="3" },
                 }
             .AsQueryable();
-
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<User>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<User, bool>>>()))
                 .Returns(mockedUsers.Where(expression).ToList());
 
             var usersService = new UsersService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = usersService.GetUserByUsername(username);
 
+            // Assert
             Assert.AreEqual(expectedId, result.Id);
         }
 
@@ -63,12 +66,9 @@ namespace FFY.Tests.Services.UsersServiceTests
         [TestCase("randomnotfounduser")]
         public void ShouldReturnNull_WhenNoUserWithSuchUsernameIsFound(string username)
         {
+            // Arrange
             Expression<Func<User, bool>> expression = r => r.UserName == username;
 
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<User>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
             var mockedUsers = new List<User>
                 {
                     new User() { UserName = "nobby", Id="1" },
@@ -76,13 +76,17 @@ namespace FFY.Tests.Services.UsersServiceTests
                     new User() { UserName = "havlock", Id="3" },
                 }
             .AsQueryable();
-
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<User>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<User, bool>>>()))
                 .Returns(mockedUsers.Where(expression).ToList());
 
             var usersService = new UsersService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = usersService.GetUserByUsername(username);
+            
+            // Assert
             Assert.AreEqual(null, result);
         }
     }

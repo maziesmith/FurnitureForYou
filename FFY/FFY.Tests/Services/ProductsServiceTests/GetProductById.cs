@@ -18,14 +18,17 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase(2)]
         public void ShouldCallGetProductsByIdMethodOfProductsRepositoryOnce(int id)
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Verifiable();
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             productsService.GetProductById(id);
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetById(id), Times.Once);
         }
 
@@ -33,23 +36,23 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase(4, "Forth product")]
         public void ShouldReturnCorrectProductFromProductsRepository(int id, string expectedProductName)
         {
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-            
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
+            // Arrange
             var mockedProducts = new List<Product>
             {
                 new Product() { Id = 2, Name = "Second product"},
                 new Product() { Id = 4, Name = "Forth product" }
             };
-
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetById(id))
                 .Returns(mockedProducts.Find(p => p.Id == id));
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = productsService.GetProductById(id);
 
+            // Assert
             Assert.AreEqual(expectedProductName, result.Name);
         }
     }

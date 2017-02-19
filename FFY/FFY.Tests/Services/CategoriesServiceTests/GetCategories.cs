@@ -17,36 +17,40 @@ namespace FFY.Tests.Services.CategoriesServiceTests
         [Test]
         public void ShouldCallGetAllMethodOfCategoryRepositoryOnce()
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Verifiable();
 
             var categoriesService = new CategoriesService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             categoriesService.GetCategories();
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetAll(), Times.Once);
         }
 
         [Test]
         public void ShouldReturnAllCategoriesFromCategoryRepository()
         {
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
-            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            // Arrange
             var mockedCategory = new Mock<Category>();
-
             var mockedCategories = new List<Category>
             {
                 mockedCategory.Object,
                 mockedCategory.Object
             };
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Category>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Returns(mockedCategories);
 
             var categoriesService = new CategoriesService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = categoriesService.GetCategories();
 
+            // Assert
             Assert.AreSame(mockedCategories, result);
         }
     }

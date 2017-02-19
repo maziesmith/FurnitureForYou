@@ -19,6 +19,7 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase(6)]
         public void ShouldCallGetAllMethodOfProductsRepositoryWithExpressionOnce(int amount)
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr =>
@@ -26,8 +27,10 @@ namespace FFY.Tests.Services.ProductsServiceTests
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             productsService.GetDiscountProducts(amount);
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()), Times.Once);
         }
 
@@ -35,12 +38,9 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase(2)]
         public void ShouldReturnCorrectAmountOfProductsFromProductsRepository(int amount)
         {
+            // Arrange
             Expression<Func<Product, bool>> expression = p => p.DiscountPercentage > 0;
 
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
             var mockedProducts = new List<Product>
                 {
                     new Product() { DiscountPercentage = 5 },
@@ -48,14 +48,17 @@ namespace FFY.Tests.Services.ProductsServiceTests
                     new Product() { DiscountPercentage = 3 },
                 }
             .AsQueryable();
-
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()))
                 .Returns(mockedProducts.Where(expression).Take(amount).ToList());
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = productsService.GetDiscountProducts(amount).ToList();
 
+            // Assert
             Assert.AreEqual(amount, result.Count);
         }
 
@@ -63,13 +66,10 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase(6)]
         public void ShouldReturnCorrectAmountOfProductsWithPositiveDiscountPercentageFromProductsRepository(int amount)
         {
+            // Arrange
             Expression<Func<Product, bool>> expression = p => p.DiscountPercentage > 0;
             var expectedAmount = 2;
 
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
             var mockedProducts = new List<Product>
                 {
                     new Product() { DiscountPercentage = 5 },
@@ -77,27 +77,27 @@ namespace FFY.Tests.Services.ProductsServiceTests
                     new Product() { DiscountPercentage = 0 },
                 }
             .AsQueryable();
-
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()))
                 .Returns(mockedProducts.Where(expression).Take(amount).ToList());
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = productsService.GetDiscountProducts(amount).ToList();
 
+            // Assert
             Assert.AreEqual(expectedAmount, result.Count);
         }
 
         [TestCase(4)]
         public void ShouldReturnZeroAmountOfProductsFromProductsRepository_WhenNoProductsMatchExpression(int amount)
         {
-            Expression<Func<Product, bool>> expression = p => p.DiscountPercentage > 0;
+            // Arrange
             var expectedAmount = 0;
+            Expression<Func<Product, bool>> expression = p => p.DiscountPercentage > 0;
 
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
             var mockedProducts = new List<Product>
                 {
                     new Product() { DiscountPercentage = -5 },
@@ -105,14 +105,17 @@ namespace FFY.Tests.Services.ProductsServiceTests
                     new Product() { DiscountPercentage = 0 },
                 }
             .AsQueryable();
-
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()))
                 .Returns(mockedProducts.Where(expression).Take(amount).ToList());
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = productsService.GetDiscountProducts(amount).ToList();
 
+            // Assert
             Assert.AreEqual(expectedAmount, result.Count);
         }
 

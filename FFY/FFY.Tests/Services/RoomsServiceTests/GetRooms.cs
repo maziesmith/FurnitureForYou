@@ -17,36 +17,40 @@ namespace FFY.Tests.Services.RoomsServiceTests
         [Test]
         public void ShouldCallGetAllMethodOfRoomsRepositoryOnce()
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Room>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Verifiable();
 
             var roomsService = new RoomsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             roomsService.GetRooms();
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetAll(), Times.Once);
         }
 
         [Test]
         public void ShouldReturnAllRoomsFromRoomsRepository()
         {
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Room>>();
-            // It is mocked, but it is plain object and not sure whether interface is required for mocking
+            // Arrange
             var mockedRoom = new Mock<Room>();
-
             var mockedRooms = new List<Room>
             {
                 mockedRoom.Object,
                 mockedRoom.Object
             };
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Room>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Returns(mockedRooms);
 
             var roomsService = new RoomsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             var result = roomsService.GetRooms();
 
+            // Assert
             Assert.AreSame(mockedRooms, result);
         }
 

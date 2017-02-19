@@ -19,14 +19,17 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase(3)]
         public void ShouldCallGetAllMethodOfProductsRepositoryOnce(int amount)
         {
+            // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr => gr.GetAll()).Returns(new List<Product>()).Verifiable();
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
+            // Act
             productsService.GetLatestProducts(amount);
 
+            // Assert
             mockedGenericRepository.Verify(gr => gr.GetAll(), Times.Once);
         }
 
@@ -34,10 +37,7 @@ namespace FFY.Tests.Services.ProductsServiceTests
         [TestCase(2)]
         public void ShouldReturnCorrectAmountOfProductsFromProductsRepository(int amount)
         {
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
+            // Arrange
             var mockedProducts = new List<Product>
                 {
                     new Product(),
@@ -45,45 +45,47 @@ namespace FFY.Tests.Services.ProductsServiceTests
                     new Product(),
                 }
             .AsQueryable();
-
-            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()))
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
+            mockedGenericRepository.Setup(gr => gr.GetAll())
                 .Returns(mockedProducts);
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-            var result = productsService.GetDiscountProducts(amount).ToList();
+            // Act
+            var result = productsService.GetLatestProducts(amount).ToList();
 
+            // Assert
             Assert.AreEqual(amount, result.Count);
         }
 
         [TestCase(3)]
-        public void ShouldReturnCorrectProductsFromProductsRepository(int amount)
+        public void ShouldReturnCorrectProductsOrderFromProductsRepository(int amount)
         {
-            var mockedUnitOfWork = new Mock<IUnitOfWork>();
-            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-
-            // It is NOT mocked, but it is plain object and not sure whether interface is required for mocking
-           
+            // Arrange
             // Products are added to the database chronologically, 
             // so it is expected the latest added product to be the last added
             var mockedProducts = new List<Product>
                 {
                     new Product() { Name = "Third" },
                     new Product() { Name = "Second" },
-                    new Product() { Name = "First"},
+                    new Product() { Name = "First" },
                 }
             .AsQueryable();
-
-            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()))
+            var mockedUnitOfWork = new Mock<IUnitOfWork>();
+            var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
+            mockedGenericRepository.Setup(gr => gr.GetAll())
                 .Returns(mockedProducts);
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
-            var result = productsService.GetDiscountProducts(amount).ToList();
+            // Act
+            var result = productsService.GetLatestProducts(amount).ToList();
 
+            // Assert
             Assert.AreEqual(result[0].Name, "First");
             Assert.AreEqual(result[1].Name, "Second");
-            Assert.AreEqual(result[1].Name, "Third");
+            Assert.AreEqual(result[2].Name, "Third");
         }
     }
 }
