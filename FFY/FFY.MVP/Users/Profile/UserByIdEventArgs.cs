@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FFY.MVP.Users.Profile
 {
-    public class ProfileByIdEventArgs : EventArgs
+    public class UserByIdEventArgs : EventArgs
     {
-        public ProfileByIdEventArgs(string id)
+        public UserByIdEventArgs(string id)
         {
             this.Id = id;
         }

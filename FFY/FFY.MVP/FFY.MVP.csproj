@@ -122,10 +122,10 @@
     <Compile Include="Users\CheckOut\CheckOutPresenter.cs" />
     <Compile Include="Users\CheckOut\CheckOutViewModel.cs" />
     <Compile Include="Users\CheckOut\ICheckOutView.cs" />
-    <Compile Include="Users\Profile\IProfileView.cs" />
-    <Compile Include="Users\Profile\ProfileByIdEventArgs.cs" />
-    <Compile Include="Users\Profile\ProfilePresenter.cs" />
-    <Compile Include="Users\Profile\ProfileViewModel.cs" />
+    <Compile Include="Users\Profile\IUserView.cs" />
+    <Compile Include="Users\Profile\UserByIdEventArgs.cs" />
+    <Compile Include="Users\Profile\UserPresenter.cs" />
+    <Compile Include="Users\Profile\UserViewModel.cs" />
     <Compile Include="Account\Register\IRegisterView.cs" />
     <Compile Include="Account\Register\RegisterEventArgs.cs" />
     <Compile Include="Account\Register\RegisterPresenter.cs" />

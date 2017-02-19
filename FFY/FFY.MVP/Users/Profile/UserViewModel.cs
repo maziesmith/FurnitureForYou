@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FFY.MVP.Users.Profile
 {
-    public class ProfileViewModel
+    public class UserViewModel
     {
         public User User { get; set; }
     }

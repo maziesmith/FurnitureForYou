@@ -42,16 +42,7 @@ namespace FFY.Web.Administration.OrderManagement
 
             if (!Page.IsPostBack)
             {
-                this.Products.DataSource = this.Model.Order.Products.ToList();
-                this.Products.DataBind();
-
-                this.StatusType.SelectedValue = ((int)this.Model.Order.OrderStatusType).ToString();
-                this.StatusType.DataBind();
-
-                this.PaymentStatusType.SelectedValue = ((int)this.Model.Order.OrderPaymentStatusType).ToString();
-                this.PaymentStatusType.DataBind();
-
-                this.Total.Text = this.Model.Order.Total.ToString();
+                this.BindData();
             }   
         }
 
@@ -61,6 +52,21 @@ namespace FFY.Web.Administration.OrderManagement
             var paymentStatusType = int.Parse(this.PaymentStatusType.SelectedValue);
 
             this.EdittingOrderStatus?.Invoke(this, new EditOrderStatusEventArgs(this.Model.Order, statusType, paymentStatusType));
+            this.BindData();
+        }
+
+        private void BindData()
+        {
+            this.Products.DataSource = this.Model.Order.Products.ToList();
+            this.Products.DataBind();
+
+            this.StatusType.SelectedValue = ((int)this.Model.Order.OrderStatusType).ToString();
+            this.StatusType.DataBind();
+
+            this.PaymentStatusType.SelectedValue = ((int)this.Model.Order.OrderPaymentStatusType).ToString();
+            this.PaymentStatusType.DataBind();
+
+            this.Total.Text = this.Model.Order.Total.ToString();
         }
     }
 }

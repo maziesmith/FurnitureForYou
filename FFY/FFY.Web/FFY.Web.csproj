@@ -299,6 +299,7 @@
     <Content Include="Site.Master" />
     <Content Include="Users\Cart.aspx" />
     <Content Include="Users\CheckOut.aspx" />
+    <Content Include="Users\Orders.aspx" />
     <Content Include="Users\Profile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -600,6 +601,13 @@
     </Compile>
     <Compile Include="Users\CheckOut.aspx.designer.cs">
       <DependentUpon>CheckOut.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Orders.aspx.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\Orders.aspx.designer.cs">
+      <DependentUpon>Orders.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

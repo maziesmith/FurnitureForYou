@@ -7,8 +7,8 @@ using WebFormsMvp;
 
 namespace FFY.MVP.Users.Profile
 {
-    public interface IProfileView : IView<ProfileViewModel>
+    public interface IUserView : IView<UserViewModel>
     {
-        event EventHandler<ProfileByIdEventArgs> GettingUserById;
+        event EventHandler<UserByIdEventArgs> Initial;
     }
 }

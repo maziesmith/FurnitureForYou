@@ -9,11 +9,11 @@ using WebFormsMvp;
 
 namespace FFY.MVP.Users.Profile
 {
-    public class ProfilePresenter : Presenter<IProfileView>
+    public class UserPresenter : Presenter<IUserView>
     {
         private readonly IUsersService usersService;
 
-        public ProfilePresenter(IProfileView view, IUsersService usersService) : base(view)
+        public UserPresenter(IUserView view, IUsersService usersService) : base(view)
         {
             if(usersService == null)
             {
@@ -21,10 +21,10 @@ namespace FFY.MVP.Users.Profile
             }
 
             this.usersService = usersService;
-            this.View.GettingUserById += this.OnGettingUserById;
+            this.View.Initial += this.OnInitial;
         }
 
-        private void OnGettingUserById(object sender, ProfileByIdEventArgs e)
+        private void OnInitial(object sender, UserByIdEventArgs e)
         {
             this.View.Model.User = this.usersService.GetUserById(e.Id);
         }
