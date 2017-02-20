@@ -31,12 +31,21 @@ namespace FFY.Web.Administration.ProductManagement {
         protected global::System.Web.UI.WebControls.Button SearchButton;
         
         /// <summary>
-        /// FurnitureProducts control.
+        /// OrderUpdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView FurnitureProducts;
+        protected global::System.Web.UI.UpdatePanel OrderUpdate;
+        
+        /// <summary>
+        /// ProductList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView ProductList;
     }
 }

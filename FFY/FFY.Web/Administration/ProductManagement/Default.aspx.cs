@@ -25,9 +25,16 @@ namespace FFY.Web.Administration.ProductManagement
             if (!Page.IsPostBack)
             {
                 this.ListingProducts?.Invoke(this, new ProductsEventArgs(DefaultProductsPath, null, null, null, false, DefaultFrom, DefaultTo));
-                this.FurnitureProducts.DataSource = this.Model.Products;
-                this.FurnitureProducts.DataBind();
+                this.ProductList.DataSource = this.Model.Products;
+                this.ProductList.DataBind();
             }
+        }
+
+        protected void ProductListPageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            this.Filter();
+            this.ProductList.PageIndex = e.NewPageIndex;
+            this.ProductList.DataBind();
         }
 
         protected void SearchButtonClick(object sender, EventArgs e)
@@ -38,8 +45,8 @@ namespace FFY.Web.Administration.ProductManagement
         private void Filter()
         {
             this.ListingProducts?.Invoke(this, new ProductsEventArgs(DefaultProductsPath, null, null, this.SearchBox.Text, false, DefaultFrom, DefaultTo));
-            this.FurnitureProducts.DataSource = this.Model.Products;
-            this.FurnitureProducts.DataBind();
+            this.ProductList.DataSource = this.Model.Products.ToList();
+            this.ProductList.DataBind();
         }
     }
 }

@@ -14,24 +14,30 @@
                 <asp:Button ID="SearchButton" Text="Search" runat="server" OnClick="SearchButtonClick"/>
             </div>
         </div>
-    <div>
-        <asp:ListView ID="FurnitureProducts" runat="server" DataKeyNames="Id"
-            ItemType="FFY.Models.Product" >
-            <ItemTemplate>
-                <div class="col-md-12">
-                    <asp:HyperLink ID="RoomHyperLink" NavigateUrl='<%#: "~/administration/edit-product/" + Eval("Id") %>' runat="server">
-                        <div class="col-md-4">
-                            <%#: Item.Name %>
-                        </div>
-                        <div class="col-md-4">
-                            <%#: Item.Category.Name %>
-                        </div>
-                        <div class="col-md-4">
-                            <%#: Item.ImagePath %>
-                        </div>
-                    </asp:HyperLink>
-                </div>
-            </ItemTemplate>
-        </asp:ListView>
-    </div>
+    <asp:UpdatePanel ID="OrderUpdate" runat="server" UpdateMode="Always" ChildrenAsTriggers="true">
+        <Triggers>
+            <asp:AsyncPostBackTrigger EventName="Click" ControlID="SearchButton" runat="server" />
+        </Triggers>
+        <ContentTemplate>
+            <asp:GridView ID="ProductList" AutoGenerateColumns="false" 
+                ItemType="FFY.Models.Product" 
+                DataKeyNames="Id"  
+                AllowPaging="true" 
+                OnPageIndexChanging="ProductListPageIndexChanging" 
+                EnableSortingAndPagingCallbacks="false" 
+                PageSize="4"
+                CssClass="table table-striped table-condensed table-bordered"
+                DataKeyName="Id"
+                runat="server">
+                <Columns>
+                    <asp:BoundField DataField="Id" HeaderText="Id"/>
+                    <asp:BoundField DataField="Name" HeaderText="Email" />
+                    <asp:BoundField DataField="Price" HeaderText="Email" />
+                    <asp:HyperLinkField Text="Edit" 
+                        DataNavigateUrlFields="Id"
+                        DataNavigateUrlFormatString="~/administration/edit-product/{0}"/>
+                </Columns>
+            </asp:GridView>
+        </ContentTemplate>
+    </asp:UpdatePanel>
 </asp:Content>
