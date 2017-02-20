@@ -31,6 +31,21 @@ namespace FFY.Services
             this.usersRepository = usersRepository;
         }
 
+        public void ChangeUserRole(User user)
+        {
+            if(user == null)
+            {
+                throw new ArgumentNullException("User cannot be null.");
+            }
+
+            using (this.unitOfWork)
+            {
+                this.usersRepository.Update(user);
+                this.unitOfWork.Commit();
+            }
+
+        }
+
         public User GetUserById(string id)
         {
             return this.usersRepository.GetById(id);

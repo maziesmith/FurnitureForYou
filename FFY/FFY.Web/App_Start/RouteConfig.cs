@@ -38,7 +38,6 @@ namespace FFY.Web
                 "furniture/{room}/{category}",
                 "~/Furniture/FurnitureList.aspx");
 
-
             routes.MapPageRoute("EditProducts",
                 "administration/edit-product/{productId}",
                 "~/Administration/ProductManagement/EditProduct.aspx");
@@ -54,6 +53,10 @@ namespace FFY.Web
             routes.MapPageRoute("OrdersUser",
                 "user/orders/{orderId}",
                 "~/Administration/OrderManagement/OrderDetailed.aspx");
+
+            routes.MapPageRoute("UserDetailedAdministration",
+                "administration/users/{userId}",
+                "~/Administration/UserManagement/UserDetailed.aspx");
         }
     }
 }

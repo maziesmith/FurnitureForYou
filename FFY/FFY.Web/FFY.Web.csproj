@@ -223,6 +223,7 @@
     <Content Include="Administration\OrderManagement\Default.aspx" />
     <Content Include="Administration\OrderManagement\OrderDetailed.aspx" />
     <Content Include="Administration\ProductManagement\EditProduct.aspx" />
+    <Content Include="Administration\UserManagement\UserDetailed.aspx" />
     <Content Include="Errors\Forbidden.aspx" />
     <Content Include="Errors\InternalServerError.aspx" />
     <Content Include="Errors\PageNotFound.aspx" />
@@ -494,6 +495,13 @@
     </Compile>
     <Compile Include="Administration\UserManagement\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administration\UserManagement\UserDetailed.aspx.cs">
+      <DependentUpon>UserDetailed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administration\UserManagement\UserDetailed.aspx.designer.cs">
+      <DependentUpon>UserDetailed.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RolesConfig.cs" />

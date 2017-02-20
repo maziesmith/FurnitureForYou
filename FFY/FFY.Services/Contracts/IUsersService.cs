@@ -16,5 +16,7 @@ namespace FFY.Services.Contracts
         IEnumerable<User> GetUsers();
 
         IEnumerable<User> GetUsersByRoleTypeAndName(int roleType, string search);
+
+        void ChangeUserRole(User user);
     }
 }

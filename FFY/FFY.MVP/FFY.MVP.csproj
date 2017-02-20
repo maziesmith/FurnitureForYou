@@ -113,6 +113,11 @@
     <Compile Include="Administration\ProductManagement\Utilities\UploadImageEventArgs.cs" />
     <Compile Include="Administration\ProductManagement\Utilities\IImageUploader.cs" />
     <Compile Include="Administration\ProductManagement\Utilities\ImageUploader.cs" />
+    <Compile Include="Administration\UserManagement\UserDetailed\EditUserRoleEventArgs.cs" />
+    <Compile Include="Administration\UserManagement\UserDetailed\GetUserByIdEventArgs.cs" />
+    <Compile Include="Administration\UserManagement\UserDetailed\IUserDetailedView.cs" />
+    <Compile Include="Administration\UserManagement\UserDetailed\UserDetailedPresenter.cs" />
+    <Compile Include="Administration\UserManagement\UserDetailed\UserDetailedViewModel.cs" />
     <Compile Include="Administration\UserManagement\Users\FilterEventArgs.cs" />
     <Compile Include="Furniture\FurnitureDetailed\AddToShoppingCartEventArgs.cs" />
     <Compile Include="Furniture\Products\ProductsEventArgs.cs" />
