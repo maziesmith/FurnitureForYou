@@ -96,7 +96,7 @@ namespace FFY.Services
         {
             var contacts = this.contactsRepository.GetAll();
 
-            if(!string.IsNullOrEmpty("search"))
+            if(!string.IsNullOrEmpty(search))
             {
                 contacts = contacts.Where(c =>
                     c.Title.ToLower().Contains(search.ToLower()) ||

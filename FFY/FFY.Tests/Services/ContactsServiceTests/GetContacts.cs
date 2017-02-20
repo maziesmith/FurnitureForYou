@@ -21,7 +21,7 @@ namespace FFY.Tests.Services.ContactsServiceTests
             // Arrange
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Contact>>();
-            mockedGenericRepository.Setup(gr => gr.GetAll<DateTime>(null, It.IsAny<Expression<Func<Contact, DateTime>>>()))
+            mockedGenericRepository.Setup(gr => gr.GetAll(null, It.IsAny<Expression<Func<Contact, DateTime>>>()))
                 .Returns(new List<Contact>())
                 .Verifiable();
 
