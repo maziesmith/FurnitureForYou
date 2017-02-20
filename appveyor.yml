@@ -12,7 +12,7 @@ build:
   
 environment:
   my_variable:
-    secure: njN2mXarMYw4sRXc3iBadCyXYaxmh9E2fvkHmZmaNm2dKm3BOwjMcmBND7k/kEpL
+    secure: IR1N/rt2CKuiUZqABM5bRBfm5IBinZd8Evd6ufmXD3EMWrsQGyLko37mHyItwDi8
 
 after_test: 
   - FFY\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[*]*" -target:"FFY\packages\NUnit.ConsoleRunner.3.6.0\tools\nunit3-console.exe" -targetargs:"/domain:single  FFY\FFY.Tests\bin\Debug\FFY.Tests.dll" -output:coverage.xml
