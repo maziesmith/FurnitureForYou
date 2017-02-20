@@ -8,20 +8,30 @@ using System.Threading.Tasks;
 
 namespace FFY.Services.Handlers
 {
-    public class ProductsByRoomAndCategoryHandler : Handler
-    {
+    public class ProductsByRoomAndCategoryWithQueryHandler : Handler
+    { 
         protected override bool CanHandle(string path, string room, string category, string search, bool rangeProvided)
         {
             return room != null
                 && category != null
-                && search == null
-                && !rangeProvided;
+                && (search != null || rangeProvided);
         }
-
         protected override IEnumerable<Product> Handle(IProductsService productsService, string room, string category, string search, bool rangeProvided, int from, int to)
         {
+            var products = productsService.GetProductsByRoomSpecialFiltered(room);
+
             //TODO: change it
-            return productsService.GetProductsByRoomSpecialFiltered(room);
+            if (search != null)
+            {
+                products = products.Where(p => p.Name.ToLower().Contains(search.ToLower()));
+            }
+
+            if (rangeProvided)
+            {
+                products = products.Where(p => p.DiscountedPrice >= from && p.DiscountedPrice <= to);
+            }
+
+            return products;
         }
     }
 }

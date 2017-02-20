@@ -8,7 +8,13 @@ namespace FFY.MVP.Furniture.Products
 {
     public class ProductsEventArgs
     {
-        public ProductsEventArgs(string path, string room, string category)
+        public ProductsEventArgs(string path,
+            string room, 
+            string category,
+            string search,
+            bool rangeProvided,
+            int from,
+            int to)
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -25,5 +31,13 @@ namespace FFY.MVP.Furniture.Products
         public string Room { get; set; }
 
         public string Category { get; set; }
+
+        public string Search { get; set; }
+
+        public bool RangeProvided { get; set; }
+
+        public int From { get; set; }
+
+        public int To { get; set; }
     }
 }

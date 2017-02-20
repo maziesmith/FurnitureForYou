@@ -13,13 +13,15 @@ namespace FFY.Web.Administration.ProductManagement
     [PresenterBinding(typeof(ProductsPresenter))]
     public partial class _Default : MvpPage<ProductsViewModel>, IProductsView
     {
-        private readonly string AllProductsPath = "/furniture/all";
+        private const string DefaultProductsPath = "/furniture/all";
+        private const int DefaultFrom = 0;
+        private const int DefaultTo = 100000;
+
         public event EventHandler<ProductsEventArgs> ListingProducts;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            this.ListingProducts?.Invoke(this, new ProductsEventArgs(AllProductsPath, null, null));
+            this.ListingProducts?.Invoke(this, new ProductsEventArgs(DefaultProductsPath, null, null, null, false, DefaultFrom, DefaultTo));
 
             if (!Page.IsPostBack)
             {

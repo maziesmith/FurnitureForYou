@@ -12,9 +12,13 @@ namespace FFY.Services.Handlers
     {
         void SetSuccessor(IHandler successor);
 
-        IEnumerable<Product> HandleProducts(string path, 
-            string room, 
+        IEnumerable<Product> HandleProducts(IProductsService productsService,
+            string path,
+            string room,
             string category,
-            IProductsService productsService);
+            string search,
+            bool rangeProvided,
+            int from,
+            int to);
     }
 }

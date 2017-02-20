@@ -13,11 +13,16 @@ namespace FFY.Services.Handlers
         private const string LatestProductsPath = "/furniture/latest";
         private const int productsAmount = 1000;
 
-        protected override bool CanHandle(string path, string room, string category)
+        protected override bool CanHandle(string path, string room, string category, string search, bool rangeProvided)
         {
-            return path == LatestProductsPath && room == null && category == null;
+            return path == LatestProductsPath
+                && room == null
+                && category == null
+                && search == null
+                && !rangeProvided;
         }
-        protected override IEnumerable<Product> Handle(string room, string category, IProductsService productsService)
+
+        protected override IEnumerable<Product> Handle(IProductsService productsService, string room, string category, string search, bool rangeProvided, int from, int to)
         {
             return productsService.GetLatestProducts(productsAmount);
         }

@@ -35,7 +35,15 @@ namespace FFY.MVP.Furniture.Products
 
         private void OnListingProducts(object sender, ProductsEventArgs e)
         {
-            this.View.Model.Products = this.productsHandler.HandleProducts(e.Path, e.Room, e.Category, this.productsService);
+            this.View.Model.Products = 
+                this.productsHandler.HandleProducts(this.productsService,
+                    e.Path, 
+                    e.Room, 
+                    e.Category,
+                    e.Search,
+                    e.RangeProvided,
+                    e.From,
+                    e.To);
         }
     }
 }

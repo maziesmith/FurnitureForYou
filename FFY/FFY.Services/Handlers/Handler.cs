@@ -12,17 +12,24 @@ namespace FFY.Services.Handlers
     {
         private IHandler successor;
 
-        public IEnumerable<Product> HandleProducts(string path, string room, string category, IProductsService productsService)
+        public IEnumerable<Product> HandleProducts(IProductsService productsService,
+            string path, 
+            string room, 
+            string category,
+            string search,
+            bool rangeProvided,
+            int from,
+            int to)
         {
             IEnumerable<Product> products = null;
 
-            if (CanHandle(path, room, category))
+            if (CanHandle(path, room, category, search, rangeProvided))
             {
-                products = this.Handle(room, category, productsService);
+                products = this.Handle(productsService, room, category, search, rangeProvided, from, to);
             }
             else if (this.successor != null)
             {
-                products = this.successor.HandleProducts(path, room, category, productsService);
+                products = this.successor.HandleProducts(productsService, path, room, category, search, rangeProvided, from, to);
             }
 
             return products;
@@ -33,8 +40,18 @@ namespace FFY.Services.Handlers
             this.successor = successor;
         }
 
-        protected abstract bool CanHandle(string path, string room, string category);
+        protected abstract bool CanHandle(string path, 
+            string room, 
+            string category, 
+            string search, 
+            bool rangeProvided);
 
-        protected abstract IEnumerable<Product> Handle(string room, string category, IProductsService productsService);
+        protected abstract IEnumerable<Product> Handle(IProductsService productsService, 
+            string room, 
+            string category, 
+            string search, 
+            bool rangeProvided,
+            int from,
+            int to);
     }
 }
