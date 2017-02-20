@@ -22,13 +22,24 @@ namespace FFY.Web.Administration.ProductManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.ListingProducts?.Invoke(this, new ProductsEventArgs(DefaultProductsPath, null, null, null, false, DefaultFrom, DefaultTo));
-
             if (!Page.IsPostBack)
             {
+                this.ListingProducts?.Invoke(this, new ProductsEventArgs(DefaultProductsPath, null, null, null, false, DefaultFrom, DefaultTo));
                 this.FurnitureProducts.DataSource = this.Model.Products;
                 this.FurnitureProducts.DataBind();
             }
+        }
+
+        protected void SearchButtonClick(object sender, EventArgs e)
+        {
+            this.Filter();
+        }
+
+        private void Filter()
+        {
+            this.ListingProducts?.Invoke(this, new ProductsEventArgs(DefaultProductsPath, null, null, this.SearchBox.Text, false, DefaultFrom, DefaultTo));
+            this.FurnitureProducts.DataSource = this.Model.Products;
+            this.FurnitureProducts.DataBind();
         }
     }
 }
