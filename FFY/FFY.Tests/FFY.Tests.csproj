@@ -94,6 +94,7 @@
     <Compile Include="Services\OrdersServiceTests\Constructor.cs" />
     <Compile Include="Services\OrdersServiceTests\GetOrders.cs" />
     <Compile Include="Services\OrdersServiceTests\GetOrderById.cs" />
+    <Compile Include="Services\OrdersServiceTests\GetOrdersByStatusTypeAndSender.cs" />
     <Compile Include="Services\ProductsServiceTests\AddProduct.cs" />
     <Compile Include="Services\ProductsServiceTests\Constructor.cs" />
     <Compile Include="Services\ProductsServiceTests\EditProduct.cs" />

@@ -47,7 +47,7 @@ namespace FFY.Services
 
         public IEnumerable<Order> GetOrders()
         {
-            return this.ordersRepository.GetAll(null, o => o.SendOn).Reverse();
+            return this.ordersRepository.GetAll(null, o => o.SendOn);
         }
 
         public void ChangeOrderStatus(Order order, int statusType, int paymentStatusType)
@@ -86,7 +86,7 @@ namespace FFY.Services
         {
             var orders = this.ordersRepository.GetAll();
 
-            if (!string.IsNullOrEmpty("search"))
+            if (!string.IsNullOrEmpty(search))
             {
                 orders = orders.Where(o =>
                     o.User.FirstName.ToLower().Contains(search.ToLower()) ||

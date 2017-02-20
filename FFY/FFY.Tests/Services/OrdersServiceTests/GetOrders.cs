@@ -36,20 +36,18 @@ namespace FFY.Tests.Services.OrdersServiceTests
         }
 
         [Test]
-        public void ShouldReturnAllOrdersFromOrdersRepository()
+        public void ShouldReturnAllOrdersSortedBySendOnDateFromOrdersRepository()
         {
             // Arrange
-            var mockedOrder = new Mock<Order>();
-            var mockedOrders = new List<Order>
-            {
-                mockedOrder.Object,
-                mockedOrder.Object
-            };
+            var order1 = new Order() { SendOn = new DateTime(2016, 1, 1) };
+            var order2 = new Order() { SendOn = new DateTime(2017, 1, 1) };
+            var order3 = new Order() { SendOn = new DateTime(2015, 1, 1) };
+            var mockedOrders = new List<Order> { order1, order2, order3 };
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Order>>();
             mockedGenericRepository.Setup(gr => 
                 gr.GetAll(null, It.IsAny<Expression<Func<Order, DateTime>>>()))
-                .Returns(mockedOrders);
+                .Returns(mockedOrders.OrderByDescending(s => s.SendOn));
 
             var ordersService = new OrdersService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
@@ -57,7 +55,9 @@ namespace FFY.Tests.Services.OrdersServiceTests
             var result = ordersService.GetOrders().ToList();
 
             // Assert
-            Assert.AreEqual(mockedOrders, result);
+            Assert.AreSame(order2, result[0]);
+            Assert.AreEqual(order1, result[1]);
+            Assert.AreEqual(order3, result[2]);
         }
 
     }
