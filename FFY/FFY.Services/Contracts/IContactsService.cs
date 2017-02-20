@@ -16,5 +16,7 @@ namespace FFY.Services.Contracts
         void ChangeContactStatus(Contact contact, int statusType, string userProccessedById, User user);
 
         Contact GetContactById(int id);
+
+        IEnumerable<Contact> GetContactsByStatusTypeAndTitleOrSender(int statusType, string search);
     }
 }

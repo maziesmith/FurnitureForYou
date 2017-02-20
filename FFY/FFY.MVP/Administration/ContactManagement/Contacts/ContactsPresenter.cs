@@ -22,6 +22,12 @@ namespace FFY.MVP.Administration.ContactManagement.Contacts
 
             this.contactsService = contactsService;
             this.View.ListingContacts += OnListingContacts;
+            this.View.FilterContacts += OnFilteringContacts;
+        }
+
+        private void OnFilteringContacts(object sender, FilterEventArgs e)
+        {
+            this.View.Model.Contacts = this.contactsService.GetContactsByStatusTypeAndTitleOrSender(e.StatusType, e.Search);
         }
 
         private void OnListingContacts(object sender, EventArgs e)

@@ -91,5 +91,33 @@ namespace FFY.Services
         {
             return this.contactsRepository.GetById(id);
         }
+
+        public IEnumerable<Contact> GetContactsByStatusTypeAndTitleOrSender(int statusType, string search)
+        {
+            var contacts = this.contactsRepository.GetAll();
+
+            if(!string.IsNullOrEmpty("search"))
+            {
+                contacts = contacts.Where(c =>
+                    c.Title.ToLower().Contains(search.ToLower()) ||
+                    c.Email.ToLower().Contains(search.ToLower()));
+            }
+
+            if(statusType == 0)
+            {
+                return contacts;
+            }
+            else
+            {
+                if (!Enum.IsDefined(typeof(ContactStatusType), statusType))
+                {
+                    throw new InvalidCastException("Contact status type is out of enumeration range.");
+                }
+
+                var contactStatusType = (ContactStatusType)statusType;
+
+                return contacts.Where(c => c.ContactStatusType == contactStatusType);
+            }
+        }
     }
 }

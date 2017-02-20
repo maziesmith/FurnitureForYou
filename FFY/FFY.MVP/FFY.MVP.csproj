@@ -100,6 +100,7 @@
     <Compile Include="Account\Login\LoginEventArgs.cs" />
     <Compile Include="Account\Login\LoginPresenter.cs" />
     <Compile Include="Account\Login\LoginViewModel.cs" />
+    <Compile Include="Administration\ContactManagement\Contacts\FilterEventArgs.cs" />
     <Compile Include="Administration\OrderManagement\OrderDetailed\OrderDetailedPresenter.cs" />
     <Compile Include="Administration\OrderManagement\OrderDetailed\OrderDetailedViewModel.cs" />
     <Compile Include="Administration\OrderManagement\OrderDetailed\EditOrderStatusEventArgs.cs" />

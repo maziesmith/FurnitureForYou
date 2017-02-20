@@ -1,15 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FFY.Web.Administration.ContactManagement._Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br /><br />
-    <asp:Label runat="server" Text="Show:" />
-    <asp:DropDownList runat="server" AutoPostBack="true" ID="DisplayYear">
-        <asp:ListItem Text="All" Value="" />
-        <asp:ListItem Text="Freshman" />
-        <asp:ListItem Text="Sophomore" />
-        <asp:ListItem Text="Junior" />
-        <asp:ListItem Text="Senior" />
-    </asp:DropDownList>
-    
+    <div class="col-md-9">
+        <div class="col-md-6">
+            <asp:TextBox ID="SearchBox" CssClass="form-control" runat="server"></asp:TextBox>
+        </div>
+        <div class="col-md-3">
+            <asp:Button ID="SearchButton" Text="Search" runat="server" OnClick="SearchButtonClick"/>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <asp:DropDownList runat="server" AutoPostBack="true" CssClass="form-control" ID="ContactsDropdown" OnSelectedIndexChanged="ContactsDropdownSelectedIndexChanged">
+            <asp:ListItem Text="All" Value="0" />
+            <asp:ListItem Text="Not proccessed" Value="1"/>
+            <asp:ListItem Text="Processing" Value="2"/>
+            <asp:ListItem Text="Proccessed" Value="3"/>
+        </asp:DropDownList>
+    </div>
     <asp:GridView ID="ContactList" AutoGenerateColumns="false" ItemType="FFY.Models.Contact" 
         DataKeyNames="Id"  AllowPaging="true" OnPageIndexChanging="ContactListPageIndexChanging" PageSize="2" BorderColor="White" BorderStyle="None" runat="server">
         <Columns>
