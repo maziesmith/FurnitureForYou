@@ -17,16 +17,35 @@
             <asp:ListItem Text="Proccessed" Value="3"/>
         </asp:DropDownList>
     </div>
-    <asp:GridView ID="ContactList" AutoGenerateColumns="false" ItemType="FFY.Models.Contact" 
-        DataKeyNames="Id"  AllowPaging="true" OnPageIndexChanging="ContactListPageIndexChanging" PageSize="2" BorderColor="White" BorderStyle="None" runat="server">
-        <Columns>
-            <asp:BoundField DataField="Title" HeaderText="Title"/>
-            <asp:BoundField DataField="Email" HeaderText="Email" />
-            <asp:BoundField DataField="SendOn" HeaderText="Send on" />
-            <asp:BoundField DataField="ContactStatusType" HeaderText="Status" />
-            <asp:HyperLinkField Text="Details" 
-                DataNavigateUrlFields="Id"
-                DataNavigateUrlFormatString="~/administration/contacts/{0}"/>
-        </Columns>
-    </asp:GridView>
+
+<asp:UpdatePanel ID="OrderUpdate" runat="server" UpdateMode="Always" ChildrenAsTriggers="true">
+    <Triggers>
+        <asp:AsyncPostBackTrigger EventName="Click" ControlID="SearchButton" runat="server" />
+    </Triggers>
+    <Triggers>
+        <asp:AsyncPostBackTrigger EventName="SelectedIndexChanged" ControlID="ContactsDropdown" runat="server" />
+    </Triggers>
+    <ContentTemplate>
+        <asp:GridView ID="ContactList" AutoGenerateColumns="false" 
+            ItemType="FFY.Models.Contact" 
+            DataKeyNames="Id"  
+            AllowPaging="true" 
+            OnPageIndexChanging="ContactListPageIndexChanging" 
+            EnableSortingAndPagingCallbacks="false" 
+            PageSize="2"
+            CssClass="table table-striped table-condensed table-bordered"
+            DataKeyName="Id"
+            runat="server">
+            <Columns>
+                <asp:BoundField DataField="Title" HeaderText="Title"/>
+                <asp:BoundField DataField="Email" HeaderText="Email" />
+                <asp:BoundField DataField="SendOn" HeaderText="Send on" />
+                <asp:BoundField DataField="ContactStatusType" HeaderText="Status" />
+                <asp:HyperLinkField Text="Details" 
+                    DataNavigateUrlFields="Id"
+                    DataNavigateUrlFormatString="~/administration/contacts/{0}"/>
+            </Columns>
+        </asp:GridView>
+    </ContentTemplate>
+</asp:UpdatePanel>
 </asp:Content>
