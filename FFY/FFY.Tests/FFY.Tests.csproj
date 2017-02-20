@@ -84,6 +84,14 @@
     <Compile Include="MVP\Account\LoginPresenterTests\Mocks\MockedLoginView.cs" />
     <Compile Include="MVP\Account\RegisterPresenterTests\Mocks\MockedRegisterView.cs" />
     <Compile Include="MVP\Account\RegisterPresenterTests\Constructor.cs" />
+    <Compile Include="MVP\Administration\ContactManagement\ContactDetailedPresenterTests\Constructor.cs" />
+    <Compile Include="MVP\Administration\ContactManagement\ContactDetailedPresenterTests\Mocks\MockedContactDetailedView.cs" />
+    <Compile Include="MVP\Administration\ContactManagement\ContactsPresenterTests\Constructor.cs" />
+    <Compile Include="MVP\Administration\ContactManagement\ContactsPresenterTests\Mocks\MockedContactsView.cs" />
+    <Compile Include="MVP\Administration\OrderManagement\OrdersPresenterTests\Constructor.cs" />
+    <Compile Include="MVP\Administration\OrderManagement\OrdersPresenterTests\Mocks\MockedContactsView.cs" />
+    <Compile Include="MVP\Administration\OrderManagement\OrderDetailedPresenterTests\Constructor.cs" />
+    <Compile Include="MVP\Administration\OrderManagement\OrderDetailedPresenterTests\Mocks\MockedOrderDetailedView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AddressesServiceTests\AddAddress.cs" />
     <Compile Include="Services\AddressesServiceTests\Constructor.cs" />

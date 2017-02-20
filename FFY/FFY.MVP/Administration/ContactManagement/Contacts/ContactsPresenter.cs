@@ -17,7 +17,7 @@ namespace FFY.MVP.Administration.ContactManagement.Contacts
         {
             if (contactsService == null)
             {
-                throw new ArgumentNullException("Contacts service cannot be null");
+                throw new ArgumentNullException("Contacts service cannot be null.");
             }
 
             this.contactsService = contactsService;

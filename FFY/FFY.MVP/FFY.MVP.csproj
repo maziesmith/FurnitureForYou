@@ -167,11 +167,11 @@
     <Compile Include="Administration\UserManagement\Users\UsersPresenter.cs" />
     <Compile Include="Administration\UserManagement\Users\UsersViewModel.cs" />
     <Compile Include="Assembly\IMvpAssembly.cs" />
-    <Compile Include="Administration\ContactManagement\ContactDetailed\EditContactStatusEventArgs.cs" />
-    <Compile Include="Administration\ContactManagement\ContactDetailed\ContactDetailedPresenter.cs" />
-    <Compile Include="Administration\ContactManagement\ContactDetailed\ContactDetailedViewModel.cs" />
-    <Compile Include="Administration\ContactManagement\ContactDetailed\GetContactByIdEventArgs.cs" />
-    <Compile Include="Administration\ContactManagement\ContactDetailed\IContactDetailedView.cs" />
+    <Compile Include="Administration\ContactManagement\ContactDetailedTests\EditContactStatusEventArgs.cs" />
+    <Compile Include="Administration\ContactManagement\ContactDetailedTests\ContactDetailedPresenter.cs" />
+    <Compile Include="Administration\ContactManagement\ContactDetailedTests\ContactDetailedViewModel.cs" />
+    <Compile Include="Administration\ContactManagement\ContactDetailedTests\GetContactByIdEventArgs.cs" />
+    <Compile Include="Administration\ContactManagement\ContactDetailedTests\IContactDetailedView.cs" />
     <Compile Include="Home\HomeEventArgs.cs" />
     <Compile Include="Home\HomePresenter.cs" />
     <Compile Include="Home\HomeViewModel.cs" />
