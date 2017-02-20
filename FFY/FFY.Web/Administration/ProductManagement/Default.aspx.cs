@@ -1,4 +1,4 @@
-﻿using FFY.MVP.Furniture.ListAllProducts;
+﻿using FFY.MVP.Furniture.Products;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +10,16 @@ using WebFormsMvp.Web;
 
 namespace FFY.Web.Administration.ProductManagement
 {
-    [PresenterBinding(typeof(ListAllProductsPresenter))]
-    public partial class _Default : MvpPage<ListAllProductsViewModel>, IListAllProductsView
+    [PresenterBinding(typeof(ProductsPresenter))]
+    public partial class _Default : MvpPage<ProductsViewModel>, IProductsView
     {
-        public event EventHandler ListingAllProducts;
+        private readonly string AllProductsPath = "/furniture/all";
+        public event EventHandler<ProductsEventArgs> ListingProducts;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            this.ListingAllProducts?.Invoke(this, e);
+            this.ListingProducts?.Invoke(this, new ProductsEventArgs(AllProductsPath, null, null));
 
             if (!Page.IsPostBack)
             {

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Furniture.FurnitureByRoom
+namespace FFY.MVP.Furniture.CategoryByRoom
 {
-    public class FurnitureByRoomEventArgs : EventArgs
+    public class CategoryByRoomEventArgs : EventArgs
     {
-        public FurnitureByRoomEventArgs(string roomNameFiltered)
+        public CategoryByRoomEventArgs(string roomNameFiltered)
         {
             this.RoomName = roomNameFiltered;
         }

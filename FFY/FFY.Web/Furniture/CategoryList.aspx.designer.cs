@@ -10,15 +10,15 @@
 namespace FFY.Web.Furniture {
     
     
-    public partial class FurnitureByRoom {
+    public partial class CategoryList {
         
         /// <summary>
-        /// FurnitureProducts control.
+        /// RoomCategories control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView FurnitureProducts;
+        protected global::System.Web.UI.WebControls.ListView RoomCategories;
     }
 }

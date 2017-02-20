@@ -8,5 +8,7 @@ namespace FFY.Services.Contracts
         IEnumerable<Category> GetCategories();
 
         void AddCategory(Category category);
+
+        IEnumerable<Category> GetCategoriesByRoomSpecialFiltered(string roomName);
     }
 }

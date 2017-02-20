@@ -14,13 +14,30 @@ namespace FFY.Web
             settings.AutoRedirectMode = RedirectMode.Permanent;
             routes.EnableFriendlyUrls(settings);
 
-            routes.MapPageRoute("FurnitureRooms", 
-                "furniture/{roomName}", 
+            routes.MapPageRoute("AllFurniture",
+                "furniture/all",
+                "~/Furniture/FurnitureList.aspx");
+
+            routes.MapPageRoute("FeaturedFurniture",
+                "furniture/latest",
+                "~/Furniture/FurnitureList.aspx");
+
+            routes.MapPageRoute("DiscountFurniture",
+                "furniture/discount",
                 "~/Furniture/FurnitureList.aspx");
 
             routes.MapPageRoute("FurnitureProducts",
                 "furniture/product/{productId}",
                 "~/Furniture/FurnitureDetailed.aspx");
+
+            routes.MapPageRoute("CategoriesByRooms", 
+                "furniture/{room}", 
+                "~/Furniture/CategoryList.aspx");
+
+            routes.MapPageRoute("FurnitureByRoomsAndCategory",
+                "furniture/{room}/{category}",
+                "~/Furniture/FurnitureList.aspx");
+
 
             routes.MapPageRoute("EditProducts",
                 "administration/edit-product/{productId}",
@@ -30,8 +47,12 @@ namespace FFY.Web
                 "administration/contacts/{contactId}",
                 "~/Administration/ContactManagement/ContactDetailed.aspx");
 
-            routes.MapPageRoute("Orders",
+            routes.MapPageRoute("OrdersAdministration",
                 "administration/orders/{orderId}",
+                "~/Administration/OrderManagement/OrderDetailed.aspx");
+
+            routes.MapPageRoute("OrdersUser",
+                "user/orders/{orderId}",
                 "~/Administration/OrderManagement/OrderDetailed.aspx");
         }
     }

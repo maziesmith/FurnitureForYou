@@ -263,7 +263,8 @@
     <Content Include="Administration\Web.config" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Furniture\FurnitureDetailed.aspx" />
-    <Content Include="Furniture\FurnitureByRoom.aspx" />
+    <Content Include="Furniture\CategoryList.aspx" />
+    <Content Include="Furniture\FurnitureList.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -562,12 +563,19 @@
     <Compile Include="Furniture\FurnitureDetailed.aspx.designer.cs">
       <DependentUpon>FurnitureDetailed.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Furniture\FurnitureByRoom.aspx.cs">
-      <DependentUpon>FurnitureByRoom.aspx</DependentUpon>
+    <Compile Include="Furniture\CategoryList.aspx.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Furniture\FurnitureByRoom.aspx.designer.cs">
-      <DependentUpon>FurnitureByRoom.aspx</DependentUpon>
+    <Compile Include="Furniture\CategoryList.aspx.designer.cs">
+      <DependentUpon>CategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Furniture\FurnitureList.aspx.cs">
+      <DependentUpon>FurnitureList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Furniture\FurnitureList.aspx.designer.cs">
+      <DependentUpon>FurnitureList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

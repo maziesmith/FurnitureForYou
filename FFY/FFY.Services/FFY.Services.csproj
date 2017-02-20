@@ -53,6 +53,12 @@
     <Compile Include="Contracts\IRoomsService.cs" />
     <Compile Include="Contracts\IShoppingCartsService.cs" />
     <Compile Include="Contracts\IUsersService.cs" />
+    <Compile Include="Handlers\AllProductsHandler.cs" />
+    <Compile Include="Handlers\DiscountProductsHandler.cs" />
+    <Compile Include="Handlers\Handler.cs" />
+    <Compile Include="Handlers\IHandler.cs" />
+    <Compile Include="Handlers\LatestProductsHandler.cs" />
+    <Compile Include="Handlers\ProductsByRoomAndCategoryHandler.cs" />
     <Compile Include="OrdersService.cs" />
     <Compile Include="ProductsService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

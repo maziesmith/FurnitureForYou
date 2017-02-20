@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FFY.MVP.Furniture.FurnitureByRoom
+namespace FFY.MVP.Furniture.Products
 {
-    public class FurnitureByRoomViewModel
+    public class ProductsViewModel
     {
         public IEnumerable<Product> Products { get; set; }
     }
