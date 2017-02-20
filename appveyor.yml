@@ -11,7 +11,7 @@ build:
   verbosity: minimal  
   
 environment:
-  my_variable:
+  COVERALLS:
     secure: IR1N/rt2CKuiUZqABM5bRBfm5IBinZd8Evd6ufmXD3EMWrsQGyLko37mHyItwDi8
 
 after_test: 
