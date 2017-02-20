@@ -112,9 +112,11 @@
     <Compile Include="Services\ShoppingCartsServiceTests\CartProductsCount.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\Clear.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\Constructor.cs" />
-    <Compile Include="Services\ShoppingCartsServiceTests\Delete.cs" />
+    <Compile Include="Services\ShoppingCartsServiceTests\Remove.cs" />
     <Compile Include="Services\ShoppingCartsServiceTests\GetCart.cs" />
     <Compile Include="Services\UsersServiceTests\Constructor.cs" />
+    <Compile Include="Services\UsersServiceTests\ChangeUserRole.cs" />
+    <Compile Include="Services\UsersServiceTests\GetUsersByRoleTypeAndName.cs" />
     <Compile Include="Services\UsersServiceTests\GetUserById.cs" />
     <Compile Include="Services\UsersServiceTests\GetUserByUsername.cs" />
     <Compile Include="Services\UsersServiceTests\GetUsers.cs" />

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace FFY.Tests.Services.ShoppingCartsServiceTests
 {
     [TestFixture]
-    public class Delete
+    public class Remove
     {
         [TestCase("")]
         [TestCase(null)]

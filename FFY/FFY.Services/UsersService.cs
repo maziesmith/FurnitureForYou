@@ -65,7 +65,7 @@ namespace FFY.Services
         {
             var users = this.usersRepository.GetAll();
 
-            if (!string.IsNullOrEmpty("search"))
+            if (!string.IsNullOrEmpty(search))
             {
                 users = users.Where(u =>
                     u.UserName.ToLower().Contains(search.ToLower()) ||
@@ -82,7 +82,7 @@ namespace FFY.Services
             {
                 if (!Enum.IsDefined(typeof(UserRoleType), roleType))
                 {
-                    throw new InvalidCastException("Contact status type is out of enumeration range.");
+                    throw new InvalidCastException("User role status type is out of enumeration range.");
                 }
 
                 var userRoleType = (UserRoleType)roleType;
