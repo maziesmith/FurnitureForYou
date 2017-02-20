@@ -22,10 +22,19 @@ namespace FFY.Web.Furniture
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.CheckPageParameters();
+            if(!Page.IsPostBack)
+            {
+                this.CheckPageParameters();
+                this.Products.DataSource = this.Model.Products;
+                this.Products.DataBind();
 
-            this.Products.DataSource = this.Model.Products;
-            this.Products.DataBind();
+                this.SearchBox.Text = (!string.IsNullOrEmpty(this.Request.QueryString["search"])) ?
+                    this.Request.QueryString["search"] : string.Empty;
+                this.FromBox.Text = (!string.IsNullOrEmpty(this.Request.QueryString["from"])) ?
+                    this.Request.QueryString["from"] : string.Empty;
+                this.ToBox.Text = (!string.IsNullOrEmpty(this.Request.QueryString["to"])) ?
+                    this.Request.QueryString["to"] : string.Empty;
+            }
         }
 
         private void CheckPageParameters()
