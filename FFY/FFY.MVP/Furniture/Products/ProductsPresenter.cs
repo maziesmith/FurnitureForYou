@@ -1,4 +1,5 @@
-﻿using FFY.Services.Contracts;
+﻿using FFY.MVP.Furniture.Utilities;
+using FFY.Services.Contracts;
 using FFY.Services.Handlers;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,12 @@ namespace FFY.MVP.Furniture.Products
     {
         private readonly IProductsService productsService;
         private readonly IHandler productsHandler;
+        private readonly IQueryBuilder queryBuilder;
 
         public ProductsPresenter(IProductsView view,
             IHandler productsHandler,
-            IProductsService productsService) : base(view)
+            IProductsService productsService,
+            IQueryBuilder queryBuilder) : base(view)
         {
             if(productsService == null)
             {
@@ -30,7 +33,9 @@ namespace FFY.MVP.Furniture.Products
 
             this.productsService = productsService;
             this.productsHandler = productsHandler;
+            this.queryBuilder = queryBuilder;
             this.View.ListingProducts += OnListingProducts;
+            this.View.BuildingQuery += OnBuildingQuery;
         }
 
         private void OnListingProducts(object sender, ProductsEventArgs e)
@@ -44,6 +49,11 @@ namespace FFY.MVP.Furniture.Products
                     e.RangeProvided,
                     e.From,
                     e.To);
+        }
+
+        private void OnBuildingQuery(object sender, QueryEventArgs e)
+        {
+            this.View.Model.Query = this.queryBuilder.BuildProductSearchQuery(e.Path, e.Search, e.From, e.To);
         }
     }
 }

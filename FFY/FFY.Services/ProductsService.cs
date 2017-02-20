@@ -81,7 +81,7 @@ namespace FFY.Services
 
         public IEnumerable<Product> GetDiscountProducts(int amount)
         {
-            return this.productsRepository.GetAll(p => p.DiscountPercentage > 0, null, amount);
+            return this.productsRepository.GetAll(p => p.DiscountPercentage, null, amount);
         }
 
         public IEnumerable<Product> GetLatestProducts(int amount)

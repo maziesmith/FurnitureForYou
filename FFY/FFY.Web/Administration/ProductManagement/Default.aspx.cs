@@ -18,6 +18,7 @@ namespace FFY.Web.Administration.ProductManagement
         private const int DefaultTo = 100000;
 
         public event EventHandler<ProductsEventArgs> ListingProducts;
+        public event EventHandler<QueryEventArgs> BuildingQuery;
 
         protected void Page_Load(object sender, EventArgs e)
         {

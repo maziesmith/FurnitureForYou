@@ -113,6 +113,9 @@
     <Compile Include="Administration\ProductManagement\Utilities\ImageUploader.cs" />
     <Compile Include="Furniture\FurnitureDetailed\AddToShoppingCartEventArgs.cs" />
     <Compile Include="Furniture\Products\ProductsEventArgs.cs" />
+    <Compile Include="Furniture\Products\QueryEventArgs.cs" />
+    <Compile Include="Furniture\Utilities\IQueryBuilder.cs" />
+    <Compile Include="Furniture\Utilities\QueryBuilder.cs" />
     <Compile Include="Users\Cart\CartEventArgs.cs" />
     <Compile Include="Users\Cart\CartPresenter.cs" />
     <Compile Include="Users\Cart\CartViewModel.cs" />

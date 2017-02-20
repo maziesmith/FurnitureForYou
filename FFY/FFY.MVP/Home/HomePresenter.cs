@@ -27,7 +27,7 @@ namespace FFY.MVP.Home
 
         private void OnListingDiscountProducts(object sender, HomeEventArgs e)
         {
-            this.View.Model.DiscountProducts = this.productsService.GetDiscountProducts(e.Amount).Reverse();
+            this.View.Model.DiscountProducts = this.productsService.GetDiscountProducts(e.Amount);
         }
 
         private void OnListingLatestProducts(object sender, HomeEventArgs e)

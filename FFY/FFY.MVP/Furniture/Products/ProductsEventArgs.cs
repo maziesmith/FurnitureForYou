@@ -24,6 +24,10 @@ namespace FFY.MVP.Furniture.Products
             this.Path = path;
             this.Room = room;
             this.Category = category;
+            this.Search = search;
+            this.RangeProvided = rangeProvided;
+            this.From = from;
+            this.To = to;
         }
 
         public string Path { get; set; }

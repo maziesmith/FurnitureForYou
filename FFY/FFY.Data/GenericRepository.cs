@@ -98,7 +98,7 @@ namespace FFY.Data
 
             if (sortExpression != null)
             {
-                result = result.OrderBy(sortExpression);
+                result = result.OrderByDescending(sortExpression);
             }
 
             if (skip != null)

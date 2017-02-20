@@ -10,5 +10,7 @@ namespace FFY.MVP.Furniture.Products
     public class ProductsViewModel
     {
         public IEnumerable<Product> Products { get; set; }
+
+        public string Query { get; set; }
     }
 }

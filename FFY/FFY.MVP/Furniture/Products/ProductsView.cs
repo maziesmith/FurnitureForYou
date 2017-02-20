@@ -10,5 +10,7 @@ namespace FFY.MVP.Furniture.Products
     public interface IProductsView : IView<ProductsViewModel>
     {
         event EventHandler<ProductsEventArgs> ListingProducts;
+
+        event EventHandler<QueryEventArgs> BuildingQuery;
     }
 }
