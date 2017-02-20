@@ -33,7 +33,6 @@ namespace FFY.Models
         //[Key]
         //public int Id { get; set; }
 
-        // TODO: Remove possibly
         [Required]
         [MinLength(3)]
         [MaxLength(30)]

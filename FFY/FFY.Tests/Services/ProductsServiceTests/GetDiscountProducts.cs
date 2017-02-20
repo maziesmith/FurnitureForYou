@@ -23,7 +23,10 @@ namespace FFY.Tests.Services.ProductsServiceTests
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
             mockedGenericRepository.Setup(gr =>
-                gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>())).Verifiable();
+                gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(),
+                    It.IsAny<Expression<Func<Product, int>>>()))
+                    .Returns(new List<Product>())
+                    .Verifiable();
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
@@ -31,7 +34,8 @@ namespace FFY.Tests.Services.ProductsServiceTests
             productsService.GetDiscountProducts(amount);
 
             // Assert
-            mockedGenericRepository.Verify(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()), Times.Once);
+            mockedGenericRepository.Verify(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(),
+                    It.IsAny<Expression<Func<Product, int>>>()), Times.Once);
         }
 
         [TestCase(1)]
@@ -39,7 +43,8 @@ namespace FFY.Tests.Services.ProductsServiceTests
         public void ShouldReturnCorrectAmountOfProductsFromProductsRepository(int amount)
         {
             // Arrange
-            Expression<Func<Product, bool>> expression = p => p.DiscountPercentage > 0;
+            Expression<Func<Product, bool>> filterExpression = p => p.DiscountPercentage > 0;
+            Expression<Func<Product, int>> sortExpression = p => p.DiscountPercentage;
 
             var mockedProducts = new List<Product>
                 {
@@ -50,8 +55,12 @@ namespace FFY.Tests.Services.ProductsServiceTests
             .AsQueryable();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()))
-                .Returns(mockedProducts.Where(expression).Take(amount).ToList());
+            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(),
+                It.IsAny<Expression<Func<Product, int>>>()))
+                .Returns(mockedProducts.Where(filterExpression)
+                    .OrderByDescending(sortExpression)
+                    .Take(amount)
+                    .ToList());
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
@@ -67,7 +76,8 @@ namespace FFY.Tests.Services.ProductsServiceTests
         public void ShouldReturnCorrectAmountOfProductsWithPositiveDiscountPercentageFromProductsRepository(int amount)
         {
             // Arrange
-            Expression<Func<Product, bool>> expression = p => p.DiscountPercentage > 0;
+            Expression<Func<Product, bool>> filterExpression = p => p.DiscountPercentage > 0;
+            Expression<Func<Product, int>> sortExpression = p => p.DiscountPercentage;
             var expectedAmount = 2;
 
             var mockedProducts = new List<Product>
@@ -79,8 +89,12 @@ namespace FFY.Tests.Services.ProductsServiceTests
             .AsQueryable();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()))
-                .Returns(mockedProducts.Where(expression).Take(amount).ToList());
+            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(),
+                It.IsAny<Expression<Func<Product, int>>>()))
+                .Returns(mockedProducts.Where(filterExpression)
+                    .OrderByDescending(sortExpression)
+                    .Take(amount)
+                    .ToList());
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 
@@ -96,7 +110,8 @@ namespace FFY.Tests.Services.ProductsServiceTests
         {
             // Arrange
             var expectedAmount = 0;
-            Expression<Func<Product, bool>> expression = p => p.DiscountPercentage > 0;
+            Expression<Func<Product, bool>> filterExpression = p => p.DiscountPercentage > 0;
+            Expression<Func<Product, int>> sortExpression = p => p.DiscountPercentage;
 
             var mockedProducts = new List<Product>
                 {
@@ -107,8 +122,12 @@ namespace FFY.Tests.Services.ProductsServiceTests
             .AsQueryable();
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Product>>();
-            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(), null, It.IsAny<int>()))
-                .Returns(mockedProducts.Where(expression).Take(amount).ToList());
+            mockedGenericRepository.Setup(gr => gr.GetAll(It.IsAny<Expression<Func<Product, bool>>>(),
+                It.IsAny<Expression<Func<Product, int>>>()))
+                .Returns(mockedProducts.Where(filterExpression)
+                    .OrderByDescending(sortExpression)
+                    .Take(amount)
+                    .ToList());
 
             var productsService = new ProductsService(mockedUnitOfWork.Object, mockedGenericRepository.Object);
 

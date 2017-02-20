@@ -18,7 +18,7 @@ namespace FFY.Services.Handlers
         }
         protected override IEnumerable<Product> Handle(IProductsService productsService, string room, string category, string search, bool rangeProvided, int from, int to)
         {
-            var products = productsService.GetProductsByRoomSpecialFiltered(room);
+            var products = productsService.GetProductsByRoomAndCategorySpecialFiltered(room, category);
 
             //TODO: change it
             if (search != null)

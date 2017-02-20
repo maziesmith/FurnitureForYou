@@ -19,12 +19,10 @@ namespace FFY.Tests.Services.OrdersServiceTests
         public void ShouldCallGetAllMethodOfOrdersRepositoryOnce()
         {
             // Arrange
-            Expression<Func<Order, DateTime>> expression = o => o.SendOn;
-
             var mockedUnitOfWork = new Mock<IUnitOfWork>();
             var mockedGenericRepository = new Mock<IGenericRepository<Order>>();
             mockedGenericRepository.Setup(gr =>
-                gr.GetAll(null, expression))
+                gr.GetAll(null, It.IsAny<Expression<Func<Order, DateTime>>>()))
                 .Returns(new List<Order>())
                 .Verifiable();
 
@@ -34,7 +32,7 @@ namespace FFY.Tests.Services.OrdersServiceTests
             ordersService.GetOrders();
 
             // Assert
-            mockedGenericRepository.Verify(gr => gr.GetAll(null, expression), Times.Once);
+            mockedGenericRepository.Verify(gr => gr.GetAll(null, It.IsAny<Expression<Func<Order, DateTime>>>()), Times.Once);
         }
 
         [Test]

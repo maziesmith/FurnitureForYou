@@ -13,7 +13,7 @@ namespace FFY.Services.Contracts
 
         IEnumerable<Product> GetProductsByRoom(string roomName);
 
-        IEnumerable<Product> GetProductsByRoomSpecialFiltered(string roomName);
+        IEnumerable<Product> GetProductsByRoomAndCategorySpecialFiltered(string room, string category);
 
         IEnumerable<Product> GetProducts();
 

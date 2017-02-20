@@ -69,9 +69,10 @@ namespace FFY.Services
             return this.productsRepository.GetAll(r => r.Room.Name == roomName);
         }
 
-        public IEnumerable<Product> GetProductsByRoomSpecialFiltered(string roomNameFiltered)
+        public IEnumerable<Product> GetProductsByRoomAndCategorySpecialFiltered(string roomNameFiltered, string categoryFiltered)
         {
-            return this.productsRepository.GetAll(r => r.Room.Name.ToLower().Replace(@"\s+", "") == roomNameFiltered);
+            return this.productsRepository.GetAll(r => r.Room.Name.ToLower().Replace(@"\s+", "") == roomNameFiltered &&
+                r.Category.Name.ToLower().Replace(@"\s+", "") == categoryFiltered);
         }
 
         public IEnumerable<Product> GetProducts()
@@ -81,7 +82,7 @@ namespace FFY.Services
 
         public IEnumerable<Product> GetDiscountProducts(int amount)
         {
-            return this.productsRepository.GetAll(p => p.DiscountPercentage, null, amount);
+            return this.productsRepository.GetAll(p => p.DiscountPercentage > 0, p => p.DiscountPercentage).Take(amount);
         }
 
         public IEnumerable<Product> GetLatestProducts(int amount)

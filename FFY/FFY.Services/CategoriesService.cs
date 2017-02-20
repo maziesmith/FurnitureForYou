@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using FFY.Models;
 using FFY.Data.Contracts;
+using System.Linq;
 
 namespace FFY.Services
 {
@@ -57,7 +58,8 @@ namespace FFY.Services
 
         public IEnumerable<Category> GetCategoriesByRoomSpecialFiltered(string room)
         {
-            return this.productsRepository.GetAll(p => p.Room.Name.ToLower().Replace(@"\s+", "") == room, c => c.Category.Name, q => q.Category);
+            return productsRepository.GetAll(p => p.Room.Name.ToLower().Replace(@"\s+", "") == room, 
+                c => c.Category.Name, q => q.Category).Distinct();
         }
     }
 }
