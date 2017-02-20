@@ -20,23 +20,23 @@ namespace FFY.MVP.Administration.ProductManagement.EditProduct
 
         public EditProductPresenter(IEditProductView view,
             IProductsService productsService,
-            ICategoriesService categoriesServices,
-            IRoomsService roomsServices,
+            ICategoriesService categoriesService,
+            IRoomsService roomsService,
             IImageUploader imageUploader) : base(view)
         {
             if (productsService == null)
             {
-                throw new ArgumentNullException("Products service cannot be null");
+                throw new ArgumentNullException("Products service cannot be null.");
             }
 
-            if (categoriesServices == null)
+            if (categoriesService == null)
             {
-                throw new ArgumentNullException("Categories service cannot be null");
+                throw new ArgumentNullException("Categories service cannot be null.");
             }
 
-            if (roomsServices == null)
+            if (roomsService == null)
             {
-                throw new ArgumentNullException("Rooms service cannot be null");
+                throw new ArgumentNullException("Rooms service cannot be null.");
             }
 
             if (imageUploader == null)
@@ -45,8 +45,8 @@ namespace FFY.MVP.Administration.ProductManagement.EditProduct
             }
 
             this.productsServices = productsService;
-            this.categoriesServices = categoriesServices;
-            this.roomsServices = roomsServices;
+            this.categoriesServices = categoriesService;
+            this.roomsServices = roomsService;
             this.imageUploader = imageUploader;
             this.View.Initial += OnInitial;
             this.View.EdittingProduct += OnEdittingProduct;

@@ -20,8 +20,8 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
         public AddProductPresenter(IAddProductView view,
             IProductFactory productFactory, 
             IProductsService productsService,
-            ICategoriesService categoriesServices,
-            IRoomsService roomsServices,
+            ICategoriesService categoriesService,
+            IRoomsService roomsService,
             IImageUploader imageUploader) : base(view)
         {
             if(productsService == null)
@@ -29,12 +29,12 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
                 throw new ArgumentNullException("Products service cannot be null.");
             }
 
-            if (categoriesServices == null)
+            if (categoriesService == null)
             {
                 throw new ArgumentNullException("Categories service cannot be null.");
             }
 
-            if (roomsServices == null)
+            if (roomsService == null)
             {
                 throw new ArgumentNullException("Rooms service cannot be null.");
             }
@@ -50,8 +50,8 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
             }
 
             this.productsServices = productsService;
-            this.categoriesServices = categoriesServices;
-            this.roomsServices = roomsServices;
+            this.categoriesServices = categoriesService;
+            this.roomsServices = roomsService;
             this.productFactory = productFactory;
             this.imageUploader = imageUploader;
             this.View.Initial += OnInitial;

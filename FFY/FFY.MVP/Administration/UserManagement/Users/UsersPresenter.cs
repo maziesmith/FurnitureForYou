@@ -16,7 +16,7 @@ namespace FFY.MVP.Administration.UserManagement.Users
         {
             if(usersService == null)
             {
-                throw new ArgumentNullException("Users service cannot be null");
+                throw new ArgumentNullException("Users service cannot be null.");
             }
 
             this.usersService = usersService;
