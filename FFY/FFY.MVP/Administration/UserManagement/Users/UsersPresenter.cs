@@ -21,6 +21,12 @@ namespace FFY.MVP.Administration.UserManagement.Users
 
             this.usersService = usersService;
             this.View.ListingUsers += OnListingUsers;
+            this.View.FilterUsers += OnFilteringUsers;
+        }
+
+        private void OnFilteringUsers(object sender, FilterEventArgs e)
+        {
+            this.View.Model.Users = this.usersService.GetUsersByRoleTypeAndName(e.RoleType, e.Search);
         }
 
         private void OnListingUsers(object sender, EventArgs e)

@@ -29,7 +29,6 @@ namespace FFY.Web.Administration.OrderManagement
         protected void OrderListPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             this.Filter();
-            // this.OrderList.DataSource = this.Model.Orders.ToList();
             this.OrderList.PageIndex = e.NewPageIndex;
             this.OrderList.DataBind();
         }

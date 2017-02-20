@@ -10,5 +10,7 @@ namespace FFY.MVP.Administration.UserManagement.Users
     public interface IUsersView : IView<UsersViewModel>
     {
         event EventHandler ListingUsers;
+
+        event EventHandler<FilterEventArgs> FilterUsers;
     }
 }

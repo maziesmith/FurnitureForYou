@@ -60,6 +60,7 @@
     <Compile Include="Address.cs" />
     <Compile Include="CartProduct.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="UserRoleType.cs" />
     <Compile Include="Contact.cs" />
     <Compile Include="ContactStatusType.cs" />
     <Compile Include="Order.cs" />

@@ -45,5 +45,35 @@ namespace FFY.Services
         {
             return this.usersRepository.GetAll();
         }
+
+        public IEnumerable<User> GetUsersByRoleTypeAndName(int roleType, string search)
+        {
+            var users = this.usersRepository.GetAll();
+
+            if (!string.IsNullOrEmpty("search"))
+            {
+                users = users.Where(u =>
+                    u.UserName.ToLower().Contains(search.ToLower()) ||
+                    u.LastName.ToLower().Contains(search.ToLower()) ||
+                    u.LastName.ToLower().Contains(search.ToLower()) ||
+                    u.Email.ToLower().Contains(search.ToLower()));
+            }
+
+            if (roleType == 0)
+            {
+                return users;
+            }
+            else
+            {
+                if (!Enum.IsDefined(typeof(UserRoleType), roleType))
+                {
+                    throw new InvalidCastException("Contact status type is out of enumeration range.");
+                }
+
+                var userRoleType = (UserRoleType)roleType;
+
+                return users.Where(u => u.UserRole == userRoleType.ToString());
+            }
+        }
     }
 }
