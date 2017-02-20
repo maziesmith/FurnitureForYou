@@ -10,5 +10,8 @@ namespace FFY.MVP.Administration.OrderManagement.Orders
     public interface IOrdersView : IView<OrdersViewModel>
     {
         event EventHandler ListingOrders;
+
+        event EventHandler<FilterEventArgs> FilterOrders;
+
     }
 }

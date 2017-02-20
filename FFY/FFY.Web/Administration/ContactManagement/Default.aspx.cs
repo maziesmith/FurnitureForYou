@@ -18,18 +18,17 @@ namespace FFY.Web.Administration.ContactManagement
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
-            {
-                this.ListingContacts?.Invoke(this, e);
-                this.ContactList.DataSource = this.Model.Contacts.ToList();
-                this.ContactList.DataBind();
-            }
+            this.ListingContacts?.Invoke(this, e);
+            this.ContactList.DataSource = this.Model.Contacts.ToList();
+            this.ContactList.DataBind();
         }
 
         protected void ContactListPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            this.ContactList.DataSource = this.Model.Contacts;
             this.ContactList.PageIndex = e.NewPageIndex;
             this.ContactList.DataBind();
+
         }
 
         protected void ContactsDropdownSelectedIndexChanged(object sender, EventArgs e)

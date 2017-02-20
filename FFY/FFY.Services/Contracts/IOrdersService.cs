@@ -16,5 +16,8 @@ namespace FFY.Services.Contracts
         void ChangeOrderStatus(Order order, int statusType, int paymentStatusType);
 
         Order GetOrderById(int id);
+
+        IEnumerable<Order> GetOrdersByStatusTypeAndSender(int statusType, string search);
+
     }
 }

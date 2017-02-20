@@ -81,5 +81,34 @@ namespace FFY.Services
         {
             return this.ordersRepository.GetById(id);
         }
+
+        public IEnumerable<Order> GetOrdersByStatusTypeAndSender(int statusType, string search)
+        {
+            var orders = this.ordersRepository.GetAll();
+
+            if (!string.IsNullOrEmpty("search"))
+            {
+                orders = orders.Where(o =>
+                    o.User.FirstName.ToLower().Contains(search.ToLower()) ||
+                    o.User.LastName.ToLower().Contains(search.ToLower()) ||
+                    o.User.Email.ToLower().Contains(search.ToLower()));
+            }
+
+            if (statusType == 0)
+            {
+                return orders.Reverse();
+            }
+            else
+            {
+                if (!Enum.IsDefined(typeof(OrderStatusType), statusType))
+                {
+                    throw new InvalidCastException("Order status type is out of enumeration range.");
+                }
+
+                var orderStatusType = (OrderStatusType)statusType;
+
+                return orders.Where(o => o.OrderStatusType == orderStatusType).Reverse();
+            }
+        }
     }
 }

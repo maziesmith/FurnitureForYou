@@ -22,11 +22,17 @@ namespace FFY.MVP.Administration.OrderManagement.Orders
 
             this.ordersService = ordersService;
             this.View.ListingOrders += OnListingOrders;
+            this.View.FilterOrders += OnFilteringOrders;
         }
 
         private void OnListingOrders(object sender, EventArgs e)
         {
             this.View.Model.Orders = this.ordersService.GetOrders();
+        }
+
+        private void OnFilteringOrders(object sender, FilterEventArgs e)
+        {
+            this.View.Model.Orders = this.ordersService.GetOrdersByStatusTypeAndSender(e.StatusType, e.Search);
         }
     }
 }

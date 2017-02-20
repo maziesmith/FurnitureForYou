@@ -106,6 +106,7 @@
     <Compile Include="Administration\OrderManagement\OrderDetailed\EditOrderStatusEventArgs.cs" />
     <Compile Include="Administration\OrderManagement\OrderDetailed\GetOrderByIdEventArgs.cs" />
     <Compile Include="Administration\OrderManagement\OrderDetailed\IOrderDetailedView.cs" />
+    <Compile Include="Administration\OrderManagement\Orders\FilterEventArgs.cs" />
     <Compile Include="Administration\OrderManagement\Orders\IOrdersView.cs" />
     <Compile Include="Administration\OrderManagement\Orders\OrdersPresenter.cs" />
     <Compile Include="Administration\OrderManagement\Orders\OrdersViewModel.cs" />
