@@ -15,21 +15,6 @@ namespace FFY.MVP.Contacts.ContactSender
             DateTime sendOn,
             ContactStatusType statusType)
         {
-            if(string.IsNullOrEmpty(title))
-            {
-                throw new ArgumentNullException("Title cannot be null or empty.");
-            }
-
-            if (string.IsNullOrEmpty(email))
-            {
-                throw new ArgumentNullException("Email cannot be null or empty.");
-            }
-
-            if (string.IsNullOrEmpty(emailContent))
-            {
-                throw new ArgumentNullException("Email content cannot be null or empty.");
-            }
-
             this.Title = title;
             this.Email = email;
             this.EmailContent = emailContent;

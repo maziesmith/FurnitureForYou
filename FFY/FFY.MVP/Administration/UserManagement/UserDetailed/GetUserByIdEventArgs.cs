@@ -10,11 +10,6 @@ namespace FFY.MVP.Administration.UserManagement.UserDetailed
     {
         public GetUserByIdEventArgs(string id)
         {
-            if (string.IsNullOrEmpty(id))
-            {
-                throw new ArgumentNullException("User id cannot be null.");
-            }
-
             this.Id = id;
         }
 

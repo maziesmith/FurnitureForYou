@@ -10,11 +10,6 @@ namespace FFY.MVP.Users.CheckOut
     {
         public CartClearEventArgs(string cartId)
         {
-            if (string.IsNullOrEmpty(cartId))
-            {
-                throw new ArgumentNullException("Cart Id cannot be null.");
-            }
-
             this.CartId = cartId;
         }
 

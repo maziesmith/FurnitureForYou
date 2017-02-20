@@ -10,16 +10,6 @@ namespace FFY.MVP.Furniture.FurnitureDetailed
     {
         public AddToShoppingCartEventArgs(int quantity, string cartId)
         {
-            if(quantity < 0)
-            {
-                throw new ArgumentOutOfRangeException("Quantity of product cannot be negative.");
-            }
-
-            if(string.IsNullOrEmpty(cartId))
-            {
-                throw new ArgumentNullException("Cart Id cannot be null.");
-            }
-
             this.Quantity = quantity;
             this.CartId = cartId;
         }

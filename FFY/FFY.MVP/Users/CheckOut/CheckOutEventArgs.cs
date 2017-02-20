@@ -18,31 +18,6 @@ namespace FFY.MVP.Users.CheckOut
             OrderPaymentStatusType orderPaymentStatusType,
             OrderStatusType orderStatusType)
         {
-            if (string.IsNullOrEmpty(userId))
-            {
-                throw new ArgumentNullException("User Id cannot be null.");
-            }
-
-            if (string.IsNullOrEmpty(street))
-            {
-                throw new ArgumentNullException("Street cannot be null.");
-            }
-
-            if (string.IsNullOrEmpty(city))
-            {
-                throw new ArgumentNullException("City cannot be null.");
-            }
-
-            if (string.IsNullOrEmpty(country))
-            {
-                throw new ArgumentNullException("Country cannot be null.");
-            }
-
-            if(string.IsNullOrEmpty(phoneNumber))
-            {
-                throw new ArgumentNullException("Phone number cannot be null.");
-            }
-
             this.UserId = userId;
             this.Street = street;
             this.City = city;

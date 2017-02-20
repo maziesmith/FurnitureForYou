@@ -19,46 +19,6 @@ namespace FFY.MVP.Administration.ProductManagement.AddProduct
             int roomId,
             Room room)
         {
-            if (string.IsNullOrEmpty(name))
-            {
-                throw new ArgumentNullException("Product name cannot be null.");
-            }
-
-            if (price < 0)
-            {
-                throw new ArgumentOutOfRangeException("Price cannot be negative.");
-            }
-
-            if (discountPercentage < 0 || discountPercentage > 100)
-            {
-                throw new ArgumentOutOfRangeException("Discount percentage cannot be less than 0 or greater than 100.");
-            }
-
-            if (string.IsNullOrEmpty(description))
-            {
-                throw new ArgumentNullException("Product description cannot be null.");
-            }
-
-            if (categoryId < 0)
-            {
-                throw new ArgumentOutOfRangeException("Category Id cannot be negative.");
-            }
-
-            if(category == null)
-            {
-                throw new ArgumentNullException("Product category cannot be null.");
-            }
-
-            if (roomId < 0)
-            {
-                throw new ArgumentOutOfRangeException("Room Id cannot be negative.");
-            }
-
-            if (room == null)
-            {
-                throw new ArgumentNullException("Product room cannot be null.");
-            }
-
             this.Name = name;
             this.Price = price;
             this.DiscountPercentage = discountPercentage;

@@ -10,11 +10,6 @@ namespace FFY.MVP.Account.Login
     {
         public CartCountEventArgs(string cartId)
         {
-            if (string.IsNullOrEmpty(cartId))
-            {
-                throw new ArgumentNullException("Cart Id cannot be null or empty.");
-            }
-
             this.CartId = cartId;
         }
 

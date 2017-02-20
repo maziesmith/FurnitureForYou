@@ -11,11 +11,6 @@ namespace FFY.MVP.Administration.ProductManagement.AddRoom
     {
         public AddRoomEventArgs(string roomName)
         {
-            if(string.IsNullOrEmpty(roomName))
-            {
-                throw new ArgumentNullException("Room name cannot be null or empty.");
-            }
-
             this.RoomName = roomName;
         }
 

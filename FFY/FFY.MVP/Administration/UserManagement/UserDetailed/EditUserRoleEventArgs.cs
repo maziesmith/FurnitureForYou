@@ -12,16 +12,6 @@ namespace FFY.MVP.Administration.UserManagement.UserDetailed
     {
         public EditUserRoleEventArgs(HttpContext context, User user, string roleType)
         {
-            if(context == null)
-            {
-                throw new ArgumentNullException("Http Context cannot be null.");
-            }
-
-            if(user == null)
-            {
-                throw new ArgumentNullException("User cannot be null.");
-            }
-
             this.Context = context;
             this.User = user;
             this.RoleType = roleType;

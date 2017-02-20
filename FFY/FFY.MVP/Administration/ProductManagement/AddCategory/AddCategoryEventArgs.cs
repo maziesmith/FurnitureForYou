@@ -7,11 +7,6 @@ namespace FFY.MVP.Administration.ProductManagement.AddCategory
     {
         public AddCategoryEventArgs(string name)
         {
-            if(string.IsNullOrEmpty(name))
-            {
-                throw new ArgumentNullException("Category name cannot be null or empty.");
-            }
-
             this.Name = name;
         }
 

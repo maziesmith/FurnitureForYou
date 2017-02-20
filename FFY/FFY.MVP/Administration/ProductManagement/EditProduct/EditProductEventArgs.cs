@@ -11,11 +11,6 @@ namespace FFY.MVP.Administration.ProductManagement.EditProduct
     {
         public EditProductEventArgs(Product product)
         {
-            if (product == null)
-            {
-                throw new ArgumentNullException("Product cannot be null");
-            }
-
             this.Product = product;
         }
 

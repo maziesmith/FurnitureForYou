@@ -16,11 +16,6 @@ namespace FFY.MVP.Furniture.Products
             int from,
             int to)
         {
-            if (string.IsNullOrEmpty(path))
-            {
-                throw new ArgumentNullException("Path cannot be null or empty.");
-            }
-
             this.Path = path;
             this.Room = room;
             this.Category = category;

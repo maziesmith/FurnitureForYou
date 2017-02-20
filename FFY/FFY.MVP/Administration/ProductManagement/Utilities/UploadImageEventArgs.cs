@@ -11,26 +11,6 @@ namespace FFY.MVP.Administration.ProductManagement.Utilities
             string imageFileName,
             string folderName)
         {
-            if (image == null)
-            {
-                throw new ArgumentNullException("FileUpload cannot be null.");
-            }
-
-            if (server == null)
-            {
-                throw new ArgumentNullException("Server cannot be null.");
-            }
-
-            if (string.IsNullOrEmpty(imageFileName))
-            {
-                throw new ArgumentNullException("Image file name cannot be null.");
-            }
-
-            if (string.IsNullOrEmpty(folderName))
-            {
-                throw new ArgumentNullException("Folder name cannot be null.");
-            }
-
             this.Image = image;
             this.Server = server;
             this.ImageFileName = imageFileName;
