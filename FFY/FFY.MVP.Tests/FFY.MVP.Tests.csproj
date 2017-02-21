@@ -91,8 +91,11 @@
     <Compile Include="Furniture\FurnitureRoomsPresenterTests\Constructor.cs" />
     <Compile Include="Furniture\FurnitureRoomsPresenterTests\Mocks\MockedFurnitureRoomsView.cs" />
     <Compile Include="Furniture\CategoryByRoomPresenterTests\OnListingCategoriesByRoom.cs" />
+    <Compile Include="Furniture\FurnitureRoomsPresenterTests\OnListingProductsRooms.cs" />
     <Compile Include="Furniture\ProductsPresenterTests\Constructor.cs" />
     <Compile Include="Furniture\ProductsPresenterTests\Mocks\MockedProductsView.cs" />
+    <Compile Include="Furniture\ProductsPresenterTests\OnBuildingQuery.cs" />
+    <Compile Include="Furniture\ProductsPresenterTests\OnListingProducts.cs" />
     <Compile Include="Home\HomePresenterTests\Constructor.cs" />
     <Compile Include="Home\HomePresenterTests\Mocks\MockedHomeView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

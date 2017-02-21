@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FFY.MVP.Furniture.Products
 {
-    public class ProductsEventArgs
+    public class ProductsEventArgs : EventArgs
     {
         public ProductsEventArgs(string path,
             string room, 

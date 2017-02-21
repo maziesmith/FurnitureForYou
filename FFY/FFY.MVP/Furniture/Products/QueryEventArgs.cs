@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FFY.MVP.Furniture.Products
 {
-    public class QueryEventArgs
+    public class QueryEventArgs : EventArgs
     {
         public QueryEventArgs(string path, string search, string from, string to)
         {
