@@ -86,8 +86,11 @@
     <Compile Include="Furniture\CategoryByRoomPresenterTests\Mocks\MockedCategoryByRoomView.cs" />
     <Compile Include="Furniture\FurnitureDetailedPresenterTests\Constructor.cs" />
     <Compile Include="Furniture\FurnitureDetailedPresenterTests\Mocks\MockedFurnitureDetailedView.cs" />
+    <Compile Include="Furniture\FurnitureDetailedPresenterTests\OnAddingToShoppingCart.cs" />
+    <Compile Include="Furniture\FurnitureDetailedPresenterTests\OnGettingProductById.cs" />
     <Compile Include="Furniture\FurnitureRoomsPresenterTests\Constructor.cs" />
     <Compile Include="Furniture\FurnitureRoomsPresenterTests\Mocks\MockedFurnitureRoomsView.cs" />
+    <Compile Include="Furniture\CategoryByRoomPresenterTests\OnListingCategoriesByRoom.cs" />
     <Compile Include="Furniture\ProductsPresenterTests\Constructor.cs" />
     <Compile Include="Furniture\ProductsPresenterTests\Mocks\MockedProductsView.cs" />
     <Compile Include="Home\HomePresenterTests\Constructor.cs" />
