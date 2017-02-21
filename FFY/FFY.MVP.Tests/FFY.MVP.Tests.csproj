@@ -60,8 +60,11 @@
   <ItemGroup>
     <Compile Include="Account\LoginPresenterTests\Constructor.cs" />
     <Compile Include="Account\LoginPresenterTests\Mocks\MockedLoginView.cs" />
+    <Compile Include="Account\LoginPresenterTests\OnLoggingIn.cs" />
     <Compile Include="Account\RegisterPresenterTests\Constructor.cs" />
     <Compile Include="Account\RegisterPresenterTests\Mocks\MockedRegisterView.cs" />
+    <Compile Include="Account\RegisterPresenterTests\OnRegistering.cs" />
+    <Compile Include="Account\RegisterPresenterTests\OnSigningIn.cs" />
     <Compile Include="Administration\ContactManagement\ContactDetailedPresenterTests\Constructor.cs" />
     <Compile Include="Administration\ContactManagement\ContactDetailedPresenterTests\Mocks\MockedContactDetailedView.cs" />
     <Compile Include="Administration\ContactManagement\ContactDetailedPresenterTests\OnEdittingContactStatus.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Furniture\ProductsPresenterTests\Mocks\MockedProductsView.cs" />
     <Compile Include="Furniture\ProductsPresenterTests\OnBuildingQuery.cs" />
     <Compile Include="Furniture\ProductsPresenterTests\OnListingProducts.cs" />
+    <Compile Include="Furniture\UtilitiesTests\QueryBuilderTests\BuildProductSearchQuery.cs" />
     <Compile Include="Home\HomePresenterTests\Constructor.cs" />
     <Compile Include="Home\HomePresenterTests\Mocks\MockedHomeView.cs" />
     <Compile Include="Home\HomePresenterTests\OnListingDiscountProducts.cs" />
