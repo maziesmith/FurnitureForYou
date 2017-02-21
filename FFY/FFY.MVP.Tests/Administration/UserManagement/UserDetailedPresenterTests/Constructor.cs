@@ -70,7 +70,7 @@ namespace FFY.MVP.Tests.Administration.UserManagement.UserDetailedPresenterTests
         }
 
         [Test]
-        public void ShouldSubscribeToContactDetailedViewOnInitialEvent()
+        public void ShouldSubscribeToUserDetailedViewOnInitialEvent()
         {
             // Arrange
             var mockedView = new MockedUserDetailedView();
@@ -85,7 +85,7 @@ namespace FFY.MVP.Tests.Administration.UserManagement.UserDetailedPresenterTests
         }
 
         [Test]
-        public void ShouldSubscribeToLoginViewOnEdditingUserRoleEvent()
+        public void ShouldSubscribeToUserDetailedViewOnEdditingUserRoleEvent()
         {
             // Arrange
             var mockedView = new MockedUserDetailedView();

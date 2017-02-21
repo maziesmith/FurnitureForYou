@@ -205,7 +205,7 @@ namespace FFY.MVP.Tests.Administration.ProductManagement.EditProductPresenterTes
         }
 
         [Test]
-        public void ShouldSubscribeToAddProductViewOnInitialEvent()
+        public void ShouldSubscribeToEditProductViewOnInitialEvent()
         {
             // Arrange
             var mockedView = new MockedEditProductView();
@@ -226,7 +226,7 @@ namespace FFY.MVP.Tests.Administration.ProductManagement.EditProductPresenterTes
         }
 
         [Test]
-        public void ShouldSubscribeToAddProductViewOnEdittingProductEvent()
+        public void ShouldSubscribeToEditProductViewOnEdittingProductEvent()
         {
             // Arrange
             var mockedView = new MockedEditProductView();
@@ -247,7 +247,7 @@ namespace FFY.MVP.Tests.Administration.ProductManagement.EditProductPresenterTes
         }
 
         [Test]
-        public void ShouldSubscribeToAddProductViewOnUploadingImageEvent()
+        public void ShouldSubscribeToEditProductViewOnUploadingImageEvent()
         {
             // Arrange
             var mockedView = new MockedEditProductView();

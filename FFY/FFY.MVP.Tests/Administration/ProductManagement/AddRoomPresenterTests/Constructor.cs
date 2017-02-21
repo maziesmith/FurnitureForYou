@@ -152,7 +152,7 @@ namespace FFY.MVP.Tests.Administration.ProductManagement.AddRoomPresenterTests
         }
 
         [Test]
-        public void ShouldSubscribeToAddProductViewOnAddingRoomEvent()
+        public void ShouldSubscribeToAddRoomViewOnAddingRoomEvent()
         {
             // Arrange
             var mockedView = new MockedAddRoomView();
@@ -171,7 +171,7 @@ namespace FFY.MVP.Tests.Administration.ProductManagement.AddRoomPresenterTests
         }
 
         [Test]
-        public void ShouldSubscribeToAddProductViewOnUploadingImageEvent()
+        public void ShouldSubscribeToAddRoomViewOnUploadingImageEvent()
         {
             // Arrange
             var mockedView = new MockedAddRoomView();

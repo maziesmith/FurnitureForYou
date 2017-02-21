@@ -122,7 +122,7 @@ namespace FFY.MVP.Tests.Administration.ContactManagement.ContactDetailedPresente
         }
 
         [Test]
-        public void ShouldSubscribeToLoginViewOnEdittingContactStatusEvent()
+        public void ShouldSubscribeToContactDetailedViewOnEdittingContactStatusEvent()
         {
             // Arrange
             var mockedView = new MockedContactDetailedView();

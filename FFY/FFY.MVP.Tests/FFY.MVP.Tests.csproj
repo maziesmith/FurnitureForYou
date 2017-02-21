@@ -80,6 +80,10 @@
     <Compile Include="Administration\UserManagement\OrdersPresenterTests\Mocks\MockedUsersView.cs" />
     <Compile Include="Administration\UserManagement\UserDetailedPresenterTests\Constructor.cs" />
     <Compile Include="Administration\UserManagement\UserDetailedPresenterTests\Mocks\MockedUserDetailedView.cs" />
+    <Compile Include="Contacts\ContactsPresenterTests\Constructor.cs" />
+    <Compile Include="Contacts\ContactsPresenterTests\Mocks\MockedContactView.cs" />
+    <Compile Include="Home\HomePresenterTests\Constructor.cs" />
+    <Compile Include="Home\HomePresenterTests\Mocks\MockedHomeView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

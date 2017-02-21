@@ -70,7 +70,7 @@ namespace FFY.MVP.Tests.Administration.OrderManagement.OrderDetailedPresenterTes
         }
 
         [Test]
-        public void ShouldSubscribeToContactDetailedViewOnInitialEvent()
+        public void ShouldSubscribeToOrderDetailedViewOnInitialEvent()
         {
             // Arrange
             var mockedView = new MockedOrderDetailedView();
@@ -85,7 +85,7 @@ namespace FFY.MVP.Tests.Administration.OrderManagement.OrderDetailedPresenterTes
         }
 
         [Test]
-        public void ShouldSubscribeToLoginViewOnEdittingOrderStatusEvent()
+        public void ShouldSubscribeToOrderDetailedViewOnEdittingOrderStatusEvent()
         {
             // Arrange
             var mockedView = new MockedOrderDetailedView();
