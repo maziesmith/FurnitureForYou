@@ -34,6 +34,7 @@
       <HintPath>..\packages\Castle.Core.4.0.0\lib\net45\Castle.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
     <Reference Include="Moq, Version=4.5.30.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
       <HintPath>..\packages\Moq.4.5.30\lib\net45\Moq.dll</HintPath>
       <Private>True</Private>
@@ -104,10 +105,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\CartPresenterTests\Constructor.cs" />
     <Compile Include="Users\CartPresenterTests\Mocks\MockedCartView.cs" />
+    <Compile Include="Users\CartPresenterTests\OnInitial.cs" />
+    <Compile Include="Users\CartPresenterTests\OnRemovingFromCart.cs" />
     <Compile Include="Users\CheckOutPresenterTests\Constructor.cs" />
     <Compile Include="Users\CheckOutPresenterTests\Mocks\MockedCheckOutView.cs" />
+    <Compile Include="Users\CheckOutPresenterTests\OnCartClearing.cs" />
+    <Compile Include="Users\CheckOutPresenterTests\OnCheckingOut.cs" />
     <Compile Include="Users\UserPresenterTests\Constructor.cs" />
     <Compile Include="Users\UserPresenterTests\Mocks\MockedUserView.cs" />
+    <Compile Include="Users\UserPresenterTests\OnInitial.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

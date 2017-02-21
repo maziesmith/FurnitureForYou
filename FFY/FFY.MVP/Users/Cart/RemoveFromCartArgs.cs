@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FFY.MVP.Users.Cart
 {
-    public class RemoveFromCartArgs
+    public class RemoveFromCartArgs : EventArgs
     {
         public RemoveFromCartArgs(int productId, string cartId)
         {
