@@ -4,7 +4,7 @@ using System.Web.UI.WebControls;
 
 namespace FFY.MVP.Administration.ProductManagement.Utilities
 {
-    public class UploadImageEventArgs
+    public class UploadImageEventArgs : EventArgs
     {
         public UploadImageEventArgs(FileUpload image,
             HttpServerUtility server,

@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -79,12 +80,22 @@
     <Compile Include="Administration\OrderManagement\OrdersPresenterTests\OnListingOrders.cs" />
     <Compile Include="Administration\ProductManagement\AddCategoryPresenterTests\Constructor.cs" />
     <Compile Include="Administration\ProductManagement\AddCategoryPresenterTests\Mocks\MockedAddCategoryView.cs" />
+    <Compile Include="Administration\ProductManagement\AddCategoryPresenterTests\OnAddingCategory.cs" />
+    <Compile Include="Administration\ProductManagement\AddCategoryPresenterTests\OnUploadingImage.cs" />
     <Compile Include="Administration\ProductManagement\AddProductPresenterTests\Constructor.cs" />
     <Compile Include="Administration\ProductManagement\AddProductPresenterTests\Mocks\MockedAddProductView.cs" />
+    <Compile Include="Administration\ProductManagement\AddProductPresenterTests\OnAddingProduct.cs" />
+    <Compile Include="Administration\ProductManagement\AddProductPresenterTests\OnInitial.cs" />
+    <Compile Include="Administration\ProductManagement\AddRoomPresenterTests\OnAddingRoom.cs" />
+    <Compile Include="Administration\ProductManagement\EditProductPresenterTests\OnEdittingProduct.cs" />
+    <Compile Include="Administration\ProductManagement\EditProductPresenterTests\OnInitial.cs" />
+    <Compile Include="Administration\ProductManagement\EditProductPresenterTests\OnUploadingImage.cs" />
     <Compile Include="Administration\ProductManagement\AddRoomPresenterTests\Constructor.cs" />
     <Compile Include="Administration\ProductManagement\AddRoomPresenterTests\Mocks\MockedAddRoomView.cs" />
+    <Compile Include="Administration\ProductManagement\AddRoomPresenterTests\OnUploadingImage.cs" />
     <Compile Include="Administration\ProductManagement\EditProductPresenterTests\Constructor.cs" />
     <Compile Include="Administration\ProductManagement\EditProductPresenterTests\Mocks\MockedEditProductView.cs" />
+    <Compile Include="Administration\ProductManagement\AddProductPresenterTests\OnUploadingImage.cs" />
     <Compile Include="Administration\UserManagement\OrdersPresenterTests\Constructor.cs" />
     <Compile Include="Administration\UserManagement\OrdersPresenterTests\Mocks\MockedUsersView.cs" />
     <Compile Include="Administration\UserManagement\UserDetailedPresenterTests\Constructor.cs" />
@@ -143,6 +154,10 @@
     <ProjectReference Include="..\FFY.Services\FFY.Services.csproj">
       <Project>{0122bd12-180b-4a66-a58e-9344f2de5fa1}</Project>
       <Name>FFY.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FFY.Web\FFY.Web.csproj">
+      <Project>{840f67eb-dbcd-4af1-9d00-2fbaea28321e}</Project>
+      <Name>FFY.Web</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
