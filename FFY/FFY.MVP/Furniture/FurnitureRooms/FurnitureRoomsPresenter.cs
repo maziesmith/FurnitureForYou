@@ -17,7 +17,7 @@ namespace FFY.MVP.Furniture.ListProductsRooms
         {
             if(roomsService == null)
             {
-                throw new ArgumentNullException("Rooms service cannot be null");
+                throw new ArgumentNullException("Rooms service cannot be null.");
             }
 
             this.roomsService = roomsService;

@@ -19,12 +19,12 @@ namespace FFY.MVP.Furniture.FurnitureDetailed
         {
             if(productsService == null)
             {
-                throw new ArgumentNullException("Products service cannot be null");
+                throw new ArgumentNullException("Products service cannot be null.");
             }
 
             if (shoppingCartsService == null)
             {
-                throw new ArgumentNullException("Shopping Carts service cannot be null");
+                throw new ArgumentNullException("Shopping carts service cannot be null.");
             }
 
             this.productsService = productsService;

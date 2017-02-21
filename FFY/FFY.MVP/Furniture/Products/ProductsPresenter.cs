@@ -31,6 +31,11 @@ namespace FFY.MVP.Furniture.Products
                 throw new ArgumentNullException("Products handler cannot be null.");
             }
 
+            if(queryBuilder == null)
+            {
+                throw new ArgumentNullException("Query builder cannot be null.");
+            }
+
             this.productsService = productsService;
             this.productsHandler = productsHandler;
             this.queryBuilder = queryBuilder;

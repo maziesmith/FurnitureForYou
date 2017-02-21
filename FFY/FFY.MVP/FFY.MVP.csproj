@@ -183,10 +183,10 @@
     <Compile Include="Furniture\Products\ProductsView.cs" />
     <Compile Include="Furniture\Products\ProductsPresenter.cs" />
     <Compile Include="Furniture\Products\ProductsViewModel.cs" />
-    <Compile Include="Furniture\CategoryByRoom\IFurnitureByRoomView.cs" />
-    <Compile Include="Furniture\CategoryByRoom\FurnitureByRoomEventArgs.cs" />
-    <Compile Include="Furniture\CategoryByRoom\FurnitureByRoomPresenter.cs" />
-    <Compile Include="Furniture\CategoryByRoom\FurnitureByRoomViewModel.cs" />
+    <Compile Include="Furniture\CategoryByRoom\ICategoryByRoomView.cs" />
+    <Compile Include="Furniture\CategoryByRoom\CategoryByRoomEventArgs.cs" />
+    <Compile Include="Furniture\CategoryByRoom\CategoryByRoomPresenter.cs" />
+    <Compile Include="Furniture\CategoryByRoom\CategoryByRoomViewModel.cs" />
     <Compile Include="Furniture\FurnitureRooms\IFurnitureRoomsView.cs" />
     <Compile Include="Furniture\FurnitureRooms\FurnitureRoomsPresenter.cs" />
     <Compile Include="Furniture\FurnitureRooms\FurnitureRoomsViewModel.cs" />
