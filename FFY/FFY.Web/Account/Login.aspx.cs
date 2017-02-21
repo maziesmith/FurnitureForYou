@@ -13,7 +13,6 @@ namespace FFY.Web.Account
     public partial class Login : MvpPage<LoginViewModel>, ILoginView
     {
         public event EventHandler<LoginEventArgs> Logging;
-        public event EventHandler<CartCountEventArgs> LoggingCartCount;
         private string userId;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -49,8 +48,6 @@ namespace FFY.Web.Account
                 {
                     case SignInStatus.Success:
                         this.userId = this.User.Identity.GetUserId();
-                        this.LoggingCartCount?.Invoke(this, new CartCountEventArgs(userId));
-                        this.Cache.Insert($"cart-count-{userId}", this.Model.CartCount);
                         IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                         break;
                     case SignInStatus.LockedOut:

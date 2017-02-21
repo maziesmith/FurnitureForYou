@@ -96,10 +96,14 @@
     <Compile Include="Administration\ProductManagement\EditProductPresenterTests\Constructor.cs" />
     <Compile Include="Administration\ProductManagement\EditProductPresenterTests\Mocks\MockedEditProductView.cs" />
     <Compile Include="Administration\ProductManagement\AddProductPresenterTests\OnUploadingImage.cs" />
-    <Compile Include="Administration\UserManagement\OrdersPresenterTests\Constructor.cs" />
-    <Compile Include="Administration\UserManagement\OrdersPresenterTests\Mocks\MockedUsersView.cs" />
+    <Compile Include="Administration\UserManagement\UserDetailedPresenterTests\OnEdditingUserRole.cs" />
+    <Compile Include="Administration\UserManagement\UserDetailedPresenterTests\OnInitial.cs" />
+    <Compile Include="Administration\UserManagement\UsersPresenterTests\Constructor.cs" />
+    <Compile Include="Administration\UserManagement\UsersPresenterTests\Mocks\MockedUsersView.cs" />
     <Compile Include="Administration\UserManagement\UserDetailedPresenterTests\Constructor.cs" />
     <Compile Include="Administration\UserManagement\UserDetailedPresenterTests\Mocks\MockedUserDetailedView.cs" />
+    <Compile Include="Administration\UserManagement\UsersPresenterTests\OnFilteringUsers.cs" />
+    <Compile Include="Administration\UserManagement\UsersPresenterTests\OnListingUsers.cs" />
     <Compile Include="Contacts\ContactsPresenterTests\Constructor.cs" />
     <Compile Include="Contacts\ContactsPresenterTests\Mocks\MockedContactView.cs" />
     <Compile Include="Contacts\ContactsPresenterTests\OnSendingContact.cs" />

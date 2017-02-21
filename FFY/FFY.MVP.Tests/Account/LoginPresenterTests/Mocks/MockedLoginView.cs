@@ -12,7 +12,6 @@ namespace FFY.MVP.Tests.Account.LoginPresenterTests.Mocks
         private IDictionary<string, object> subscribedMethodNames = new Dictionary<string, object>();
 
         private event EventHandler<LoginEventArgs> logging;
-        private event EventHandler<CartCountEventArgs> loggingCartCount;
 
         public event EventHandler Load;
 
@@ -27,20 +26,6 @@ namespace FFY.MVP.Tests.Account.LoginPresenterTests.Mocks
             {
                 this.subscribedMethodNames.Remove(value.Method.Name);
                 this.logging -= value;
-            }
-        }
-
-        public event EventHandler<CartCountEventArgs> LoggingCartCount
-        {
-            add
-            {
-                this.subscribedMethodNames.Add(value.Method.Name, value.Target);
-                this.loggingCartCount += value;
-            }
-            remove
-            {
-                this.subscribedMethodNames.Remove(value.Method.Name);
-                this.loggingCartCount -= value;
             }
         }
 

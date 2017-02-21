@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FFY.MVP.Administration.UserManagement.Users
 {
-    public class FilterEventArgs
+    public class FilterEventArgs : EventArgs
     {
         public FilterEventArgs(int roleType, string search)
         {
