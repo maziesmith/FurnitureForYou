@@ -85,6 +85,12 @@
     <Compile Include="Home\HomePresenterTests\Constructor.cs" />
     <Compile Include="Home\HomePresenterTests\Mocks\MockedHomeView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\CartPresenterTests\Constructor.cs" />
+    <Compile Include="Users\CartPresenterTests\Mocks\MockedCartView.cs" />
+    <Compile Include="Users\CheckOutPresenterTests\Constructor.cs" />
+    <Compile Include="Users\CheckOutPresenterTests\Mocks\MockedCheckOutView.cs" />
+    <Compile Include="Users\UserPresenterTests\Constructor.cs" />
+    <Compile Include="Users\UserPresenterTests\Mocks\MockedUserView.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
