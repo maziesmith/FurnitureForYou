@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FFY.MVP.Administration.OrderManagement.Orders
 {
-    public class FilterEventArgs
+    public class FilterEventArgs : EventArgs
     {
         public FilterEventArgs(int statusType, string search)
         {

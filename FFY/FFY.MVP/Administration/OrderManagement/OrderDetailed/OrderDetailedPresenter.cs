@@ -34,7 +34,5 @@ namespace FFY.MVP.OrderManagement.OrderDetailed
         {
             this.ordersService.ChangeOrderStatus(e.Order, e.StatusType, e.PaymentStatusType);
         }
-
-
     }
 }

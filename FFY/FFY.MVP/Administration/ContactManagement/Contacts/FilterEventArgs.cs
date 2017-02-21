@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FFY.MVP.Administration.ContactManagement.Contacts
 {
-    public class FilterEventArgs
+    public class FilterEventArgs : EventArgs
     {
         public FilterEventArgs(int statusType, string search)
         {
