@@ -82,6 +82,7 @@
     <Compile Include="Administration\UserManagement\UserDetailedPresenterTests\Mocks\MockedUserDetailedView.cs" />
     <Compile Include="Contacts\ContactsPresenterTests\Constructor.cs" />
     <Compile Include="Contacts\ContactsPresenterTests\Mocks\MockedContactView.cs" />
+    <Compile Include="Contacts\ContactsPresenterTests\OnSendingContact.cs" />
     <Compile Include="Furniture\CategoryByRoomPresenterTests\Constructor.cs" />
     <Compile Include="Furniture\CategoryByRoomPresenterTests\Mocks\MockedCategoryByRoomView.cs" />
     <Compile Include="Furniture\FurnitureDetailedPresenterTests\Constructor.cs" />
@@ -98,6 +99,8 @@
     <Compile Include="Furniture\ProductsPresenterTests\OnListingProducts.cs" />
     <Compile Include="Home\HomePresenterTests\Constructor.cs" />
     <Compile Include="Home\HomePresenterTests\Mocks\MockedHomeView.cs" />
+    <Compile Include="Home\HomePresenterTests\OnListingDiscountProducts.cs" />
+    <Compile Include="Home\HomePresenterTests\OnListingLatestProducts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\CartPresenterTests\Constructor.cs" />
     <Compile Include="Users\CartPresenterTests\Mocks\MockedCartView.cs" />

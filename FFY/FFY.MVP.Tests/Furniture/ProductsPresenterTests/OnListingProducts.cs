@@ -44,7 +44,7 @@ namespace FFY.MVP.Tests.Furniture.ProductsPresenterTests
             var mockedQueryBuilder = new Mock<IQueryBuilder>();
 
 
-            var categoryByRoomPresenter = new ProductsPresenter(mockedView.Object,
+            var productsPresenter = new ProductsPresenter(mockedView.Object,
                 mockedProductsHandler.Object,
                 mockedProductsService.Object,
                 mockedQueryBuilder.Object);
@@ -103,7 +103,7 @@ namespace FFY.MVP.Tests.Furniture.ProductsPresenterTests
             var mockedQueryBuilder = new Mock<IQueryBuilder>();
 
 
-            var categoryByRoomPresenter = new ProductsPresenter(mockedView.Object,
+            var productsPresenter = new ProductsPresenter(mockedView.Object,
                 mockedProductsHandler.Object,
                 mockedProductsService.Object,
                 mockedQueryBuilder.Object);

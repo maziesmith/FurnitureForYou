@@ -24,7 +24,7 @@ namespace FFY.MVP.Tests.Furniture.FurnitureRoomsPresenterTests
             var mockedRoomsService = new Mock<IRoomsService>();
             mockedRoomsService.Setup(rs => rs.GetRooms()).Verifiable();
 
-            var categoryByRoomPresenter = new FurnitureRoomsPresenter(mockedView.Object,
+            var furnitureRoomsPresenter = new FurnitureRoomsPresenter(mockedView.Object,
                 mockedRoomsService.Object);
 
             // Act
@@ -50,7 +50,7 @@ namespace FFY.MVP.Tests.Furniture.FurnitureRoomsPresenterTests
             var mockedRoomsService = new Mock<IRoomsService>();
             mockedRoomsService.Setup(rs => rs.GetRooms()).Returns(rooms);
 
-            var categoryByRoomPresenter = new FurnitureRoomsPresenter(mockedView.Object,
+            var furnitureRoomsPresenter = new FurnitureRoomsPresenter(mockedView.Object,
                 mockedRoomsService.Object);
 
             // Act
