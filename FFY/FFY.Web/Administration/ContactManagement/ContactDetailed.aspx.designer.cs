@@ -13,15 +13,6 @@ namespace FFY.Web.Administration.ContactManagement {
     public partial class ContactDetailed {
         
         /// <summary>
-        /// ProccessedBy control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ProccessedBy;
-        
-        /// <summary>
         /// StatusType control.
         /// </summary>
         /// <remarks>
@@ -29,5 +20,14 @@ namespace FFY.Web.Administration.ContactManagement {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList StatusType;
+        
+        /// <summary>
+        /// ProccessedBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ProccessedBy;
     }
 }

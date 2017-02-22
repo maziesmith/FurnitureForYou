@@ -44,6 +44,8 @@ namespace FFY.Web.Administration.ProductManagement
                 try
                 {
                     this.AddingCategory?.Invoke(this, new AddCategoryEventArgs(name));
+
+                    this.Response.Redirect("~/administration/productManagement/addProduct");
                 }
                 catch (Exception)
                 {

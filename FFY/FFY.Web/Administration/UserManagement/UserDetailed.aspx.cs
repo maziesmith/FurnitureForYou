@@ -43,12 +43,13 @@ namespace FFY.Web.Administration.UserManagement
             this.OrderList.DataBind();
         }
 
-        protected void EditOrderStatus(object sender, EventArgs e)
+        protected void EditUserStatus(object sender, EventArgs e)
         {
             var roleType = this.UsersDropdown.SelectedValue;
 
             this.EdittingUserRole?.Invoke(this, new EditUserRoleEventArgs(this.Context, this.Model.User, roleType));
-            this.BindData();
+
+            this.Response.Redirect("~/administration/userManagement");
         }
 
         private void BindData()

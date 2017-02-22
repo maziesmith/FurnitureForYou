@@ -45,6 +45,7 @@ namespace FFY.Web.Administration.ProductManagement
                 {
                     this.AddingRoom?.Invoke(this, new AddRoomEventArgs(name));
 
+                    this.Response.Redirect("~/administration/productManagement/addProduct");
                 }
                 catch (Exception)
                 {

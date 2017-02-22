@@ -16,38 +16,41 @@ namespace FFY.Web.Account
 
         protected void CreateUser_Click(object sender, EventArgs e)
         {
-            var username = this.UserName.Text;
-            var firstName = this.FirstName.Text;
-            var lastName = this.LastName.Text;
-            var email = this.Email.Text;
-            var userRole = DefaultUserRole;
-            var password = this.Password.Text;
-
-            this.Registering?.Invoke(this, new RegisterEventArgs(this.Context, 
-                username, 
-                firstName, 
-                lastName,
-                email,
-                userRole,
-                password));
-
-            if (this.Model.IdentityResult.Succeeded)
+            if (IsValid)
             {
+                var username = this.UserName.Text;
+                var firstName = this.FirstName.Text;
+                var lastName = this.LastName.Text;
+                var email = this.Email.Text;
+                var userRole = DefaultUserRole;
+                var password = this.Password.Text;
 
-                this.SigningIn?.Invoke(this, new SignInEventArgs(this.Context,
-                username,
-                firstName,
-                lastName,
-                email,
-                userRole));
+                this.Registering?.Invoke(this, new RegisterEventArgs(this.Context,
+                    username,
+                    firstName,
+                    lastName,
+                    email,
+                    userRole,
+                    password));
 
-                this.Cache.Insert($"cart-count-{this.Model.UserId}", 0);
+                if (this.Model.IdentityResult.Succeeded)
+                {
 
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-            }
-            else 
-            {
-                ErrorMessage.Text = this.Model.IdentityResult.Errors.FirstOrDefault();
+                    this.SigningIn?.Invoke(this, new SignInEventArgs(this.Context,
+                    username,
+                    firstName,
+                    lastName,
+                    email,
+                    userRole));
+
+                    this.Cache.Insert($"cart-count-{this.Model.UserId}", 0);
+
+                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                }
+                else
+                {
+                    // ErrorMessage.Text = this.Model.IdentityResult.Errors.FirstOrDefault();
+                }
             }
         }
     }

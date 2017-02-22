@@ -22,6 +22,15 @@ namespace FFY.Web.Furniture {
         protected global::System.Web.UI.WebControls.TextBox SearchBox;
         
         /// <summary>
+        /// Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Search;
+        
+        /// <summary>
         /// FromBox control.
         /// </summary>
         /// <remarks>
@@ -38,15 +47,6 @@ namespace FFY.Web.Furniture {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox ToBox;
-        
-        /// <summary>
-        /// Search control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Search;
         
         /// <summary>
         /// Products control.

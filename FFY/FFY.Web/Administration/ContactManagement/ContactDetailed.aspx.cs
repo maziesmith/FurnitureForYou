@@ -52,7 +52,7 @@ namespace FFY.Web.Administration.ContactManagement
             var statusType = int.Parse(this.StatusType.SelectedValue);
 
             this.EdittingContactStatus?.Invoke(this, new EditContactStatusEventArgs(this.Model.Contact, statusType, userId));
-            this.BindData();
+            this.Response.Redirect("~/administration/contactManagement");
         }
 
         private void BindData()

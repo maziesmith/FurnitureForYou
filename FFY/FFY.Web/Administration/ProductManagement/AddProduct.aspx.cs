@@ -74,6 +74,8 @@ namespace FFY.Web.Administration.ProductManagement
                         category,
                         roomId,
                         room));
+
+                    this.Response.Redirect("~/administration/productManagement");
                 }
                 catch (Exception)
                 {

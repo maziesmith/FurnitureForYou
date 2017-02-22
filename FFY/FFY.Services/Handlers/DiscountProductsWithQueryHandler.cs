@@ -35,7 +35,7 @@ namespace FFY.Services.Handlers
                 products = products.Where(p => p.DiscountedPrice >= from && p.DiscountedPrice <= to);
             }
 
-            return products;
+            return products.Reverse();
         }
     }
 }

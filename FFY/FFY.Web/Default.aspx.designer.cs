@@ -22,6 +22,15 @@ namespace FFY.Web {
         protected global::System.Web.UI.WebControls.ListView DiscountProducts;
         
         /// <summary>
+        /// DiscountProductsHyper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink DiscountProductsHyper;
+        
+        /// <summary>
         /// LatestProducts control.
         /// </summary>
         /// <remarks>
@@ -29,5 +38,14 @@ namespace FFY.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView LatestProducts;
+        
+        /// <summary>
+        /// HyperLink2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
     }
 }

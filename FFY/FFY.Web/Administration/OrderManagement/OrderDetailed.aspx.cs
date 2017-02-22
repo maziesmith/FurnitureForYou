@@ -1,5 +1,6 @@
 ﻿using FFY.Models;
 using FFY.MVP.OrderManagement.OrderDetailed;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,13 @@ namespace FFY.Web.Administration.OrderManagement
                 this.Server.Transfer("~/Errors/PageNotFound.aspx");
             }
 
+            if (this.Model.Order.User.Id != this.User.Identity.GetUserId()
+                && !this.User.IsInRole("Administrator")
+                && !this.User.IsInRole("Moderator"))
+            {
+                this.Server.Transfer("~/Errors/Unauthorized.aspx");
+            }
+
             if (!Page.IsPostBack)
             {
                 this.BindData();
@@ -52,7 +60,7 @@ namespace FFY.Web.Administration.OrderManagement
             var paymentStatusType = int.Parse(this.PaymentStatusType.SelectedValue);
 
             this.EdittingOrderStatus?.Invoke(this, new EditOrderStatusEventArgs(this.Model.Order, statusType, paymentStatusType));
-            this.BindData();
+            this.Response.Redirect("~/administration/orderManagement");
         }
 
         private void BindData()

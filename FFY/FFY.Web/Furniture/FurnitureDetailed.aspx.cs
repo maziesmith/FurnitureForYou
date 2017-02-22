@@ -41,12 +41,19 @@ namespace FFY.Web.Furniture
 
         protected void AddToCart(object sender, EventArgs e)
         {
+            if(!User.Identity.IsAuthenticated)
+            {
+                this.Response.Redirect($"~/Account/Login?ReturnUrl={HttpContext.Current.Request.Url.AbsolutePath}");
+            }
+
             var quantity = int.Parse(this.AddToCartQuantity.Text);
 
             this.AddingToShoppingCart?.Invoke(this, 
                 new AddToShoppingCartEventArgs(quantity, this.userId));
 
             this.Cache.Insert($"cart-count-{userId}", this.Model.CartCount);
+
+            this.Response.Redirect("~/users/cart");
         }
     }
 }

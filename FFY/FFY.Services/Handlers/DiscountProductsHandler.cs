@@ -24,7 +24,7 @@ namespace FFY.Services.Handlers
 
         protected override IEnumerable<Product> Handle(IProductsService productsService, string room, string category, string search, bool rangeProvided, int from, int to)
         {
-            return productsService.GetDiscountProducts(productsAmount);
+            return productsService.GetDiscountProducts(productsAmount).Reverse();
         }
     }
 }

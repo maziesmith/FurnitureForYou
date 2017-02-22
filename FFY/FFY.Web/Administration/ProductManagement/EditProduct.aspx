@@ -55,18 +55,13 @@
             <a runat="server" href="~/administration/productManagement/addCategory">Add new category</a>
         </div>
         <div class="form-group">
-            <asp:Label runat="server" AssociatedControlID="Image" CssClass="col-md-2 control-label">Image</asp:Label>
-            <div class="col-md-3">
+            <asp:Label runat="server" AssociatedControlID="Image" CssClass="col-md-offset-2 col-md-3 btn btn-default">Browse</asp:Label>
                 <asp:FileUpload runat="server" ID="Image" CssClass="form-control"></asp:FileUpload>
-            </div>
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <asp:Button runat="server" OnClick="EditProductClick" Text="Save" CssClass="btn btn-default" />
+                <asp:Button Width="150px"  runat="server" OnClick="EditProductClick" Text="Save" CssClass="btn btn-primary" />
             </div>
         </div>
     </div>
-    <div>Name: <%#: this.Model.Product.Name %> </div>
-    <div>Price: <%#: this.Model.Product.Price %> </div>
-    <div>Description: <%#: this.Model.Product.Description %> </div>
 </asp:Content>

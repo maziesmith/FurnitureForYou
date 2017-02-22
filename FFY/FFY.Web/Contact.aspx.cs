@@ -33,6 +33,8 @@ namespace FFY.Web
 
                 this.SendingContact?.Invoke(this, 
                     new ContactEventArgs(title, email, emailContent, sendOn, contactStatusType));
+
+                this.Response.Redirect("~/");
             }
         }
     }

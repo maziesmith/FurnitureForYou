@@ -36,8 +36,8 @@ namespace FFY.Web.Furniture
 
             if (!Page.IsPostBack)
             {
-                this.RoomCategories.DataSource = this.Model.Categories;
-                this.RoomCategories.DataBind();
+                this.CategoriesList.DataSource = this.Model.Categories;
+                this.CategoriesList.DataBind();
             }
         }
     }

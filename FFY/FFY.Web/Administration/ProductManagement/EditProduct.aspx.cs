@@ -73,6 +73,8 @@ namespace FFY.Web.Administration.ProductManagement
             product.Room = room;
 
             this.EdittingProduct?.Invoke(this, new EditProductEventArgs(product));
+
+            this.Response.Redirect("~/administration/productManagement");
         }
     }
 }

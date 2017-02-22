@@ -21,7 +21,7 @@ namespace FFY.Web.Administration.OrderManagement
             if (!Page.IsPostBack)
             {
                 this.ListingOrders?.Invoke(this, e);
-                this.OrderList.DataSource = this.Model.Orders.ToList();
+                this.OrderList.DataSource = this.Model.Orders.Reverse().ToList();
                 this.OrderList.DataBind();
             }
         }

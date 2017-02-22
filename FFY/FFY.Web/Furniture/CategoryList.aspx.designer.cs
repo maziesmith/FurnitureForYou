@@ -13,12 +13,12 @@ namespace FFY.Web.Furniture {
     public partial class CategoryList {
         
         /// <summary>
-        /// RoomCategories control.
+        /// CategoriesList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView RoomCategories;
+        protected global::System.Web.UI.WebControls.ListView CategoriesList;
     }
 }

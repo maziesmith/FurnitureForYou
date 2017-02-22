@@ -9,7 +9,7 @@ namespace FFY.Web
     [PresenterBinding(typeof(HomePresenter))]
     public partial class _Default : MvpPage<HomeViewModel>, IHomeView
     {
-        private const int Amount = 3;
+        private const int Amount = 4;
         public event EventHandler<HomeEventArgs> ListingDiscountProducts;
         public event EventHandler<HomeEventArgs> ListingLatestProducts;
 

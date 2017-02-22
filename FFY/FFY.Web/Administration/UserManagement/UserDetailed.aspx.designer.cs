@@ -31,13 +31,22 @@ namespace FFY.Web.Administration.UserManagement {
         protected global::System.Web.UI.WebControls.DropDownList UsersDropdown;
         
         /// <summary>
-        /// UserUpdate control.
+        /// EditButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UserUpdate;
+        protected global::System.Web.UI.WebControls.Button EditButton;
+        
+        /// <summary>
+        /// OrderUpdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel OrderUpdate;
         
         /// <summary>
         /// OrderList control.
