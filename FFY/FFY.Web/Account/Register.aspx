@@ -4,6 +4,7 @@
         <div class="form-horizontal center-form">
             <h2>Register</h2>
             <hr />
+            <asp:Literal runat="server" ID="ErrorMessage" />
             <asp:ValidationSummary runat="server" CssClass="text-danger" />
             <div class="form-group">
                 <asp:Label runat="server" AssociatedControlID="UserName" CssClass="col-md-3 control-label">Username</asp:Label>

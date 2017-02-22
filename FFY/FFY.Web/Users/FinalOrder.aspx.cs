@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace FFY.Web.Users
 {
-    public partial class Orders : System.Web.UI.Page
+    public partial class FinalOrder : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

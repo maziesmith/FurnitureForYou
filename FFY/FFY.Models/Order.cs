@@ -28,7 +28,7 @@ namespace FFY.Models
             this.SendOn = sendOn;
             this.Total = total;
             this.AddressId = addressId;
-            this.Adress = address;
+            this.Address = address;
             this.PhoneNumber = phoneNumber;
             this.OrderPaymentStatusType = orderPaymentStatusType;
             this.OrderStatusType = orderStatusType;
@@ -48,7 +48,7 @@ namespace FFY.Models
 
         public int? AddressId { get; set; }
 
-        public virtual Address Adress { get; set; }
+        public virtual Address Address { get; set; }
 
         public string PhoneNumber { get; set; }
 

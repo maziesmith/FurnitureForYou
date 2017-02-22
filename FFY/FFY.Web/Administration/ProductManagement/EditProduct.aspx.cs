@@ -1,7 +1,5 @@
-﻿using FFY.Models;
-using FFY.MVP.Administration.ProductManagement.EditProduct;
+﻿using FFY.MVP.Administration.ProductManagement.EditProduct;
 using System;
-using System.IO;
 using System.Linq;
 using WebFormsMvp;
 using WebFormsMvp.Web;

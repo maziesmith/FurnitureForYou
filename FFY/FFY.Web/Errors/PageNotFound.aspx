@@ -1,4 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="PageNotFound.aspx.cs" Inherits="FFY.Web.Errors.PageNotFound" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>404 Page Not Found</h1>
+    <div class="center-image">
+        <asp:Image ImageUrl="~/Content/sources/404.jpg" runat="server"/>
+    </div>    
 </asp:Content>

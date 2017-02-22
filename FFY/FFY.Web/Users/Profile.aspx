@@ -26,7 +26,7 @@
                     <asp:BoundField DataField="OrderStatusType" HeaderText="Status" />
                     <asp:HyperLinkField Text="Details" 
                         DataNavigateUrlFields="Id"
-                        DataNavigateUrlFormatString="~user/orders/{0}"/>
+                        DataNavigateUrlFormatString="~/user/orders/{0}"/>
                 </Columns>
                 <PagerStyle CssClass="pagination-ys"/>
             </asp:GridView>

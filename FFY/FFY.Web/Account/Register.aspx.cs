@@ -49,7 +49,7 @@ namespace FFY.Web.Account
                 }
                 else
                 {
-                    // ErrorMessage.Text = this.Model.IdentityResult.Errors.FirstOrDefault();
+                    ErrorMessage.Text = this.Model.IdentityResult.Errors.FirstOrDefault();
                 }
             }
         }

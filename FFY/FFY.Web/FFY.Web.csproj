@@ -301,7 +301,7 @@
     <Content Include="Site.Master" />
     <Content Include="Users\Cart.aspx" />
     <Content Include="Users\CheckOut.aspx" />
-    <Content Include="Users\Orders.aspx" />
+    <Content Include="Users\FinalOrder.aspx" />
     <Content Include="Users\Profile.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -618,12 +618,12 @@
     <Compile Include="Users\CheckOut.aspx.designer.cs">
       <DependentUpon>CheckOut.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Users\Orders.aspx.cs">
-      <DependentUpon>Orders.aspx</DependentUpon>
+    <Compile Include="Users\FinalOrder.aspx.cs">
+      <DependentUpon>FinalOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Users\Orders.aspx.designer.cs">
-      <DependentUpon>Orders.aspx</DependentUpon>
+    <Compile Include="Users\FinalOrder.aspx.designer.cs">
+      <DependentUpon>FinalOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\Profile.aspx.cs">
       <DependentUpon>Profile.aspx</DependentUpon>

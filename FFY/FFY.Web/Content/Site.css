@@ -59,6 +59,13 @@ input[type="select"]
 }
 
 
+.center-image{
+    width: 80%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
 .center-form h2, h3{
     text-align: center;
     margin: 30px 0px;
@@ -161,6 +168,19 @@ footer {
 .cart {
     padding-bottom: 5px !important;
     padding-top: 5px !important;
+}
+
+.centered {
+    text-align: center;
+}
+
+.centered h2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.centered a {
+    margin-bottom:50px;
 }
 
 .room-wrapper {

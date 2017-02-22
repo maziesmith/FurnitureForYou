@@ -1,9 +1,6 @@
 ﻿using Ninject.Modules;
 using Ninject.Extensions.Conventions;
 using FFY.Services.Assembly;
-using FFY.Services.Contracts;
-using FFY.Services;
-using Ninject.Web.Common;
 using FFY.Services.Handlers;
 using Ninject;
 using FFY.MVP.Furniture.Products;

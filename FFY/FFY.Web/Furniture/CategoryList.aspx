@@ -7,7 +7,7 @@
                 <div class="col-xs-5 col-sm-5 col-md-2 product-wrapper">
                     <asp:HyperLink ID="HyperLink" NavigateUrl='<%#: $"~/furniture/{this.Model.Room}/{Eval("Name").ToString().ToLower().Replace(@"\s+", "")}" %>' runat="server">
                         <div class="image-wrapper">
-                            <asp:Image class="img-responsive" ImageUrl='<%#: "~/images/categories/" + Eval("ImagePath")%>' runat="server"/>
+                            <asp:Image class="img-responsive" ImageUrl='<%#:$"~/images/categories/{Eval("ImagePath")}"%>' runat="server"/>
                         </div>
                     </asp:HyperLink>
                      <div>

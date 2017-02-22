@@ -1,12 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FFY.Web.Administration.ContactManagement._Default" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="search-form">
-      <div class="col-md-6 form-group">
+        <div class="col-md-6 form-group">
             <div class="col-xs-12 col-sm-6">
                 <asp:TextBox ID="SearchBox" CssClass="form-control" runat="server"></asp:TextBox>               
             </div>
             <div class="col-xs-12 col-sm-6">
-            <asp:Button ID="SearchButton" Text="Search" runat="server"  CssClass="btn btn-primary btn-block" OnClick="SearchButtonClick"/>
+                <asp:Button ID="SearchButton" Text="Search" runat="server"  CssClass="btn btn-primary btn-block" OnClick="SearchButtonClick"/>
             </div>
         </div>
         <div class="col-md-6 form-group">

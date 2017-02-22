@@ -12,8 +12,9 @@ namespace FFY.Web.Account
     [PresenterBinding(typeof(LoginPresenter))]
     public partial class Login : MvpPage<LoginViewModel>, ILoginView
     {
-        public event EventHandler<LoginEventArgs> Logging;
         private string userId;
+
+        public event EventHandler<LoginEventArgs> Logging;
 
         protected void Page_Load(object sender, EventArgs e)
         {

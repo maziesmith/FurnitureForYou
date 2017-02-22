@@ -27,13 +27,13 @@
             ItemType="FFY.Models.Product">
             <ItemTemplate>
                 <div class="col-xs-5 col-sm-5 col-md-2 product-wrapper">
-                    <asp:HyperLink ID="HyperLink1" NavigateUrl='<%#: "~/furniture/product/" + Eval("Id") %>' runat="server">
+                    <asp:HyperLink ID="HyperLink1" NavigateUrl='<%#: $"~/furniture/product/{Eval("Id")}"%>' runat="server">
                         <div class="image-wrapper">
-                            <asp:Image class="img-responsive" ImageUrl='<%#: "~/Images/products/" + Eval("ImagePath")%>' runat="server"/>
+                            <asp:Image class="img-responsive" ImageUrl='<%#: $"~/Images/products/{Eval("ImagePath")}"%>' runat="server"/>
                         </div>
                     </asp:HyperLink>
                      <div>
-                        <asp:HyperLink ID="RoomHyperLink" NavigateUrl='<%#: "~/furniture/product/" + Eval("Id") %>' runat="server">
+                        <asp:HyperLink ID="RoomHyperLink" NavigateUrl='<%#: $"~/furniture/product/{Eval("Id")}"%>' runat="server">
                         <h3>
                             <%#: Item.Name %>
                         </h3> 

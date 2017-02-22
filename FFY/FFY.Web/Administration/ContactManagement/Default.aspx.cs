@@ -1,12 +1,11 @@
-﻿using FFY.MVP.Administration.ContactManagement.Contacts;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
+using FFY.MVP.Administration.ContactManagement.Contacts;
+
 
 namespace FFY.Web.Administration.ContactManagement
 {

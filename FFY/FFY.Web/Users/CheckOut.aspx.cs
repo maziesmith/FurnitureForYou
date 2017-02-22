@@ -2,11 +2,7 @@
 using FFY.MVP.Users.CheckOut;
 using Microsoft.AspNet.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 
@@ -55,6 +51,8 @@ namespace FFY.Web.Users
             this.CartClearing?.Invoke(this, new CartClearEventArgs(cartId));
 
             this.Cache.Insert($"cart-count-{cartId}", 0);
+
+            this.Response.Redirect("~/users/finalOrder");
         }
     }
 }

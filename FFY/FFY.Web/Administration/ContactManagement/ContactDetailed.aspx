@@ -31,9 +31,8 @@
     <br />
     <%#: this.Model.Contact.EmailContent %>
     <hr />
-
     <div class="status-form">
-      <div class="col-md-6 form-group">
+        <div class="col-md-6 form-group">
             <div class="col-xs-12 col-sm-6">
                 <asp:DropDownList runat="server" ID="StatusType" CssClass="form-control">
                     <asp:ListItem Value="1" Text="Not Processed"></asp:ListItem>
@@ -42,7 +41,7 @@
                 </asp:DropDownList>
             </div>
             <div class="col-xs-12 col-sm-6">
-            <asp:Button runat="server" Text="Update" CssClass="btn btn-primary btn-block"  OnClick="EditContactStatus"/>
+                <asp:Button runat="server" Text="Update" CssClass="btn btn-primary btn-block"  OnClick="EditContactStatus"/>
             </div>
         </div>
         <div class="col-md-6 form-group">

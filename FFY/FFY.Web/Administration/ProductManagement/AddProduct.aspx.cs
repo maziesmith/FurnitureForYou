@@ -1,13 +1,8 @@
-﻿using FFY.Models;
-using FFY.MVP.Administration.ProductManagement.AddProduct;
+﻿using FFY.MVP.Administration.ProductManagement.AddProduct;
 using FFY.MVP.Administration.ProductManagement.Utilities;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using WebFormsMvp;
 using WebFormsMvp.Web;
 

@@ -2,13 +2,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="col-xs-offset-0 col-xs-12 col-sm-offset-1 col-sm-11">
         <div class="col-md-4">
-            <asp:Image class="img-responsive" ImageUrl='<%#: "~/Content/products/" + this.Model.Product.ImagePath + ".jpg" %>' runat="server"/>
+            <asp:Image class="img-responsive" ImageUrl='<%#: "~/Images/products/" + this.Model.Product.ImagePath %>' runat="server"/>
         </div>
         <div class="col-md-8">
-            <h1> <%#: this.Model.Product.Name %> </h1>
-            <h4> <%#: this.Model.Product.Category.Name %> </h4>
-            <h2> <%#: this.Model.Product.DiscountedPrice %> </h2>
-            <h3>: <%#: this.Model.Product.Description %> </h3>
+            <h1><%#: this.Model.Product.Name %> </h1>
+            <h4><%#: this.Model.Product.Category.Name %> </h4>
+            <h2><%#: this.Model.Product.DiscountedPrice %> </h2>
+            <h3><%#: this.Model.Product.Description %> </h3>
             <br />
             <div class="form-group">
                 <div class="col-sm-3">
