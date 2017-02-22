@@ -1,11 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrderDetailed.aspx.cs" Inherits="FFY.Web.Administration.OrderManagement.OrderDetailed" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <%#: this.Model.Order.Id %>
+    <div class="col-sm-12">
+        <div class="col-sm-4">
+         <h4>Order ID: <%#: this.Model.Order.Id %></h4>
+        </div>
+        <div class="col-sm-4">
+         <h4><%#: this.Model.Order.User.Email %></h4>
+        </div>
+        <div class="col-sm-4">
+         <h4><%#: this.Model.Order.SendOn %></h4>  
+        </div>
+    </div>
+    <br />
     <hr />
-    <%#: this.Model.Order.User.Email %>
-    <hr />
-    <%#: this.Model.Order.SendOn %>
-    <hr />
+    <br />
     <% if(User.IsInRole("Administrator") || User.IsInRole("Moderator")) { %>
         <div class="form-group order-detailed">
             <div class="col-md-3">
@@ -34,12 +42,12 @@
         DataKeyNames="ProductId">
         <Columns>
             <asp:BoundField DataField="Product.Name" HeaderText="Product" />
-            <asp:BoundField DataField="Quantity" HeaderText="Category" />
-            <asp:BoundField DataField="Product.DiscountedPrice" HeaderText="Category"/>
-            <asp:BoundField DataField="Total" HeaderText="Category"/>
+            <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
+            <asp:BoundField DataField="Product.DiscountedPrice" HeaderText="Price"/>
+            <asp:BoundField DataField="Total" HeaderText="Total"/>
         </Columns>
     </asp:GridView>
-        <div class="col-md-5 col-md-offset-5 total">
+        <div class="col-md-5 col-md-offset-7 total">
         <h3>
             <asp:Label runat="server" ID="Total"></asp:Label>
         </h3>
