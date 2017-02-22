@@ -11,7 +11,7 @@ namespace FFY.Data.Contracts
 {
     public interface IFFYContext
     {
-        IDbSet<Address> Adresses { get; set; }
+        IDbSet<Address> Addresses { get; set; }
 
         IDbSet<Category> Categories { get; set; }
 

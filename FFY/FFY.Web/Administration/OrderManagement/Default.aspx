@@ -43,7 +43,7 @@
                     <asp:BoundField DataField="Id" HeaderText="Id"/>
                     <asp:BoundField DataField="User.FirstName" HeaderText="First Name"/>
                     <asp:BoundField DataField="User.LastName" HeaderText="Last Name"/>
-                    <asp:BoundField DataField="Adress.Street" HeaderText="Address" />
+                    <asp:BoundField DataField="Address.Street" HeaderText="Address" />
                     <asp:BoundField DataField="SendOn" HeaderText="Send on" />
                     <asp:BoundField DataField="OrderStatusType" HeaderText="Status" />
                     <asp:HyperLinkField Text="Details" 
